@@ -38,7 +38,7 @@ public class HelloWorldServlets extends HttpServlet {
             out.println("<title>Servlet HelloWorldServlets</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HelloWorldServlets at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet test at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
