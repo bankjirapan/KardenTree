@@ -7,7 +7,7 @@
 
     <servlet-mapping>
         <servlet-name>adminLogin</servlet-name>
-        <url-pattern>/admin/login</url-pattern>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
