@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>HelloWorldServlets</servlet-name>
-        <servlet-class>kradentree.controller.HelloWorldServlets</servlet-class>
+        <servlet-name>adminLogin</servlet-name>
+        <servlet-class>kardentreeAdmin.controller.adminLogin</servlet-class>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>HelloWorldServlets</servlet-name>
-        <url-pattern>/HelloWorldServlets</url-pattern>
+        <servlet-name>adminLogin</servlet-name>
+        <url-pattern>/admin/login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
