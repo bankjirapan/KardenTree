@@ -18,7 +18,6 @@ import kardentreeAdmin.jpa.controller.exceptions.NonexistentEntityException;
 import kardentreeAdmin.jpa.controller.exceptions.PreexistingEntityException;
 import kardentreeAdmin.jpa.controller.exceptions.RollbackFailureException;
 import kardentreeAdmin.jpa.models.AdminLogin;
-import kardentreeAdmin.jpa.models.AdminLoginPK;
 
 /**
  *
@@ -38,9 +37,6 @@ public class AdminLoginJpaController implements Serializable {
     }
 
     public void create(AdminLogin adminLogin) throws PreexistingEntityException, RollbackFailureException, Exception {
-        if (adminLogin.getAdminLoginPK() == null) {
-            adminLogin.setAdminLoginPK(new AdminLoginPK());
-        }
         EntityManager em = null;
         try {
             utx.begin();
@@ -53,7 +49,7 @@ public class AdminLoginJpaController implements Serializable {
             } catch (Exception re) {
                 throw new RollbackFailureException("An error occurred attempting to roll back the transaction.", re);
             }
-            if (findAdminLogin(adminLogin.getAdminLoginPK()) != null) {
+            if (findAdminLogin(adminLogin.getId()) != null) {
                 throw new PreexistingEntityException("AdminLogin " + adminLogin + " already exists.", ex);
             }
             throw ex;
@@ -79,7 +75,7 @@ public class AdminLoginJpaController implements Serializable {
             }
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                AdminLoginPK id = adminLogin.getAdminLoginPK();
+                Integer id = adminLogin.getId();
                 if (findAdminLogin(id) == null) {
                     throw new NonexistentEntityException("The adminLogin with id " + id + " no longer exists.");
                 }
@@ -92,7 +88,7 @@ public class AdminLoginJpaController implements Serializable {
         }
     }
 
-    public void destroy(AdminLoginPK id) throws NonexistentEntityException, RollbackFailureException, Exception {
+    public void destroy(Integer id) throws NonexistentEntityException, RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
@@ -100,7 +96,7 @@ public class AdminLoginJpaController implements Serializable {
             AdminLogin adminLogin;
             try {
                 adminLogin = em.getReference(AdminLogin.class, id);
-                adminLogin.getAdminLoginPK();
+                adminLogin.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The adminLogin with id " + id + " no longer exists.", enfe);
             }
@@ -144,7 +140,7 @@ public class AdminLoginJpaController implements Serializable {
         }
     }
 
-    public AdminLogin findAdminLogin(AdminLoginPK id) {
+    public AdminLogin findAdminLogin(Integer id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(AdminLogin.class, id);
