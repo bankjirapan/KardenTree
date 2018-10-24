@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <div class="form-label-group">
                             <input type="text" id="inputEmail" name="InUserName" class="form-control" placeholder="UserName" required="required" autofocus="autofocus">
-                            <label for="inputEmail">UserName</label>
+                            <label for="inputEmail">UserNameEIEI</label>
                         </div>
                     </div>
                     <div class="form-group">
