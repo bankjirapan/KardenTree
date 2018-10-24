@@ -4,9 +4,17 @@
         <servlet-name>adminLoginServlet</servlet-name>
         <servlet-class>kardentreeAdmin.controller.adminLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>kardentreeAdmin.controller.DashboardServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/admin/Dashboard</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
