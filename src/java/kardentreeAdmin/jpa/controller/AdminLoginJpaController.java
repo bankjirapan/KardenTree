@@ -156,7 +156,8 @@ public class AdminLoginJpaController implements Serializable {
             Query query = em.createNamedQuery("AdminLogin.findByUsername");
             query.setParameter("username", username);
             return (AdminLogin) query.getSingleResult();
-
+        } catch (NoResultException NoResult) {
+            return null;
         } finally {
             em.close();
         }
