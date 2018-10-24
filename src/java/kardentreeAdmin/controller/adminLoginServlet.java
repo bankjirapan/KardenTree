@@ -49,7 +49,23 @@ public class adminLoginServlet extends HttpServlet {
         if (Username != null && Password != null) {
 
             AdminLoginJpaController adminLoginCtrl = new AdminLoginJpaController(utx, emf);
-            AdminLogin adminLoginModel = adminLoginCtrl.findAdminUsername(Username);
+            AdminLogin findByUserName = adminLoginCtrl.findAdminUsername(Username);
+            
+            if(findByUserName != null){
+                
+                
+                    if(findByUserName.getPassword() == Password){
+                        
+                        //สร้าง session และ redirect
+                        
+                    }
+                
+                
+                
+            } 
+              request.setAttribute("msg", "Username or Password invalid");
+             getServletContext().getRequestDispatcher("/adminView/adminLoginView.jsp").forward(request, response);
+            //กรณีไม่พบผู้ใช้นี้
             
             
 
