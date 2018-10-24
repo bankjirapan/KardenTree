@@ -55,19 +55,23 @@ public class adminLoginServlet extends HttpServlet {
 
             if (findByUserName != null) {
 
-                if (findByUserName.getPassword() == Password) {
+                if (findByUserName.getPassword().equalsIgnoreCase(cryptWithMD5(Password))) {
 
-                    //สร้าง session และ redirect
+                    System.out.println("OK");
+
                 }
+
+         
 
             }
             request.setAttribute("msg", "Username or Password invalid");
             getServletContext().getRequestDispatcher("/adminView/adminLoginView.jsp").forward(request, response);
-            //กรณีไม่พบผู้ใช้นี้
+            return;
 
         }
 
         getServletContext().getRequestDispatcher("/adminView/adminLoginView.jsp").forward(request, response);
+
     }
 
     public static String cryptWithMD5(String pass) {
@@ -86,9 +90,6 @@ public class adminLoginServlet extends HttpServlet {
         }
         return null;
     }
-
- 
-
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
