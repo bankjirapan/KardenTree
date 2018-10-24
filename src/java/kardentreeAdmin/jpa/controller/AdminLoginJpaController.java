@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
@@ -148,11 +149,14 @@ public class AdminLoginJpaController implements Serializable {
             em.close();
         }
     }
-    
-    public AdminLogin findAdminUsername(String username){
+
+    public AdminLogin findAdminUsername(String username) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(AdminLogin.class,username);
+            Query query = em.createNamedQuery("AdminLogin.findByUsername");
+            query.setParameter("username", username);
+            return (AdminLogin) query.getSingleResult();
+
         } finally {
             em.close();
         }
@@ -170,5 +174,5 @@ public class AdminLoginJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }
