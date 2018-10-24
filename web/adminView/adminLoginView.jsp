@@ -18,7 +18,7 @@
                 <form action="admin" method="post">
                     <div class="form-group">
                         <div class="form-label-group">
-                            <input type="text" id="inputEmail" name="InUserName" class="form-control" placeholder="UserName" required="required" autofocus="autofocus">
+                            <input type="text" id="inputEmail" name="InUsername" class="form-control" placeholder="UserName" required="required" autofocus="autofocus">
                             <label for="inputEmail">UserName</label>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             </label>
                         </div>
                     </div>
-                    <input type="submit" value="Login">
+                    <input class="btn btn-primary btn-block" type="submit" value="Login">
                 </form>
                 <div class="text-center">
                     <a class="d-block small mt-3" href="register.html">Register an Account</a>
