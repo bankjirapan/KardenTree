@@ -148,6 +148,15 @@ public class AdminLoginJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public AdminLogin findAdminUsername(String username){
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(AdminLogin.class,username);
+        } finally {
+            em.close();
+        }
+    }
 
     public int getAdminLoginCount() {
         EntityManager em = getEntityManager();
