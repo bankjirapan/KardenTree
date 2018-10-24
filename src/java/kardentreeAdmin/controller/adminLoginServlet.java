@@ -6,31 +6,17 @@
 package kardentreeAdmin.controller;
 
 import java.io.IOException;
-import javax.annotation.Resource;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.UserTransaction;
-import kardentreeAdmin.jpa.controller.AdminLoginJpaController;
-import kardentreeAdmin.jpa.models.AdminLogin;
 
 /**
  *
  * @author bankcom
  */
 public class adminLoginServlet extends HttpServlet {
-    
-    
-    @PersistenceUnit(unitName = "KardenTreePU")
-    EntityManagerFactory emf;
-    
-    
-    @Resource
-    UserTransaction utx;
-    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,23 +29,19 @@ public class adminLoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
-         AdminLoginJpaController adminLoginJpaCtrl  = new AdminLoginJpaController(utx, emf);
-         
-         AdminLogin adminModel = adminLoginJpaCtrl.findAdminUsername("bankcom");
-         
-         System.out.println(adminModel.getName());
-         
-         
-         
-        
-        
-       
-        
-        getServletContext().getRequestDispatcher("/adminView/adminLoginView.jsp").forward(request, response);
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet adminLoginServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet adminLoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
