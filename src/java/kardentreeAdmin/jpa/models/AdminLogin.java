@@ -6,12 +6,14 @@
 package kardentreeAdmin.jpa.models;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,8 +26,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "AdminLogin.findAll", query = "SELECT a FROM AdminLogin a")
-    , @NamedQuery(name = "AdminLogin.findById", query = "SELECT a FROM AdminLogin a WHERE a.adminLoginPK.id = :id")
-    , @NamedQuery(name = "AdminLogin.findByUsername", query = "SELECT a FROM AdminLogin a WHERE a.adminLoginPK.username = :username")
+    , @NamedQuery(name = "AdminLogin.findById", query = "SELECT a FROM AdminLogin a WHERE a.id = :id")
+    , @NamedQuery(name = "AdminLogin.findByUsername", query = "SELECT a FROM AdminLogin a WHERE a.username = :username")
     , @NamedQuery(name = "AdminLogin.findByPassword", query = "SELECT a FROM AdminLogin a WHERE a.password = :password")
     , @NamedQuery(name = "AdminLogin.findByName", query = "SELECT a FROM AdminLogin a WHERE a.name = :name")
     , @NamedQuery(name = "AdminLogin.findByAddress", query = "SELECT a FROM AdminLogin a WHERE a.address = :address")
@@ -33,15 +35,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class AdminLogin implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected AdminLoginPK adminLoginPK;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "ID")
+    private Integer id;
+    @Size(max = 100)
+    @Column(name = "USERNAME")
+    private String username;
     @Size(max = 100)
     @Column(name = "PASSWORD")
     private String password;
-    @Size(max = 100)
+    @Size(max = 200)
     @Column(name = "NAME")
     private String name;
-    @Size(max = 100)
+    @Size(max = 200)
     @Column(name = "ADDRESS")
     private String address;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
@@ -52,20 +60,24 @@ public class AdminLogin implements Serializable {
     public AdminLogin() {
     }
 
-    public AdminLogin(AdminLoginPK adminLoginPK) {
-        this.adminLoginPK = adminLoginPK;
+    public AdminLogin(Integer id) {
+        this.id = id;
     }
 
-    public AdminLogin(Boolean id, String username) {
-        this.adminLoginPK = new AdminLoginPK(id, username);
+    public Integer getId() {
+        return id;
     }
 
-    public AdminLoginPK getAdminLoginPK() {
-        return adminLoginPK;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setAdminLoginPK(AdminLoginPK adminLoginPK) {
-        this.adminLoginPK = adminLoginPK;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -103,7 +115,7 @@ public class AdminLogin implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (adminLoginPK != null ? adminLoginPK.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -114,7 +126,7 @@ public class AdminLogin implements Serializable {
             return false;
         }
         AdminLogin other = (AdminLogin) object;
-        if ((this.adminLoginPK == null && other.adminLoginPK != null) || (this.adminLoginPK != null && !this.adminLoginPK.equals(other.adminLoginPK))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -122,7 +134,7 @@ public class AdminLogin implements Serializable {
 
     @Override
     public String toString() {
-        return "kardentreeAdmin.jpa.models.AdminLogin[ adminLoginPK=" + adminLoginPK + " ]";
+        return "kardentreeAdmin.jpa.models.AdminLogin[ id=" + id + " ]";
     }
     
 }
