@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
 import kardentreeAdmin.jpa.controller.AdminLoginJpaController;
 import kardentreeAdmin.jpa.models.AdminLogin;
@@ -44,6 +45,15 @@ public class adminLoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //ตรวจสอบว่ามีการ login ไปยัง
+         HttpSession session = ((HttpServletRequest) request).getSession(true);
+         
+         if(session.getAttribute("adminLoggedIn") != null){
+            response.sendRedirect("admin/Dashboard");
+            return;
+        } 
+         
 
         String Username = request.getParameter("InUsername");
         String Password = request.getParameter("InPassword");
