@@ -23,6 +23,16 @@
 
         <!-- Custom styles for this template-->
         <link href="assets/admin/css/sb-admin.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+
+        <style>
+
+            body{
+                font-family: 'Mitr', sans-serif;
+            }
+
+        </style>
     </head>
 
 
