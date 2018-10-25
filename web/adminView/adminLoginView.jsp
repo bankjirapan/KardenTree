@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- นำเข้าไฟล์ Header -->
-<jsp:include page="adminHeader.jsp"></jsp:include>
+<jsp:include page="adminHeader.jsp?titleName=KardenTree ControlPanel"></jsp:include>
 
 
     <body class="bg-dark">
