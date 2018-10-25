@@ -57,11 +57,13 @@ public class adminLoginServlet extends HttpServlet {
 
                 if (findByUserName.getPassword().equalsIgnoreCase(cryptWithMD5(Password))) {
 
-                    System.out.println("OK");
+                    request.getSession(false).setAttribute("adminLoggedIn", findByUserName);
+
+                    response.sendRedirect("admin/Dashboard");
+
+                    return;
 
                 }
-
-         
 
             }
             request.setAttribute("msg", "Username or Password invalid");
