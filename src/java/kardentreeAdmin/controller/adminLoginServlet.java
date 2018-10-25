@@ -76,7 +76,7 @@ public class adminLoginServlet extends HttpServlet {
                 }
 
             }
-            request.setAttribute("msg", "Username or Password invalid");
+            request.setAttribute("msg", "Invalid");
             getServletContext().getRequestDispatcher("/adminView/adminLoginView.jsp").forward(request, response);
             return;
 
