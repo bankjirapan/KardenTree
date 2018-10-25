@@ -16,15 +16,17 @@
 
 
         <!-- Bootstrap core CSS-->
-        <link href="assets/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom fonts for this template-->
-        <link href="assets/admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="../assets/admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template-->
-        <link href="assets/admin/css/sb-admin.css" rel="stylesheet">
+        <link href="../assets/admin/css/sb-admin.css" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+        
+            <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
         <style>
 
