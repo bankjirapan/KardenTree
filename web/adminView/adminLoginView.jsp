@@ -5,10 +5,35 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!-- นำเข้าไฟล์ Header -->
-<jsp:include page="adminHeader.jsp?titleName=KardenTree ControlPanel"></jsp:include>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Moz Bank Ryan P,Yo">
+        <title>Kardentree Login</title>
 
 
+        <!-- Bootstrap core CSS-->
+        <link href="assets/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template-->
+        <link href="assets/admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template-->
+        <link href="assets/admin/css/sb-admin.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+
+        <style>
+
+            body{
+                font-family: 'Mitr', sans-serif;
+            }
+
+        </style>
+    </head>
     <body class="bg-dark">
 
         <div class="container">
