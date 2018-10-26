@@ -10,7 +10,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand mr-1" href="Dashboard">KardenTree</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -59,10 +59,10 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Activity Log</a>
+            <a class="dropdown-item" href="#">การตั้งค่า</a>
+            <a class="dropdown-item" href="#">ประวัติการเข้าสู่ระบบ</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="admin/logout" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="admin/logout" data-toggle="modal" data-target="#logoutModal">ออกจากระบบ</a>
           </div>
         </li>
       </ul>
