@@ -163,6 +163,19 @@ public class AccountJpaController implements Serializable {
         }
     }
     
+    public Account findAccountEmail(String email){
+        EntityManager em = getEntityManager();
+        try{
+            Query query = em.createNamedQuery("Account.findByEmail");
+            query.setParameter("email", email);
+            return (Account) query.getSingleResult();
+        }catch(NoResultException NoResult){
+            return null;
+        }finally {
+            em.close();
+        }
+    }
+    
     
 
     public int getAccountCount() {
