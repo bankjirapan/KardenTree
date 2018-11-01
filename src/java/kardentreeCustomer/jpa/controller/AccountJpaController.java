@@ -153,7 +153,7 @@ public class AccountJpaController implements Serializable {
     public Account findAccountUsername(String username){
         EntityManager em = getEntityManager();
         try{
-            Query query = em.createNamedQuery("CustomerName.findByUsername");
+            Query query = em.createNamedQuery("Account.findByUsername");
             query.setParameter("username", username);
             return (Account) query.getSingleResult();
         }catch (NoResultException NoResult){
