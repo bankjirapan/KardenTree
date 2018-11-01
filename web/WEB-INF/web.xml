@@ -40,7 +40,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CustomerLoginServlet</servlet-name>
-        <url-pattern>/CustomerLogin</url-pattern>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
