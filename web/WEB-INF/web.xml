@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>Home.jsp</welcome-file>
+    </welcome-file-list>
     <filter>
         <filter-name>AuthenticationFilter</filter-name>
         <filter-class>kardentreeAdmin.Filter.AuthenticationFilter</filter-class>
@@ -22,7 +25,7 @@
         <servlet-name>AdminLogoutServlet</servlet-name>
         <servlet-class>kardentreeAdmin.controller.AdminLogoutServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>adminCustomerServlet</servlet-name>
         <servlet-class>kardentreeAdmin.controller.adminCustomerServlet</servlet-class>
     </servlet>
@@ -38,11 +41,15 @@
         <servlet-name>AddProductAdminServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.AddProductAdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomePageServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.HomePageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
-      <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>adminCustomerServlet</servlet-name>
         <url-pattern>/admin/Customer</url-pattern>
     </servlet-mapping>
@@ -65,6 +72,10 @@
     <servlet-mapping>
         <servlet-name>AddProductAdminServlet</servlet-name>
         <url-pattern>/admin/AddProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomePageServlet</servlet-name>
+        <url-pattern>/Home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
