@@ -30,6 +30,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddProductAdminServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.AddProductAdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
@@ -49,6 +53,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductAdminServlet</servlet-name>
+        <url-pattern>/admin/AddProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
