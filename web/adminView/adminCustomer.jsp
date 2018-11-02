@@ -34,7 +34,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                         <h6 class="dropdown-header">Login Screens:</h6>
-                        <a class="dropdown-item" href="">เพิ่มสินค้าใหม่</a>
+                        <a class="dropdown-item" href="AddProduct">เพิ่มสินค้าใหม่</a>
                         <a class="dropdown-item" href="">จัดการประเภทสินค้า</a>
                         <a class="dropdown-item" href="">สินค้าโปรโมชั่น</a>
                         <div class="dropdown-divider"></div>
