@@ -23,8 +23,12 @@
         <servlet-class>kardentreeAdmin.controller.AdminLogoutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>adminCustomerServlet</servlet-name>
-        <servlet-class>kardentreeAdmin.controller.adminCustomerServlet</servlet-class>
+        <servlet-name>CustomerLoginServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.CustomerLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
@@ -39,8 +43,12 @@
         <url-pattern>/admin/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>adminCustomerServlet</servlet-name>
-        <url-pattern>/admin/Customer</url-pattern>
+        <servlet-name>CustomerLoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/Register</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
