@@ -36,7 +36,7 @@
                         <a class="dropdown-item" href="">สินค้าโปรโมชั่น</a>
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">Other Pages:</h6>
-                        <a class="dropdown-item" href="">404 Page</a>
+                        <a class="dropdown-item" href="ProductList">ดูสินค้าทั้งหมด</a>
                         <a class="dropdown-item active" href="">Blank Page</a>
                     </div>
                 </li>
