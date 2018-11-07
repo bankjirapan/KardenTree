@@ -45,6 +45,10 @@
         <servlet-name>HomePageServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.HomePageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductListServlet</servlet-name>
+        <servlet-class>kardentreeAdmin.controller.ProductListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
@@ -76,6 +80,10 @@
     <servlet-mapping>
         <servlet-name>HomePageServlet</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductListServlet</servlet-name>
+        <url-pattern>/admin/ProductList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
