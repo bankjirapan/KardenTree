@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -65,6 +66,10 @@ public class RegisterServlet extends HttpServlet {
                     account2.setPassword(cryptWithMD5(password));
                     account2.setUsername(username);
                     account2.setTelno(tel);
+                    account2.setCreateDate(new Date().toString());
+                    account2.setUpdateDate(new Date().toString());
+                    account2.setActivated(false);
+                    account2.setActivate("aaa"); // ต้อง Random
                     try {
                         accountJpa.create(account2);
                     } catch (Exception ex) {
