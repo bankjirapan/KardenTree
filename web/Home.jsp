@@ -672,7 +672,7 @@ style="z-index: 5;">
     
     <!-- Style switcher - demo only - @todo: remove in production -->
     <div class="colour-switcher">
-      <a href="#" class="colour-switcher-toggle" data-toggle="class" data-target=".colour-switcher"> <i class="fa fa-paint-brush"></i> </a>
+<!--      <a href="#" class="colour-switcher-toggle" data-toggle="class" data-target=".colour-switcher"> <i class="fa fa-paint-brush"></i> </a>-->
       <h5 class="text-uppercase my-0">
         Theme Colours
       </h5>

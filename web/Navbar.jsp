@@ -139,7 +139,7 @@
                <c:if test="${sessionScope.account == null}">
                     <div class="dropdown-menu dropdown-menu-right">
                       <a href="Login" class="dropdown-item">ลงชื่อเข้าใช้</a>
-                      <a href="#" class="dropdown-item">สมัครสมาชิก</a> 
+                      <a href="Register" class="dropdown-item">สมัครสมาชิก</a> 
                       
                   </div>
                 </c:if>
