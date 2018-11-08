@@ -73,6 +73,8 @@ public class CustomerLoginServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
 
         }
+        
+        getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
     }
 
     public static String cryptWithMD5(String pass) {
