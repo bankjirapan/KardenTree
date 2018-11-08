@@ -26,9 +26,10 @@ import kardentreeCustomer.jpa.models.Account;
  * @author ryan.
  */
 public class CustomerLoginServlet extends HttpServlet {
-    @PersistenceUnit (unitName = "KardenTreePU")
+
+    @PersistenceUnit(unitName = "KardenTreePU")
     EntityManagerFactory emf;
-    
+
     @Resource
     UserTransaction utx;
 
@@ -44,27 +45,37 @@ public class CustomerLoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        
-       String username = request.getParameter("username");
-       String password = request.getParameter("password");
-       
-       if(username !=null && password != null){
-           AccountJpaController accountJpa = new AccountJpaController(utx, emf);
-           Account account = accountJpa.findAccountUsername(username);
-           
-           if(account != null){
-               String passwordDB = account.getPassword();
-               if(passwordDB.equalsIgnoreCase(cryptWithMD5(password))){
-                   session.setAttribute("account", account);
-                   response.sendRedirect("index.html"); // แก้ทีหลังด้วย
-                   return;
-               }
-           }
-       }
-     getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
-       
+
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        if (username != null && password != null) {
+            AccountJpaController accountJpa = new AccountJpaController(utx, emf);
+            Account account = accountJpa.findAccountUsername(username);
+            Account accountEmail = accountJpa.findAccountEmail(username);
+
+            if (account != null) {
+                String passwordDB = account.getPassword();
+                if (passwordDB.equalsIgnoreCase(cryptWithMD5(password))) {
+                    session.setAttribute("account", account);
+                    response.sendRedirect("index.html"); // แก้ทีหลังด้วย
+                    return;
+                }
+
+            } else if (accountEmail != null) {
+                String passwordDB = accountEmail.getPassword();
+                if (passwordDB.equalsIgnoreCase(cryptWithMD5(password))) {
+                    session.setAttribute("account", accountEmail);
+                    response.sendRedirect("index.html"); // แก้ทีหลังด้วย
+                    return;
+                }
+            }
+            getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
+
+        }
     }
-     public static String cryptWithMD5(String pass) {
+
+    public static String cryptWithMD5(String pass) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] passBytes = pass.getBytes();
