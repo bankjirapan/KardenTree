@@ -22,7 +22,7 @@ import kardentreeCustomer.jpa.models.Account;
 
 /**
  *
- * @author ryan.
+ * @author bankcom
  */
 public class AccountJpaController implements Serializable {
 
@@ -150,7 +150,7 @@ public class AccountJpaController implements Serializable {
         }
     }
     
-    public Account findAccountUsername(String username){
+        public Account findAccountUsername(String username){
         EntityManager em = getEntityManager();
         try{
             Query query = em.createNamedQuery("Account.findByUsername");
@@ -175,8 +175,7 @@ public class AccountJpaController implements Serializable {
             em.close();
         }
     }
-    
-    
+
 
     public int getAccountCount() {
         EntityManager em = getEntityManager();
