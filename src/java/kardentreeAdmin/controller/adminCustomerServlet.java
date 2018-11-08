@@ -25,11 +25,12 @@ import kardentreeCustomer.jpa.models.Account;
  */
 public class adminCustomerServlet extends HttpServlet {
 
-      @PersistenceUnit(unitName = "KardenTreePU")
-      EntityManagerFactory emf;
-      
-      @Resource
-      UserTransaction utx;
+    @PersistenceUnit(unitName = "KardenTreePU")
+    EntityManagerFactory emf;
+
+    @Resource
+    UserTransaction utx;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,18 +42,29 @@ public class adminCustomerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        
+
         AccountJpaController userAccountCtrl = new AccountJpaController(utx, emf);
-        
+
         List<Account> userAccount = userAccountCtrl.findAccountEntities();
-        
-        
-        request.setAttribute("ListCustomer",userAccount);
-        
+
+        request.setAttribute("ListCustomer", userAccount);
+
+        //DeleteCustomer  
+        if (request.getParameter("deleteAccountID") != null) {
+
+            try {
+                
+                userAccountCtrl.destroy(request.getParameter("deleteAccountID"));
+
+            } catch (Exception exp) {
+                System.out.println(exp);
+            }
+
+        }
+        //End Delete
+
         getServletContext().getRequestDispatcher("/adminView/adminCustomer.jsp").forward(request, response);
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

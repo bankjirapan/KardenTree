@@ -16,7 +16,7 @@
     <script>
 
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#customerList').DataTable();
         });
 
     </script>
@@ -94,7 +94,7 @@
                             รายชื่อลูกค้าทั้งหมด</div>
                         <div class="card-body">
 
-                            <table id="example" class="table table-bordered dataTable" style="width:100%">
+                            <table id="customerList" class="table table-bordered dataTable" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>AccountID</th>
@@ -102,6 +102,7 @@
                                         <th>LastName</th>
                                         <th>EMail</th>
                                         <th>Telno</th>
+                                        <th>Create</th>
                                         <th>Manages</th>
                                     </tr>
                                 </thead>
@@ -112,17 +113,18 @@
                                         <td>${Customer.fname}</td>
                                         <td>${Customer.lname}</td>
                                         <td>${Customer.email}</td>
+                                        <td>${Customer.updateDate}</td>
                                         <td>${Customer.telno}</td>
                                         <td>
                                             <div class="rows">
-                                                
-                                                    <a class="btn btn-info btn-sm" href="#"><i class="	fa fa-eye"></i></a>
-                                            
-                                               
-                                                    <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
-                                              
-                                                    <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-trash"></i></a>
-                                                
+
+                                                <a class="btn btn-info btn-sm" href="#"><i class="	fa fa-eye"></i></a>
+
+
+                                                <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
+
+                                                <a class="btn btn-danger btn-sm" onclick="deleteCustomer(${Customer.accountid})" href="#"><i class="fa fa-trash"></i></a>
+
                                             </div>
                                         </td>
                                     </tr>
@@ -186,5 +188,50 @@
             </div>
 
             <jsp:include page="adminFooter.jsp"></jsp:include>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+            <script>
+
+                                                    function deleteCustomer(accountID) {
+                                                        swal({
+                                                            title: "Are you sure?",
+                                                            text: "คุณต้องการที่ลบรายการนี้",
+                                                            icon: "warning",
+                                                            buttons: true,
+                                                            dangerMode: true,
+                                                        })
+                                                                .then((willDelete) => {
+
+                                                                    if (willDelete) {
+
+
+
+                                                                        $.post("Customer",
+                                                                                {
+                                                                                    deleteAccountID: accountID,
+
+                                                                                },
+                                                                                function (status) {
+                                                                                 
+
+                                                                                
+                                                                                    swal("ลบข้อมูลแล้วแล้ว", {
+                                                                                        icon: "success",
+                                                                                    });
+                                                                                    
+                                                                                    window.location.href = "Customer";
+
+
+
+                                                                                });
+
+                                                                    } else {
+
+                                                                    }
+                                                                });
+                                                    }
+
+            </script>
             </body>
             </html>
