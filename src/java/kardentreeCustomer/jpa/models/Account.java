@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ryan.
+ * @author bankcom
  */
 @Entity
 @Table(name = "ACCOUNT")
@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Account.findByFname", query = "SELECT a FROM Account a WHERE a.fname = :fname")
     , @NamedQuery(name = "Account.findByLname", query = "SELECT a FROM Account a WHERE a.lname = :lname")
     , @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email")
-    , @NamedQuery(name = "Account.findByTelno", query = "SELECT a FROM Account a WHERE a.telno = :telno")})
+    , @NamedQuery(name = "Account.findByTelno", query = "SELECT a FROM Account a WHERE a.telno = :telno")
+    , @NamedQuery(name = "Account.findByActivate", query = "SELECT a FROM Account a WHERE a.activate = :activate")
+    , @NamedQuery(name = "Account.findByCreateDate", query = "SELECT a FROM Account a WHERE a.createDate = :createDate")
+    , @NamedQuery(name = "Account.findByUpdateDate", query = "SELECT a FROM Account a WHERE a.updateDate = :updateDate")
+    , @NamedQuery(name = "Account.findByActivated", query = "SELECT a FROM Account a WHERE a.activated = :activated")})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,6 +65,17 @@ public class Account implements Serializable {
     @Size(max = 10)
     @Column(name = "TELNO")
     private String telno;
+    @Size(max = 500)
+    @Column(name = "ACTIVATE")
+    private String activate;
+    @Size(max = 100)
+    @Column(name = "CREATE_DATE")
+    private String createDate;
+    @Size(max = 50)
+    @Column(name = "UPDATE_DATE")
+    private String updateDate;
+    @Column(name = "ACTIVATED")
+    private Boolean activated;
 
     public Account() {
     }
@@ -123,6 +138,38 @@ public class Account implements Serializable {
 
     public void setTelno(String telno) {
         this.telno = telno;
+    }
+
+    public String getActivate() {
+        return activate;
+    }
+
+    public void setActivate(String activate) {
+        this.activate = activate;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public Boolean getActivated() {
+        return activated;
+    }
+
+    public void setActivated(Boolean activated) {
+        this.activated = activated;
     }
 
     @Override
