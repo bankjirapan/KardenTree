@@ -6,7 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="Header.jsp?titleName=KardenTree"></jsp:include>
+<jsp:include page="Layout/Header.jsp?titleName=KardenTree"></jsp:include>
 
   <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
     
@@ -16,7 +16,7 @@
     
     <a id="#top" href="#content" class="sr-only">Skip to content</a> 
         
-       <jsp:include page="Navbar.jsp"></jsp:include>
+       <jsp:include page="Layout/Navbar.jsp"></jsp:include>
        
        
        
@@ -795,5 +795,5 @@ style="z-index: 5;">
       <!-- /.modal -->
     </div>
   </body>
-     <jsp:include page="Footer.jsp"></jsp:include>
+     <jsp:include page="Layout/Footer.jsp"></jsp:include>
 </html>

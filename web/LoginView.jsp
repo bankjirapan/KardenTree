@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="Header.jsp?titleName=Customer Login"></jsp:include>
+<jsp:include page="Layout/Header.jsp?titleName=Customer Login"></jsp:include>
     <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
 
         <!-- @plugin: page loading indicator, delete to remove loader -->
@@ -14,7 +14,7 @@
 
         <a id="#top" href="#content" class="sr-only">Skip to content</a> 
 
-    <jsp:include page="Navbar.jsp"></jsp:include>
+    <jsp:include page="Layout/Navbar.jsp"></jsp:include>
 
 
 
@@ -61,5 +61,5 @@
   
     
 
-<jsp:include page="Footer.jsp"></jsp:include>
+<jsp:include page="Layout/Footer.jsp"></jsp:include>
 </html>
