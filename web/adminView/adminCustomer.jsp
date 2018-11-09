@@ -5,6 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <jsp:include page="adminHeader.jsp?titleName=KardenTree Customer"></jsp:include>
@@ -16,7 +17,9 @@
     <script>
 
         $(document).ready(function () {
-            $('#customerList').DataTable();
+            $('#customerList').DataTable({
+                 responsive: true
+            });
         });
 
     </script>
@@ -86,14 +89,17 @@
                         </li>
                         <li class="breadcrumb-item active">รายชื่อลูกค้า</li>
                     </ol>
-
+                    <div class="rows">
+                        <button class="btn btn-success btn-lg">เพิ่มลูกค้าใหม่</button>
+                    </div>
+                    <br>
                     <!-- DataTables Example -->
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fas fa-table"></i>
                             รายชื่อลูกค้าทั้งหมด</div>
                         <div class="card-body">
-
+                            <div class="table-responsive">
                             <table id="customerList" class="table table-bordered dataTable" style="width:100%">
                                 <thead>
                                     <tr>
@@ -113,12 +119,13 @@
                                         <td>${Customer.fname}</td>
                                         <td>${Customer.lname}</td>
                                         <td>${Customer.email}</td>
-                                        <td>${Customer.updateDate}</td>
                                         <td>${Customer.telno}</td>
+                                        <td>${Customer.updateDate}</td>
+
                                         <td>
                                             <div class="rows">
 
-                                                <a class="btn btn-info btn-sm" href="#"><i class="	fa fa-eye"></i></a>
+                                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i></a>
 
 
                                                 <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
@@ -131,21 +138,13 @@
                                 </c:forEach>
 
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>AccountID</th>
-                                    <th>FirstName</th>
-                                    <th>LastName</th>
-                                    <th>EMail</th>
-                                    <th>Telno</th>
-                                    <th>Manages</th>
-                                </tr>
-                            </tfoot>
+                            
                         </table>
 
 
 
                     </div>
+                        </div>
 
 
 
@@ -213,13 +212,13 @@
 
                                                                                 },
                                                                                 function (status) {
-                                                                                 
 
-                                                                                
+
+
                                                                                     swal("ลบข้อมูลแล้วแล้ว", {
                                                                                         icon: "success",
                                                                                     });
-                                                                                    
+
                                                                                     window.location.href = "Customer";
 
 
