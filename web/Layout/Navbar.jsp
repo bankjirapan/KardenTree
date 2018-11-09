@@ -149,6 +149,7 @@
                       <a href="#" class="dropdown-item">My Wish List</a>
                       <a href="#" class="dropdown-item">Order History</a> 
                       <a href="#" class="dropdown-item">Track Orders</a> 
+                       <a href="#" class="dropdown-item">ออกจากระบบ</a> 
                   </div>
                 </c:if>
           
