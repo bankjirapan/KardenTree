@@ -18,7 +18,7 @@
 
         $(document).ready(function () {
             $('#customerList').DataTable({
-                 responsive: true
+                responsive: true
             });
         });
 
@@ -90,7 +90,7 @@
                         <li class="breadcrumb-item active">รายชื่อลูกค้า</li>
                     </ol>
                     <div class="rows">
-                        <button class="btn btn-success btn-lg">เพิ่มลูกค้าใหม่</button>
+                        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModalCenter">เพิ่มลูกค้าใหม่</button>
                     </div>
                     <br>
                     <!-- DataTables Example -->
@@ -100,51 +100,51 @@
                             รายชื่อลูกค้าทั้งหมด</div>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <table id="customerList" class="table table-bordered dataTable" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>AccountID</th>
-                                        <th>FirstName</th>
-                                        <th>LastName</th>
-                                        <th>EMail</th>
-                                        <th>Telno</th>
-                                        <th>Create</th>
-                                        <th>Manages</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach items="${ListCustomer}" var="Customer">
-                                    <tr>
-                                        <td>${Customer.accountid}</td>
-                                        <td>${Customer.fname}</td>
-                                        <td>${Customer.lname}</td>
-                                        <td>${Customer.email}</td>
-                                        <td>${Customer.telno}</td>
-                                        <td>${Customer.updateDate}</td>
+                                <table id="customerList" class="table table-bordered dataTable" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>AccountID</th>
+                                            <th>FirstName</th>
+                                            <th>LastName</th>
+                                            <th>EMail</th>
+                                            <th>Telno</th>
+                                            <th>Create</th>
+                                            <th>Manages</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${ListCustomer}" var="Customer">
+                                        <tr>
+                                            <td>${Customer.accountid}</td>
+                                            <td>${Customer.fname}</td>
+                                            <td>${Customer.lname}</td>
+                                            <td>${Customer.email}</td>
+                                            <td>${Customer.telno}</td>
+                                            <td>${Customer.updateDate}</td>
 
-                                        <td>
-                                            <div class="rows">
+                                            <td>
+                                                <div class="rows">
 
-                                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i></a>
-
-
-                                                <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
-
-                                                <a class="btn btn-danger btn-sm" onclick="deleteCustomer(${Customer.accountid})" href="#"><i class="fa fa-trash"></i></a>
-
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-
-                            </tbody>
-                            
-                        </table>
+                                                    <a class="btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i></a>
 
 
+                                                    <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
 
-                    </div>
+                                                    <a class="btn btn-danger btn-sm" onclick="deleteCustomer(${Customer.accountid})" href="#"><i class="fa fa-trash"></i></a>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
+                                </tbody>
+
+                            </table>
+
+
+
                         </div>
+                    </div>
 
 
 
@@ -189,47 +189,82 @@
             <jsp:include page="adminFooter.jsp"></jsp:include>
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form action="../Register" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มลูกค้าใหม่</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="sr-only" for="signup-first-name-page">First Name</label>
+                                    <input type="text" class="form-control" id="signup-first-name-page" placeholder="First name" name="fname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="signup-last-name-page">Last Name</label>
+                                    <input type="text" class="form-control" id="signup-last-name-page" placeholder="Last name" name="lname">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="signup-username-page">Userame</label>
+                                    <input type="text" class="form-control" id="signup-username-page" placeholder="Username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="signup-email-page">Email address</label>
+                                    <input type="email" class="form-control" id="signup-email-page" placeholder="Email address" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="signup-password-page">Password</label>
+                                    <input type="password" id="psw" class="form-control" id="signup-password-page" placeholder="Password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="cpsw" class="form-control" id="signup-password-page" placeholder="Confirm password" name="confirm">
+                                    <small id="errorPassword" class="form-text text-muted"></small>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <script>
 
-                                                    function deleteCustomer(accountID) {
-                                                        swal({
-                                                            title: "Are you sure?",
-                                                            text: "คุณต้องการที่ลบรายการนี้",
-                                                            icon: "warning",
-                                                            buttons: true,
-                                                            dangerMode: true,
-                                                        })
-                                                                .then((willDelete) => {
+                                                        function deleteCustomer(accountID) {
+                                                            swal({
+                                                                title: "Are you sure?",
+                                                                text: "คุณต้องการที่ลบรายการนี้",
+                                                                icon: "warning",
+                                                                buttons: true,
+                                                                dangerMode: true,
+                                                            })
+                                                                    .then((willDelete) => {
 
-                                                                    if (willDelete) {
+                                                                        if (willDelete) {
+                                                                            $.post("Customer",
+                                                                                    {
+                                                                                        deleteAccountID: accountID,
+                                                                                    },
+                                                                                    function (status) {
+                                                                                        swal("ลบข้อมูลแล้วแล้ว", {
+                                                                                            icon: "success",
+                                                                                        });
 
-
-
-                                                                        $.post("Customer",
-                                                                                {
-                                                                                    deleteAccountID: accountID,
-
-                                                                                },
-                                                                                function (status) {
-
-
-
-                                                                                    swal("ลบข้อมูลแล้วแล้ว", {
-                                                                                        icon: "success",
+                                                                                        window.location.href = "Customer";
                                                                                     });
 
-                                                                                    window.location.href = "Customer";
+                                                                        } else {
 
-
-
-                                                                                });
-
-                                                                    } else {
-
-                                                                    }
-                                                                });
-                                                    }
+                                                                        }
+                                                                    });
+                                                        }
 
             </script>
             </body>
