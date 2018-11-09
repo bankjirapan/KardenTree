@@ -125,7 +125,7 @@
                                             <td>
                                                 <div class="rows">
 
-                                                    <a class="btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn btn-info btn-sm" href="Customer?view=${Customer.accountid}"><i class="fa fa-eye"></i></a>
 
 
                                                     <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
