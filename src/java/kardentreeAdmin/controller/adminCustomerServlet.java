@@ -49,17 +49,27 @@ public class adminCustomerServlet extends HttpServlet {
 
         request.setAttribute("ListCustomer", userAccount);
 
+        //ViewCustomer
+        if (request.getParameter("view") != null) {
+
+            Account viewCustomer = userAccountCtrl.findAccount(request.getParameter("view"));
+
+            if (viewCustomer != null) {
+                request.setAttribute("infoCustomer", viewCustomer);
+                getServletContext().getRequestDispatcher("/adminView/adminViewCustomer.jsp").forward(request, response);
+            }
+
+        }
+
         //DeleteCustomer  
         if (request.getParameter("deleteAccountID") != null) {
-
             try {
-                
+
                 userAccountCtrl.destroy(request.getParameter("deleteAccountID"));
 
             } catch (Exception exp) {
                 System.out.println(exp);
             }
-
         }
         //End Delete
 
