@@ -20,7 +20,7 @@
         <div id="content">
             <div class="container">
                 <!-- Sign Up form -->
-                <form class="form-login form-wrapper form-medium" role="form">
+                <form method="post" action="Register" class="form-login form-wrapper form-medium" role="form">
                     <h3 class="title-divider">
                         <span>Sign Up</span> 
                         <small class="mt-4">Already signed up? <a href="Login">Login here</a>.</small>
@@ -42,6 +42,10 @@
                         <input type="text" class="form-control" id="signup-username-page" placeholder="Username" name="username">
                     </div>
                     <div class="form-group">
+                        <label class="sr-only" for="signup-username-page">Phone</label>
+                        <input type="number" class="form-control" id="signup-username-page" placeholder="Phone" name="tel">
+                    </div>
+                    <div class="form-group">
                         <label class="sr-only" for="signup-email-page">Email address</label>
                         <input type="email" class="form-control" id="signup-email-page" placeholder="Email address" name="email">
                     </div>
@@ -51,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <input type="password" id="cpsw" class="form-control" id="signup-password-page" placeholder="Confirm password" name="confirm">
-                       <small id="errorPassword" class="form-text text-muted"></small>
+                        <small id="errorPassword" class="form-text text-muted"></small>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
@@ -66,42 +70,42 @@
         </div>
 
     <jsp:include page="Footer.jsp"></jsp:include>
-    
-            <script>
 
-            $(document).ready(function () {
-                
-                
-              document.getElementById("btnSubmit").disabled = true;
-              
-              $('#cpsw').keyup(function(){
-                  
-                  if($('#cpsw').val() != $('#psw').val()){
-                        document.getElementById("btnSubmit").disabled = true;
-                        document.getElementById("errorPassword").innerHTML = "รหัสผ่านไม่ตรงกัน";
-                  } else {
- 
-                       document.getElementById("errorPassword").innerHTML = "";
-                  }
-                 
-                  
-              });
-              
-               $('#Conditions').change(function(){
-                  
-                   
-                  if($('#Conditions').prop('checked') == true){
-                       document.getElementById("btnSubmit").disabled = false;
-                  } else {
-                      document.getElementById("btnSubmit").disabled = true;
-                  }
-                  
-               })
-              
-              
+    <script>
+
+        $(document).ready(function () {
+
+
+            document.getElementById("btnSubmit").disabled = true;
+
+            $('#cpsw').keyup(function () {
+
+                if ($('#cpsw').val() != $('#psw').val()) {
+                    document.getElementById("btnSubmit").disabled = true;
+                    document.getElementById("errorPassword").innerHTML = "รหัสผ่านไม่ตรงกัน";
+                } else {
+
+                    document.getElementById("errorPassword").innerHTML = "";
+                }
+
+
             });
 
-        </script>
+            $('#Conditions').change(function () {
+
+
+                if ($('#Conditions').prop('checked') == true) {
+                    document.getElementById("btnSubmit").disabled = false;
+                } else {
+                    document.getElementById("btnSubmit").disabled = true;
+                }
+
+            })
+
+
+        });
+
+    </script>
 
 
     <!--        <form action="Register" method="post">
