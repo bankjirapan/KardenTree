@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : Home
     Created on : Nov 2, 2018, 10:54:42 AM
     Author     : bankcom
@@ -9,21 +9,21 @@
 <jsp:include page="Layout/Header.jsp?titleName=KardenTree"></jsp:include>
 
   <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
-    
+
     <!-- @plugin: page loading indicator, delete to remove loader -->
     <div class="page-loader" data-toggle="page-loader"></div>
-    
-    
-    <a id="#top" href="#content" class="sr-only">Skip to content</a> 
-        
+
+
+    <a id="#top" href="#content" class="sr-only">Skip to content</a>
+
        <jsp:include page="Layout/Navbar.jsp"></jsp:include>
-       
-       
-       
-       
-    
+
+
+
+
+
     <!-- ======== @Region: #highlighted ======== -->
-    <div id="highlighted">
+    <%-- <div id="highlighted">
       <!-- Showshow - Slider Revolution see: plugins/slider-revolution/examples&sources for help invoke using data-toggle="slider-rev" options can be passed to the slider via HTML5 data- ie. data-startwidth="960" -->
       <div class="slider-wrapper rev_slider_wrapper bg-black" data-page-class="slider-appstrap-theme">
         <div class="rev_slider" data-toggle="slider-rev" data-settings='{"startwidth":1100, "startheight":500, "delay":10000}'>
@@ -117,13 +117,13 @@ style="z-index: 5;">
             </li>
           </ul>
           <div class="tp-bannertimer tp-bottom"></div>
-        </div>
+        </div> --%>
         <!--end of tp-banner-->
-      </div>
-    </div>
-    
+      <%-- </div>
+    </div> --%>
+
     <!-- ======== @Region: #content ======== -->
-    <div id="content" class="p-0">
+    <%-- <div id="content" class="p-0">
       <!-- Promos -->
       <div class="container py-4 py-lg-6">
         <h5 class="mb-1 font-weight-normal">
@@ -156,12 +156,12 @@ style="z-index: 5;">
             </div>
           </div>
         </div>
-      </div>
+      </div> --%>
       <!-- Featured Products -->
       <div id="features" class="container py-4 py-lg-6">
         <hr class="hr-lg mt-0 mb-3 w-10 mx-auto hr-primary" />
         <h2 class="text-center text-uppercase font-weight-bold my-0">
-          Featured Products
+          WELCOME to KradenTree
         </h2>
         <h5 class="text-center font-weight-light mt-2 mb-0 text-muted">
           Great products, great value!
@@ -171,390 +171,63 @@ style="z-index: 5;">
         <div class="card-deck-wrapper">
           <div class="card-deck">
             <!-- Product 1 -->
+            
             <div class="card product-card overlay-hover">
               <!-- Hover content -->
               <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
                 <a href="shop-cart.html" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                <a href="#" class="text-white">Add to Wishlist</a> 
+                <a href="#" class="text-white">more Detail</a>
               </div>
               <!-- Image & price content -->
               <div class="pos-relative">
                 <img class="card-img-top img-fluid" src="assets/img/shop/shoes-2.jpg" alt="Card image cap">
                 <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">
-                  <del class="op-5">$24.99</del>
-                  / $19.99
+<!--                  <del class="op-5">$24.99</del>-->
+                  $19.99
                 </span>
               </div>
               <!-- Content -->
               <div class="card-body">
-                <small class="text-muted text-uppercase"><span class="text-primary">Womens</span> / Shoes</small>
+                
                 <h4 class="card-title">
-                  New Balance Shoes 
+                  New Balance Shoes
                 </h4>
-                <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i>
-</p>
+
+
               </div>
-              <div class="card-footer">
-                <small class="text-muted">15 in Stock</small>
-              </div>
+
             </div>
-            <!-- Product 2 -->
-            <div class="card product-card overlay-hover">
-              <!-- Hover content -->
-              <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-                <a href="shop-cart.html" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                <a href="#" class="text-white">Add to Wishlist</a> 
-              </div>
-              <!-- Ribbon -->
-              <div class="card-ribbon card-ribbon-top card-ribbon-left bg-danger text-white">Low Stock</div>
-              <!-- Image & price content -->
-              <div class="pos-relative">
-                <img class="card-img-top img-fluid" src="assets/img/shop/mens-sports-2.jpg" alt="Card image cap">
-                <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">$39.99</span> 
-              </div>
-              <!-- Content -->
-              <div class="card-body">
-                <small class="text-muted text-uppercase"><span class="text-primary">Mens</span> / Sports</small>
-                <h4 class="card-title">
-                  Nike Training Top 
-                </h4>
-                <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> <i class="fa fa-star-o text-primary"></i>
-</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted"><strong class="text-danger">4 in stock</strong></small>
-              </div>
-            </div>
-            <!-- Product 3 -->
-            <div class="card product-card overlay-hover">
-              <!-- Hover content -->
-              <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-                <a href="shop-cart.html" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                <a href="#" class="text-white">Add to Wishlist</a> 
-              </div>
-              <!-- Ribbon -->
-              <div class="card-ribbon card-ribbon-top card-ribbon-left bg-primary text-white">Eco Friendly</div>
-              <!-- Image & price content -->
-              <div class="pos-relative">
-                <img class="card-img-top img-fluid" src="assets/img/shop/promo-kids.jpg" alt="Card image cap">
-                <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">$9.99</span> 
-              </div>
-              <!-- Content -->
-              <div class="card-body">
-                <small class="text-muted text-uppercase"><span class="text-primary">Kids</span> / Jumpers</small>
-                <h4 class="card-title">
-                  Kids Wolly Jumper 
-                </h4>
-                <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i>
-</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">105 in Stock</small>
-              </div>
-            </div>
+            
+
+            
+            
+            
+            
           </div>
         </div>
       </div>
       <!-- Call to action -->
-      <div class="container" data-url="#">
-        <hr class="hr-lg mt-0 mb-1 w-100 mx-auto hr-danger" />
-        <div class="pos-relative">
-          <i class="fa fa-bullseye icon-bg op-1 icon-bg-l-ol icon-25x text-white"></i> <i class="fa fa-bullseye icon-bg op-1 icon-bg-r-ol icon-bg-b icon-25x text-white"></i> 
-          <div class="p-4 text-center bg-danger">
-            <h2 class="display-4 font-weight-normal text-uppercase text-white my-0 text-slab">
-              Clearance Sale
-            </h2>
-            <h4 class="text-white mb-0 text-slab">
-              Price reductions on 1000s of items!
-            </h4>
-          </div>
-        </div>
-        <hr class="hr-lg mt-1 w-100 mx-auto hr-danger" />
-      </div>
+
       <!-- Collections -->
-      <div class="container py-4 py-lg-6 text-center">
-        <hr class="hr-lg mt-0 mb-3 w-10 mx-auto hr-primary" />
-        <h2 class="text-center text-uppercase font-weight-bold my-0">
-          Product Collections
-        </h2>
-        <h5 class="text-center font-weight-light mt-2 mb-0 text-muted">
-          Something for everyone
-        </h5>
-        <hr class="mb-5 w-50 mx-auto" />
-        <div class="row">
-          <div class="col-lg-4 d-flex">
-            <div class="p-5 py-lg-6 overlay overlay-op-5 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/shop/promo-mens.jpg" data-url="shop-product.html">
-              <hr class="w-50 mx-auto hr-primary" />
-              <h2 class="text-white text-uppercase mb-0">
-                Mens
-              </h2>
-              <hr class="w-50 mx-auto hr-primary" />
-            </div>
-          </div>
-          <div class="col-lg-4 d-flex">
-            <div class="p-5 overlay overlay-op-5 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/shop/promo-summer.jpg" data-css='{"background-position":"center bottom"}' data-url="shop-product.html">
-              <hr class="w-50 mx-auto hr-primary" />
-              <h2 class="text-white text-uppercase mb-0">
-                Womens
-              </h2>
-              <hr class="w-50 mx-auto hr-primary" />
-            </div>
-          </div>
-          <div class="col-lg-4 d-flex">
-            <div class="p-5 overlay overlay-op-4 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/shop/promo-kids.jpg" data-css='{"background-position":"center bottom"}' data-url="shop-product.html">
-              <hr class="w-50 mx-auto hr-primary" />
-              <h2 class="text-white text-uppercase mb-0">
-                Childrens
-              </h2>
-              <hr class="w-50 mx-auto hr-primary" />
-            </div>
-          </div>
-        </div>
-      </div>
+
       <!-- Feature Blocks -->
-      <div class="bg-dark">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-5 divider-diagonal divider-diagonal-r divider-dark" data-bg-img="assets/img/shop/jacket-2.jpg"></div>
-            <div class="col-lg-4 py-6">
-              <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-primary" />
-              <h2 class="display-4 text-slab text-white text-uppercase mt-0 mb-5">
-                Fashion <span class="text-primary font-weight-bold">Focus</span>
-              </h2>
-              <div class="row mb-3">
-                <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
-</div>
-                <div class="col-10 col-md-11 text-grey">
-                  <h4 class="font-weight-bold text-white text-uppercase">
-                    Abigo Appellatio Os Vero
-                  </h4>
-                  <p>Amet obruo olim valetudo vulputate. Aptent gilvus ideo lenis nobis plaga utinam. Blandit jumentum minim plaga turpis. Acsi inhibeo refoveo voco.</p>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
-</div>
-                <div class="col-10 col-md-11 text-grey">
-                  <h4 class="font-weight-bold text-white text-uppercase">
-                    Importunus Pala Premo Virtus
-                  </h4>
-                  <p>Caecus gilvus lucidus melior nulla. Abdo adipiscing eros obruo plaga quidem similis turpis vicis voco. Causa facilisis gilvus nimis tincidunt vero.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <!-- Latest trends block -->
-      <div class="bg-light">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-4 offset-lg-2 py-6">
-              <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-primary" />
-              <h2 class="display-4 text-slab text-grey-dark text-uppercase mt-0 mb-5">
-                Latest <span class="text-primary font-weight-bold">Trends</span>
-              </h2>
-              <div class="row mb-3">
-                <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
-</div>
-                <div class="col-10 col-md-11">
-                  <h4 class="font-weight-bold text-uppercase">
-                    Capto Magna Torqueo Turpis
-                  </h4>
-                  <p>Abbas gilvus persto populus utrum. Exputo jus laoreet melior neque praemitto qui scisco. Camur dignissim gemino in pala patria sagaciter sed.</p>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
-</div>
-                <div class="col-10 col-md-11">
-                  <h4 class="font-weight-bold text-uppercase">
-                    Eros Eum Qui Valde
-                  </h4>
-                  <p>Humo laoreet usitas uxor. At nostrud os vereor. Aliquip hos laoreet lenis nimis saluto si. Letalis pertineo quidne quis virtus.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 divider-diagonal divider-light" data-bg-img="assets/img/shop/promo-kids.jpg"></div>
-          </div>
-        </div>
-      </div>
+
       <!-- Beach 2017 -->
-      <div class="bg-primary">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-5 divider-diagonal divider-diagonal-r divider-primary op-9" data-bg-img="assets/img/shop/promo-bikini.jpg"></div>
-            <div class="col-lg-4 py-6">
-              <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-white" />
-              <h2 class="display-4 text-slab text-grey text-uppercase mt-0 mb-5">
-                Beach <span class="text-white font-weight-bold">2018</span>
-              </h2>
-              <div class="row mb-3">
-                <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-white icon-2x op-8"></i>
-</div>
-                <div class="col-10 col-md-11 text-grey">
-                  <h4 class="font-weight-bold text-white text-uppercase">
-                    Camur Cui Incassum Voco
-                  </h4>
-                  <p>Accumsan capto gravis. Antehabeo caecus distineo erat incassum pecus refero wisi. Commodo consectetuer dolus esca haero sudo tation tum valetudo.</p>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-white icon-2x op-8"></i>
-</div>
-                <div class="col-10 col-md-11 text-grey">
-                  <h4 class="font-weight-bold text-white text-uppercase">
-                    Capto Decet Facilisi Quia
-                  </h4>
-                  <p>Iusto laoreet olim. Abigo antehabeo magna praemitto quia quis singularis. Antehabeo conventio hendrerit ille mauris quibus sino valde vereor. Comis conventio dolore euismod nulla obruo oppeto ratis vindico vulputate.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <!-- New Products -->
-      <div class="container py-4 py-lg-6">
-        <hr class="hr-lg mt-0 mb-3 w-10 mx-auto hr-primary" />
-        <h2 class="text-center text-uppercase font-weight-bold my-0">
-          New Arrivals
-        </h2>
-        <hr class="mb-5 w-50 mx-auto" />
-        <div class="mt-4 owl-nav-over owl-nav-over-lg" data-toggle="owl-carousel" data-owl-carousel-settings='{"responsive":{"0":{"items":1}, "600":{"items":2}, "980":{"items":4}}, "margin":10, "nav":true, "dots":false}'>
-          <!-- Product 1 -->
-          <div class="card product-card overlay-hover">
-            <!-- Hover content -->
-            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-              <h4 class="text-white">
-                New Balance
-              </h4>
-              <a href="shop-cart.html" class="btn btn-primary text-uppercase font-weight-bold mb-2"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-            </div>
-            <!-- Image & price content -->
-            <div class="pos-relative">
-              <img class="card-img-top img-fluid" src="assets/img/shop/shoes-2.jpg" alt="Card image cap">
-              <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-l mt-2 ml-2">
-                <del class="op-5">$24.99</del>
-                / $19.99
-              </span>
-            </div>
-          </div>
-          <!-- Product 2 -->
-          <div class="card product-card overlay-hover">
-            <!-- Hover content -->
-            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-              <h4 class="text-white">
-                Nike Training Top
-              </h4>
-              <a href="shop-cart.html" class="btn btn-primary text-uppercase font-weight-bold mb-3"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-            </div>
-            <!-- Image & price content -->
-            <div class="pos-relative">
-              <img class="card-img-top img-fluid" src="assets/img/shop/mens-sports-2.jpg" alt="Card image cap">
-              <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-l mt-2 ml-2">$39.99</span> 
-            </div>
-          </div>
-          <!-- Product 3 -->
-          <div class="card product-card overlay-hover">
-            <!-- Hover content -->
-            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-              <h4 class="text-white">
-                Kids Wollys
-              </h4>
-              <a href="shop-cart.html" class="btn btn-primary text-uppercase font-weight-bold mb-3"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-            </div>
-            <!-- Image & price content -->
-            <div class="pos-relative">
-              <img class="card-img-top img-fluid" src="assets/img/shop/promo-kids.jpg" alt="Card image cap">
-              <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-l mt-2 ml-2">$9.99</span> 
-            </div>
-          </div>
-          <!-- Product 4 -->
-          <div class="card product-card overlay-hover">
-            <!-- Hover content -->
-            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-              <h4 class="text-white">
-                Kids Hoodies
-              </h4>
-              <a href="shop-cart.html" class="btn btn-primary text-uppercase font-weight-bold mb-3"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-            </div>
-            <!-- Ribbon -->
-            <div class="card-ribbon card-ribbon-top card-ribbon-right bg-primary text-white">Eco Friendly</div>
-            <!-- Image & price content -->
-            <div class="pos-relative">
-              <img class="card-img-top img-fluid" src="assets/img/shop/promo-kids-hoodies.jpg" alt="Card image cap">
-              <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-l mt-2 ml-2">$29.99</span> 
-            </div>
-          </div>
-          <!-- Product 5 -->
-          <div class="card product-card overlay-hover">
-            <!-- Hover content -->
-            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-              <h4 class="text-white">
-                Shirts
-              </h4>
-              <a href="shop-cart.html" class="btn btn-primary text-uppercase font-weight-bold mb-3"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-            </div>
-            <!-- Image & price content -->
-            <div class="pos-relative">
-              <img class="card-img-top img-fluid" src="assets/img/shop/promo-mens.jpg" alt="Card image cap">
-              <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-l mt-2 ml-2">$69.99</span> 
-            </div>
-          </div>
-          <!-- Product 6 -->
-          <div class="card product-card overlay-hover">
-            <!-- Hover content -->
-            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-              <h4 class="text-white">
-                Jacket
-              </h4>
-              <a href="shop-cart.html" class="btn btn-primary text-uppercase font-weight-bold mb-3"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-            </div>
-            <!-- Image & price content -->
-            <div class="pos-relative">
-              <img class="card-img-top img-fluid" src="assets/img/shop/promo-mens-2.jpg" alt="Card image cap">
-              <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-l mt-2 ml-2">$199.99</span> 
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
-    
+
     <!-- ======== @Region: #content-below ======== -->
-    <div id="content-below">
-      <!-- Awesome features call to action -->
-      <div class="bg-primary text-white">
-        <div class="container py-3 pos-relative">
-          <div class="row">
-            <div class="col-lg-7 text-center text-lg-left">
-              <i class="fa fa-envelope-o icon-4x op-4 float-left mr-3 d-none d-xl-block"></i> 
-              <h2 class="text-uppercase font-weight-bold mt-2 mb-1 text-slab">
-                Get Deals & Discounts
-              </h2>
-              <h5 class="text-faded">
-                Direct to your inbox with our newsletter
-              </h5>
-            </div>
-            <div class="col-lg-5 text-center text-lg-right flex-valign">
-              <form>
-                <div class="input-group input-group-rounded">
-                  <input type="text" class="form-control" id="email-field" placeholder="Email">
-                  <span class="input-group-append">
-                    <button class="btn btn-primary btn-invert" type="button">Sign Up</button>
-                  </span>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+
+
     <!-- ======== @Region: #footer ======== -->
     <footer id="footer">
       <div class="container">
         <div class="row">
-          
+
           <div class="col-lg-4">
             <h3 class="text-white text-uppercase text-slab font-weight-bold">
               App<span class="text-primary">Strap</span>
@@ -585,7 +258,7 @@ style="z-index: 5;">
               <a href="#" class="btn btn-icon btn-dark btn-rounded btn-flat"> <i class="fab fa-google-plus-g"></i> <span class="sr-only">Fa google plus g</span> </a>
             </div>
           </div>
-          
+
           <div class="col-lg-7 offset-lg-1">
             <div class="row">
               <div class="col-6 col-md-3">
@@ -655,7 +328,7 @@ style="z-index: 5;">
             </div>
           </div>
         </div>
-        
+
         <hr class="my-4 hr-white op-1" />
         <!--@todo: replace with company copyright details-->
         <div class="subfooter text-sm text-center">
@@ -669,7 +342,7 @@ style="z-index: 5;">
       </div>
       <a href="#top" class="btn btn-icon btn-dark pos-fixed pos-b pos-r mr-3 mb-3 scroll-state-hidden" title="Back to top" data-scroll="scroll-state"><i class="fa fa-chevron-up"></i></a>
     </footer>
-    
+
     <!-- Style switcher - demo only - @todo: remove in production -->
     <div class="colour-switcher">
 <!--      <a href="#" class="colour-switcher-toggle" data-toggle="class" data-target=".colour-switcher"> <i class="fa fa-paint-brush"></i> </a>-->
@@ -708,7 +381,7 @@ style="z-index: 5;">
                   </select>
                 </div>
                 <hr />
-                
+
                 <h6 class="op-8">
                   Account Information
                 </h6>
@@ -735,7 +408,7 @@ style="z-index: 5;">
                 <div class="form-check text-xs">
                   <label class="form-check-label op-8">
                     <input type="checkbox" value="term" class="form-check-input mt-1">
-                    I agree with the Terms and Conditions. 
+                    I agree with the Terms and Conditions.
                   </label>
                 </div>
               </div>
@@ -753,7 +426,7 @@ style="z-index: 5;">
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-      
+
       <!--@modal - login modal-->
       <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
