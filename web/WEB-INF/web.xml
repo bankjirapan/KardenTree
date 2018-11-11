@@ -59,6 +59,10 @@
         <servlet-name>FileUploadServlet</servlet-name>
         <servlet-class>kardentreeAdmin.controller.FileUploadServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomerLogoutServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.CustomerLogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
@@ -98,6 +102,10 @@
     <servlet-mapping>
         <servlet-name>FileUploadServlet</servlet-name>
         <url-pattern>/Upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerLogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
