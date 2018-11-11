@@ -35,26 +35,26 @@
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="signup-last-name-page">Last Name</label>
-                        <input type="text" class="form-control" id="signup-last-name-page" placeholder="Last name" name="lname">
+                        <input type="text" class="form-control" id="signup-last-name-page" placeholder="Last name" name="lname" required>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="signup-username-page">Userame</label>
-                        <input type="text" class="form-control" id="signup-username-page" placeholder="Username" name="username">
+                        <input type="text" class="form-control" id="signup-username-page" placeholder="Username" name="username" required>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="signup-username-page">Phone</label>
-                        <input type="number" class="form-control" id="signup-username-page" placeholder="Phone" name="tel">
+                        <input type="number" class="form-control" id="signup-username-page" placeholder="Phone" name="tel" required>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="signup-email-page">Email address</label>
-                        <input type="email" class="form-control" id="signup-email-page" placeholder="Email address" name="email">
+                        <input type="email" class="form-control" id="signup-email-page" placeholder="Email address" name="email" required>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="signup-password-page">Password</label>
-                        <input type="password" id="psw" class="form-control" id="signup-password-page" placeholder="Password" name="password">
+                        <input type="password" id="psw" class="form-control" id="signup-password-page" placeholder="Password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" id="cpsw" class="form-control" id="signup-password-page" placeholder="Confirm password" name="confirm">
+                        <input type="password" id="cpsw" class="form-control" id="signup-password-page" placeholder="Confirm password" name="confirm" required>
                         <small id="errorPassword" class="form-text text-muted"></small>
                     </div>
                     <div class="form-check">

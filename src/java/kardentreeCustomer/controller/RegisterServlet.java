@@ -75,7 +75,7 @@ public class RegisterServlet extends HttpServlet {
                     } catch (Exception ex) {
                         System.out.println("ex");
                     }
-                    response.sendRedirect("index.html");
+                    response.sendRedirect("CompleteRegisterView.jsp");
                     return;
                 }
             }

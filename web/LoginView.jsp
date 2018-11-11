@@ -28,7 +28,7 @@
                     </h3>
                     <div class="form-group">
                         <label class="sr-only" for="login-email-page">Email</label>
-                        <input type="email" name="email" id="login-email-page" class="form-control email" placeholder="Email">
+                        <input type="text" name="email" id="login-email-page" class="form-control email" placeholder="Username or Email">
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="login-password-page">Password</label>
