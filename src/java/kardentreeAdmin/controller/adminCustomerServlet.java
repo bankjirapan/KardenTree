@@ -17,7 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.UserTransaction;
 import kardentreeCustomer.jpa.controller.AccountJpaController;
+import kardentreeCustomer.jpa.controller.AddressJpaController;
 import kardentreeCustomer.jpa.models.Account;
+import kardentreeCustomer.jpa.models.Address;
 
 /**
  *
@@ -55,6 +57,16 @@ public class adminCustomerServlet extends HttpServlet {
             Account viewCustomer = userAccountCtrl.findAccount(request.getParameter("view"));
 
             if (viewCustomer != null) {
+                
+                //นำไปค้นหา Address
+                AddressJpaController customerAddressCtrl = new AddressJpaController(utx, emf);
+                Address viewAddress = customerAddressCtrl.findAddress(request.getParameter("view"));
+                
+                if(viewAddress != null){
+                    request.setAttribute("CustomerAddress", viewAddress);
+                }
+                
+                
                 request.setAttribute("infoCustomer", viewCustomer);
                 getServletContext().getRequestDispatcher("/adminView/adminViewCustomer.jsp").forward(request, response);
             }
