@@ -58,7 +58,7 @@ public class CustomerLoginServlet extends HttpServlet {
                 String passwordDB = account.getPassword();
                 if (passwordDB.equalsIgnoreCase(cryptWithMD5(password))) {
                     session.setAttribute("account", account);
-                    response.sendRedirect("index.html"); // แก้ทีหลังด้วย
+                    response.sendRedirect("Home"); // แก้ทีหลังด้วย
                     return;
                 }
 
@@ -66,7 +66,7 @@ public class CustomerLoginServlet extends HttpServlet {
                 String passwordDB = accountEmail.getPassword();
                 if (passwordDB.equalsIgnoreCase(cryptWithMD5(password))) {
                     session.setAttribute("account", accountEmail);
-                    response.sendRedirect("index.html"); // แก้ทีหลังด้วย
+                    response.sendRedirect("Home"); // แก้ทีหลังด้วย
                     return;
                 }
             }
