@@ -137,8 +137,8 @@
 
                                         <td>
                                             <c:forEach items="${CustomerAddress}" var="addressCustomer">
-                                                ${CustomerAddress.address}
-                                                <br><br>
+                                                ${addressCustomer.address}
+                                                <br>
                                             </c:forEach>
 
                                         </td>
@@ -157,7 +157,7 @@
                                     </tbody>
                                 </table>
 
-                                <a href="#" class="btn btn-primary">กลับไปยังจัดการลูกค้า</a>
+                                <a href="Customer" class="btn btn-primary">กลับไปยังจัดการลูกค้า</a>
 
                             </div>
                         </div>
