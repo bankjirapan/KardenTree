@@ -91,104 +91,120 @@
                             <a href="Customer">ลูกค้าทั้งหมด</a>
                         </li>
                         <li class="breadcrumb-item active">ข้อมูลลูกค้า : ${infoCustomer.fname} ${infoCustomer.lname}</li>
-                    </ol>
+                </ol>
 
-                    <!-- DataTables Example -->
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <i class="fas fa-table"> ข้อมูล</i>
-                        </div>
-                        <div class="card-body">
+                <!-- DataTables Example -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"> ข้อมูล</i>
+                    </div>
+                    <div class="card-body">
 
-                            <div class="row">
-                                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="" class="img-circle img-responsive"> </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="" class="img-circle img-responsive"> </div>
 
-                                <div class=" col-md-9 col-lg-9 "> 
-                                    <table class="table table-user-information">
-                                        <tbody>
-                                            <tr>
-                                                <td>ชื่อนามสกุล</td>
-                                                <td>${infoCustomer.fname} ${infoCustomer.lname}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>ชื่อผู้ใช้งาน</td>
-                                               
-                                                <td>${infoCustomer.username}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>อีเมล</td>
-                                                <td>${infoCustomer.email}</td>
-                                            </tr>
+                            <div class=" col-md-9 col-lg-9 "> 
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr>
+                                            <td>ชื่อนามสกุล</td>
+                                            <td>${infoCustomer.fname} ${infoCustomer.lname}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ชื่อผู้ใช้งาน</td>
 
-                                            <tr>
-                                                <td>โทรศัพท์</td>
-                                                <td>${infoCustomer.telno}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>สถานะบัญชี</td>
-                                                <td>${infoCustomer.activated}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>วันที่สมัคร</td>
-                                                <td>${infoCustomer.updateDate}</td>
-                                            </tr>
-                                        <td>ที่อยู่จัดส่ง</td>
-                                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                                        </td>
-
+                                            <td>${infoCustomer.username}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>อีเมล</td>
+                                            <td>${infoCustomer.email}</td>
                                         </tr>
 
-                                        </tbody>
-                                    </table>
+                                        <tr>
+                                            <td>โทรศัพท์</td>
+                                            <td>${infoCustomer.telno}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>สถานะบัญชี</td>
+                                            <td>${infoCustomer.activated}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>วันที่สมัคร</td>
+                                            <td>${infoCustomer.updateDate}</td>
+                                        </tr>
+                                    <td>ที่อยู่จัดส่ง</td>
+                                    <c:if test="${CustomerAddress != null}">
 
-                                    <a href="#" class="btn btn-primary">กลับไปยังจัดการลูกค้า</a>
-                                   
-                                </div>
+                                        <td>
+                                            <c:forEach items="${CustomerAddress}" var="addressCustomer">
+                                                ${CustomerAddress.address}
+                                                <br><br>
+                                            </c:forEach>
+
+                                        </td>
+                                    </c:if>
+                                         <c:if test="${CustomerAddress == null}">
+
+                                        <td>
+                                            ไม่มีที่อยู่
+                                        </td>
+                                    </c:if>
+
+
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <a href="#" class="btn btn-primary">กลับไปยังจัดการลูกค้า</a>
+
                             </div>
-
-
-
                         </div>
 
 
 
                     </div>
-                    <!-- /.container-fluid -->
 
-                    <!-- Sticky Footer -->
-                    <footer class="sticky-footer">
-                        <div class="container my-auto">
-                            <div class="copyright text-center my-auto">
-                                <span>Copyright © Your Website 2018</span>
-                            </div>
-                        </div>
-                    </footer>
+
 
                 </div>
+                <!-- /.container-fluid -->
 
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
-                </a>
+                <!-- Sticky Footer -->
+                <footer class="sticky-footer">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright © Your Website 2018</span>
+                        </div>
+                    </div>
+                </footer>
 
-                <!-- Logout Modal-->
-                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-danger" href="logout">Logout</a>
-                            </div>
+            </div>
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-danger" href="logout">Logout</a>
                         </div>
                     </div>
                 </div>
+            </div>
 
             <jsp:include page="adminFooter.jsp"></jsp:include>
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
