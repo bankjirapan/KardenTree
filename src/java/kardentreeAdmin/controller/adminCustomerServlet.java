@@ -57,16 +57,16 @@ public class adminCustomerServlet extends HttpServlet {
             Account viewCustomer = userAccountCtrl.findAccount(request.getParameter("view"));
 
             if (viewCustomer != null) {
-                
+
                 //นำไปค้นหา Address
                 AddressJpaController customerAddressCtrl = new AddressJpaController(utx, emf);
-                Address viewAddress = customerAddressCtrl.findAddress(request.getParameter("view"));
-                
-                if(viewAddress != null){
+                List<Address> viewAddress = customerAddressCtrl.findAddressList(request.getParameter("view"));
+
+                if (viewAddress != null) {
                     request.setAttribute("CustomerAddress", viewAddress);
+                 
                 }
-                
-                
+
                 request.setAttribute("infoCustomer", viewCustomer);
                 getServletContext().getRequestDispatcher("/adminView/adminViewCustomer.jsp").forward(request, response);
             }
