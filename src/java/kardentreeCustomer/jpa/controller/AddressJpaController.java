@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
@@ -140,6 +141,21 @@ public class AddressJpaController implements Serializable {
         }
     }
 
+   
+    public List<Address> findAddressList(String idCustomer){
+        EntityManager em = getEntityManager();
+        
+        try {
+           Query query = em.createNamedQuery("Address.findByAccountid");
+           query.setParameter("accountid", idCustomer);
+           return query.getResultList();
+        }catch (NoResultException NoResult){
+            return null;
+        }finally{
+            em.close();
+        }
+       
+    }
     public Address findAddress(String id) {
         EntityManager em = getEntityManager();
         try {
@@ -161,5 +177,5 @@ public class AddressJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }
