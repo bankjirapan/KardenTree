@@ -7,16 +7,27 @@ package kardentreeAdmin.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.UserTransaction;
+import kardentreeAdmin.jpa.controller.ProductJpaController;
+import kardentreeAdmin.jpa.models.Product;
 
 /**
  *
  * @author ryan.
  */
 public class AddProductAdminServlet extends HttpServlet {
+    @PersistenceUnit (unitName = "KardenTreePU")
+    EntityManagerFactory emf;
+    
+    @Resource
+    UserTransaction utx;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +40,42 @@ public class AddProductAdminServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddProductAdminServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddProductAdminServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String productName = request.getParameter("productname");
+        String category = request.getParameter("category");
+        String type = request.getParameter("type");
+        String detail = request.getParameter("detail");
+        String price = request.getParameter("price");
+        String picture = request.getParameter("pic");
+        
+        if(productName != null){
+            ProductJpaController productJpa = new ProductJpaController(utx,emf);
+            Product product = productJpa.findProductName(productName);
+            if(product == null){
+                Product product1 = new Product();
+                
+                int numProductCount = productJpa.getProductCount()+1;
+                String productCount = String.valueOf(numProductCount);
+                double numPrice = Double.parseDouble(price);
+                
+                product1.setProductname(productName);
+                product1.setProductid(productCount);
+                product1.setCategory(category);
+                product1.setType(type);
+                product1.setDetail(detail);
+                product1.setPrice(numPrice);
+                product1.setPicture(picture);
+                
+                try{
+                    productJpa.create(product1);
+                }catch(Exception ex){
+                    System.out.println(ex);
+                }
+                
+                response.sendRedirect("../index.html");
+                return;
+            }
         }
+        getServletContext().getRequestDispatcher("/AddproductView.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
