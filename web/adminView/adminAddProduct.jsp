@@ -106,14 +106,14 @@
                             เพิ่มสินค้าใหม่</div>
                         <div class="card-body">
 
-                            <form class="needs-validation" novalidate="">
+                            <form class="needs-validation" novalidate="" action="AddProduct" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label>Upload Image</label>
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                                 <span class="btn btn-default btn-file">
-                                                    Browse… <input type="file" id="imgInp">
+                                                    Browse… <input type="file" name="pic" id="imgInp">
                                                 </span>
                                             </span>
                                             <input type="text" class="form-control" readonly>
@@ -142,17 +142,15 @@
                                     <div class="col-md-4 mb-3">
                                         <label for="state">ชนิดของสินค้า</label>
                                         <select name="type" class="custom-select d-block w-100" id="state" required="">
-                                            <option value="">House Tree</option>
+                                            <option>House Tree</option>
                                             <option>Garden Tree</option>
                                         </select>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
-                                        <label for="zip">Zip</label>
-                                        <input type="text" class="form-control" id="zip" placeholder="" required="">
-                                        <div class="invalid-feedback">
-                                            Zip code required.
-                                        </div>
+                                        <label for="zip">ราคา</label>
+                                        <input type="text" name="price" class="form-control" id="zip" placeholder="" required="">
+                                     
                                     </div>
                                 </div>
                                 <div class="row">
@@ -162,16 +160,7 @@
 
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <label for="zip">ราคา</label>
-                                        <input type="text" name="price" class="form-control">
-
-                                    </div>
-                                </div>
-
-
-
+                                
                                 <hr class="mb-4">
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">เพิ่มสินค้า</button>
                             </form>
