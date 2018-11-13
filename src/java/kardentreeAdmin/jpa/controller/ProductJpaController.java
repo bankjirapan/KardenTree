@@ -149,16 +149,29 @@ public class ProductJpaController implements Serializable {
             em.close();
         }
     }
-    
-    public Product findProductName (String productName){
+
+    public Product findProductName(String productName) {
         EntityManager em = getEntityManager();
-        try{
+        try {
             Query query = em.createNamedQuery("Product.findByProductname");
             query.setParameter("productname", productName);
             return (Product) query.getSingleResult();
-        }catch (NoResultException NoResult){
+        } catch (NoResultException NoResult) {
             return null;
-        }finally{
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Product> findProductCategory(String category) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Product.findByCategory");
+            query.setParameter("category", category);
+            return query.getResultList();
+        } catch (NoResultException NoResult) {
+            return null;
+        } finally {
             em.close();
         }
     }
@@ -175,5 +188,5 @@ public class ProductJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }
