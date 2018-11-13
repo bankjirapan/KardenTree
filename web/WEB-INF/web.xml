@@ -3,6 +3,13 @@
     <welcome-file-list>
         <welcome-file>Home.jsp</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
+            /Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg
+      </param-value>
+    </context-param>
     <filter>
         <filter-name>AuthenticationFilter</filter-name>
         <filter-class>kardentreeAdmin.Filter.AuthenticationFilter</filter-class>
