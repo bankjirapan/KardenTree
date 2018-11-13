@@ -30,7 +30,7 @@ import kardentreeAdmin.jpa.models.Product;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB 
         maxFileSize = 1024 * 1024 * 50, // 50 MB
         maxRequestSize = 1024 * 1024 * 100, // 100 MB
-        location="/"
+        location = "/"
 )
 
 public class AddProductAdminServlet extends HttpServlet {
@@ -61,7 +61,6 @@ public class AddProductAdminServlet extends HttpServlet {
         String price = request.getParameter("price");
         //String picture = request.getParameter("pic");
 
-        
         if (productName != null) {
             ProductJpaController productJpa = new ProductJpaController(utx, emf);
             Product product = productJpa.findProductName(productName);
@@ -71,14 +70,6 @@ public class AddProductAdminServlet extends HttpServlet {
                 int numProductCount = productJpa.getProductCount() + 1;
                 String productCount = String.valueOf(numProductCount);
                 double numPrice = Double.parseDouble(price);
-
-                product1.setProductname(productName);
-                product1.setProductid(productCount);
-                product1.setCategory(category);
-                product1.setType(type);
-                product1.setDetail(detail);
-                product1.setPrice(numPrice);
-                //product1.setPicture(picture);
 
                 // gets absolute path of the web application
                 String appPath = System.getProperty("user.dir");
@@ -93,33 +84,39 @@ public class AddProductAdminServlet extends HttpServlet {
                 for (Part part : request.getParts()) {
                     if (part.getName().equalsIgnoreCase("pic")) {
                         String fileName = extractFileName(part);
-                       
+
                         //เขียนไฟล์
-                        part.write(savePath + File.separator + productCount);
-                        
-                        System.out.println(savePath+fileName);
+                        part.write(savePath + File.separator + productCount + ".jpg");
+                        product1.setPicture("assets/img/ProductImg/" + productCount + ".jpg");
                     }
                 }
 
-                
+                product1.setProductname(productName);
+                product1.setProductid(productCount);
+                product1.setCategory(category);
+                product1.setType(type);
+                product1.setDetail(detail);
+                product1.setPrice(numPrice);
+
                 try {
                     productJpa.create(product1);
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
-              
+
                 response.sendRedirect("ProductList");
                 return;
             }
         }
         getServletContext().getRequestDispatcher("/adminView/adminAddProduct.jsp").forward(request, response);
     }
+
     private String extractFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length()-1);
+                return s.substring(s.indexOf("=") + 2, s.length() - 1);
             }
         }
         return "";
