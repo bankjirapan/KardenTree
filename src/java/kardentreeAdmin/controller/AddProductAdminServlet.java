@@ -5,15 +5,19 @@
  */
 package kardentreeAdmin.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import javax.transaction.UserTransaction;
 import kardentreeAdmin.jpa.controller.ProductJpaController;
 import kardentreeAdmin.jpa.models.Product;
@@ -22,10 +26,20 @@ import kardentreeAdmin.jpa.models.Product;
  *
  * @author ryan.
  */
+@WebServlet(name = "AddProductAdminServlet", urlPatterns = {"admin/AddProduct"})
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB 
+        maxFileSize = 1024 * 1024 * 50, // 50 MB
+        maxRequestSize = 1024 * 1024 * 100, // 100 MB
+        location="/"
+)
+
 public class AddProductAdminServlet extends HttpServlet {
-    @PersistenceUnit (unitName = "KardenTreePU")
+
+    private static final String SAVE_DIR = "uploads";
+
+    @PersistenceUnit(unitName = "KardenTreePU")
     EntityManagerFactory emf;
-    
+
     @Resource
     UserTransaction utx;
 
@@ -45,37 +59,70 @@ public class AddProductAdminServlet extends HttpServlet {
         String type = request.getParameter("type");
         String detail = request.getParameter("detail");
         String price = request.getParameter("price");
-        String picture = request.getParameter("pic");
+        //String picture = request.getParameter("pic");
+
         
-        if(productName != null){
-            ProductJpaController productJpa = new ProductJpaController(utx,emf);
+        if (productName != null) {
+            ProductJpaController productJpa = new ProductJpaController(utx, emf);
             Product product = productJpa.findProductName(productName);
-            if(product == null){
+            if (product == null) {
                 Product product1 = new Product();
-                
-                int numProductCount = productJpa.getProductCount()+1;
+
+                int numProductCount = productJpa.getProductCount() + 1;
                 String productCount = String.valueOf(numProductCount);
                 double numPrice = Double.parseDouble(price);
-                
+
                 product1.setProductname(productName);
                 product1.setProductid(productCount);
                 product1.setCategory(category);
                 product1.setType(type);
                 product1.setDetail(detail);
                 product1.setPrice(numPrice);
-                product1.setPicture(picture);
-                
-                try{
+                //product1.setPicture(picture);
+
+                // gets absolute path of the web application
+                String appPath = System.getProperty("user.dir");
+
+                // constructs path of the directory to save uploaded file
+                //String savePath = appPath + File.separator + SAVE_DIR;
+                String savePath = "/Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg/";
+                File fileSaveDir = new File(savePath);
+                if (!fileSaveDir.exists()) {
+                    fileSaveDir.mkdir();
+                }
+                for (Part part : request.getParts()) {
+                    if (part.getName().equalsIgnoreCase("pic")) {
+                        String fileName = extractFileName(part);
+                       
+                        part.write(savePath + File.separator + "ProductID");
+                        
+                        System.out.println(savePath+fileName);
+                    }
+                }
+
+                /*
+                try {
                     productJpa.create(product1);
-                }catch(Exception ex){
+                } catch (Exception ex) {
                     System.out.println(ex);
                 }
-                
-                response.sendRedirect("../index.html");
-                return;
+                */
+
+                //response.sendRedirect("../index.html");
+                //return;
             }
         }
         getServletContext().getRequestDispatcher("/adminView/adminAddProduct.jsp").forward(request, response);
+    }
+    private String extractFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] items = contentDisp.split(";");
+        for (String s : items) {
+            if (s.trim().startsWith("filename")) {
+                return s.substring(s.indexOf("=") + 2, s.length()-1);
+            }
+        }
+        return "";
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
