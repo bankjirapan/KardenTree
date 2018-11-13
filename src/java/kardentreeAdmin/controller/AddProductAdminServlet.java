@@ -94,22 +94,22 @@ public class AddProductAdminServlet extends HttpServlet {
                     if (part.getName().equalsIgnoreCase("pic")) {
                         String fileName = extractFileName(part);
                        
-                        part.write(savePath + File.separator + "ProductID");
+                        //เขียนไฟล์
+                        part.write(savePath + File.separator + productCount);
                         
                         System.out.println(savePath+fileName);
                     }
                 }
 
-                /*
+                
                 try {
                     productJpa.create(product1);
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
-                */
-
-                //response.sendRedirect("../index.html");
-                //return;
+              
+                response.sendRedirect("ProductList");
+                return;
             }
         }
         getServletContext().getRequestDispatcher("/adminView/adminAddProduct.jsp").forward(request, response);
