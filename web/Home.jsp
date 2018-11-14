@@ -26,40 +26,9 @@
                 <div class="rev_slider" data-toggle="slider-rev" data-settings='{"startwidth":1100, "startheight":500, "delay":10000}'>
                     <ul>
                         <!-- SLIDE 1 -->
-                        <li class="slide" data-transition="fadethroughdark" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="assets/img/shop/mens-1-thumb.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-link="shop-list.html">
-                            <img src="assets/img/slide-dummy.png" style='background-color:#151513' data-lazyload="assets/img/transparent.png" alt="Background image" data-bgposition="center top" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina />
-                            <!-- SLIDE 1 Content-->
-                            <div class="slide-content container pos-zindex-80">
-                                <!--elements within .slide-content are pushed below navbar on "behind"-->
-                                <!-- Layer 1 -->
-                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['140','140','140','140']" data-fontsize="['52','52','52','52']" data-lineheight="['52','52','52','52']" data-width="420" data-height="none" data-whitespace="normal" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1200,"to":"o:1;","delay":1300,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="left"> <span class="font-weight-bold text-uppercase text-white">Menswear Sale Now On!</span>
-                                </div>
-                                <!-- Layer 3 -->
-                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['80','80','80','80']" data-fontsize="['20','20','20','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"delay":0,"speed":1200,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","delay":1400},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']"> Up to 50% off selected brands!
-                                </div>
-                                <!-- Layer 3 -->
-                                <div class="tp-caption rs-parallaxlevel-8" data-frames='[{"from":"o:0;sX:3;sY:3;","speed":1500,"to":"o:0.20;sX:3;sY:3;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1200,"to":"x:[100%];","ease":"Power3.easeInOut"}]' data-x="left" data-y="bottom" data-hoffset="0" data-voffset="0" data-width="none" data-height="none" data-type="image" data-basealign="slide"> <i class="fa fa-bullseye icon-20x icon-bg op-1 text-white"></i>
-                                </div>
-                                <!-- Layer 4 -->
-                                <div class="tp-caption tp-resizeme bg-primary-bright" data-frames='[{"from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="bottom" data-voffset="120" data-width="380" data-height="4" data-basealign="slide"></div>
-                            </div>
-                            <div class="tp-caption tp-resizeme" data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" data-width="full-proportional"
-                                 data-height="full-proportional"
-                                 data-whitespace="nowrap"
-                                 data-type="image" data-responsive_offset="on" data-frames='[{"delay":500,"speed":3800,"frame":"0","from":"opacity:0;x:150%;","to":"o:1;x:0;","ease":"Circ.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                                 data-textAlign="['inherit','inherit','inherit','inherit']"
-                                 data-paddingtop="[0,0,0,0]"
-                                 data-paddingright="[0,0,0,0]"
-                                 data-paddingbottom="[0,0,0,0]"
-                                 data-paddingleft="[0,0,0,0]"
-                                 style="z-index: 5;">
-                                <img src="assets/img/slide-dummy.png" alt="" data-lazyload="assets/img/shop/slider-mens-1.png" data-no-retina />
-                            </div>
-                        </li>
-                        <!-- SLIDE 2 -->
                         <li class="slide overlay overlay-op-2" data-transition="fadethroughdark" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/img/shop/beach.jpg" data-rotate="0" data-saveperformance="off" data-title="Summer" data-mediafilter="earlybird">
                             <!-- MAIN IMAGE -->
-                            <img src="assets/img/shop/beach.jpg" alt="Background image" data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina />
+                            <img src="assets/img/shop/wood-1350175_1920.jpg" alt="Background image" data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina />
                             <!-- LAYERS -->
                             <!-- SLIDE 1 Content-->
                             <div class="slide-content container">
@@ -82,34 +51,57 @@
                                 <div class="tp-caption tp-resizeme bg-primary-bright" data-frames='[{"from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="bottom" data-voffset="120" data-width="355" data-height="4" data-basealign="slide"></div>
                             </div>
                         </li>
-                        <li class="slide" data-transition="fadethroughdark" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="" data-rotate="0" data-saveperformance="off" data-mediafilter="rise" data-title="Eyewear">
-                            <img src="assets/img/slide-dummy.png" style='background-color:#a10f2b' data-lazyload="assets/img/transparent.png" alt="Background image" data-bgposition="center top" data-bgfit="cover" data-bgparallax="off" class="rev-slidebg" data-no-retina />
+                        <!-- SLIDE 2 -->
+                        <li class="slide overlay overlay-op-2" data-transition="fadethroughdark" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/img/shop/beach.jpg" data-rotate="0" data-saveperformance="off" data-title="Summer" data-mediafilter="earlybird">
+                            <!-- MAIN IMAGE -->
+                            <img src="assets/img/shop/meadow-3743023.jpg" alt="Background image" data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina />
+                            <!-- LAYERS -->
                             <!-- SLIDE 1 Content-->
                             <div class="slide-content container">
                                 <!--elements within .slide-content are pushed below navbar on "behind"-->
                                 <!-- Layer 1 -->
-                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['140','140','140','140']" data-fontsize="['52','52','52','52']" data-lineheight="['52','52','52','52']" data-width="420" data-height="none" data-whitespace="normal" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1200,"to":"o:1;","delay":1300,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="left"> <span class="font-weight-bold text-uppercase text-white">40% Off Eyewear</span>
+                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['140','140','140','140']" data-fontsize="['52','52','52','52']" data-lineheight="['52','52','52','52']" data-width="420" data-height="none" data-whitespace="normal" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1200,"to":"o:1;","delay":1300,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="left">
+                                    <span class="font-weight-bold text-uppercase text-white">
+                                        Summers
+                                        <br />
+                                        On The Way
+                                    </span>
                                 </div>
                                 <!-- Layer 3 -->
-                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['80','80','80','80']" data-fontsize="['20','20','20','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"delay":0,"speed":1200,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","delay":1400},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']"><a href="#" class="text-grey">Protect your eyes this spring & summer</a>
+                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['80','80','80','80']" data-fontsize="['20','20','20','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"delay":0,"speed":1200,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","delay":1400},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']">Don't miss our 2017 beach wear collection
                                 </div>
                                 <!-- Layer 3 -->
-                                <div class="tp-caption rs-parallaxlevel-8" data-frames='[{"from":"o:0;sX:3;sY:3;","speed":1500,"to":"o:0.20;sX:3;sY:3;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1200,"to":"x:[100%];","ease":"Power3.easeInOut"}]' data-x="left" data-y="bottom" data-hoffset="0" data-voffset="0" data-width="none" data-height="none" data-type="image" data-basealign="slide"> <i class="fa fa-bullseye icon-30x icon-bg op-1 text-white"></i>
+                                <div class="tp-caption rs-parallaxlevel-8" data-frames='[{"from":"o:0;sX:3;sY:3;","speed":1500,"to":"o:0.10;sX:3;sY:3;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1200,"to":"x:[100%];","ease":"Power3.easeInOut"}]' data-x="left" data-y="bottom" data-hoffset="0" data-voffset="0" data-width="none" data-height="none" data-type="image" data-basealign="slide"> <i class="fa fa-bullseye icon-25x icon-bg op-1 text-white"></i>
                                 </div>
                                 <!-- Layer 4 -->
-                                <div class="tp-caption tp-resizeme bg-primary-bright" data-frames='[{"from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="bottom" data-voffset="120" data-width="380" data-height="4" data-basealign="slide"></div>
+                                <div class="tp-caption tp-resizeme bg-primary-bright" data-frames='[{"from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="bottom" data-voffset="120" data-width="355" data-height="4" data-basealign="slide"></div>
                             </div>
-                            <div class="tp-caption tp-resizeme rs-parallaxlevel-10" data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" data-width="full-proportional"
-                                 data-height="full-proportional"
-                                 data-whitespace="nowrap"
-                                 data-type="image" data-responsive_offset="on" data-frames='[{"delay":500,"speed":1800,"frame":"0","from":"opacity:0;x:120%;","to":"o:1;x:0;","ease":"Circ.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                                 data-textAlign="['inherit','inherit','inherit','inherit']"
-                                 data-paddingtop="[0,0,0,0]"
-                                 data-paddingright="[0,0,0,0]"
-                                 data-paddingbottom="[0,0,0,0]"
-                                 data-paddingleft="[0,0,0,0]"
-                                 style="z-index: 5;">
-                                <img src="assets/img/slide-dummy.png" alt="" data-lazyload="assets/img/shop/slider-womans-sunglasses.png" data-no-retina />
+                        </li>
+                       
+                               <!-- SLIDE 3 -->
+                        <li class="slide overlay overlay-op-2" data-transition="fadethroughdark" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/img/shop/beach.jpg" data-rotate="0" data-saveperformance="off" data-title="Summer" data-mediafilter="earlybird">
+                            <!-- MAIN IMAGE -->
+                            <img src="assets/img/shop/sky-1611044_1920.jpg" alt="Background image" data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina />
+                            <!-- LAYERS -->
+                            <!-- SLIDE 1 Content-->
+                            <div class="slide-content container">
+                                <!--elements within .slide-content are pushed below navbar on "behind"-->
+                                <!-- Layer 1 -->
+                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['140','140','140','140']" data-fontsize="['52','52','52','52']" data-lineheight="['52','52','52','52']" data-width="420" data-height="none" data-whitespace="normal" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1200,"to":"o:1;","delay":1300,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="left">
+                                    <span class="font-weight-bold text-uppercase text-white">
+                                        Summers
+                                        <br />
+                                        On The Way
+                                    </span>
+                                </div>
+                                <!-- Layer 3 -->
+                                <div class="tp-caption text-grey" data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['80','80','80','80']" data-fontsize="['20','20','20','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-basealign="slide" data-responsive_offset="on" data-frames='[{"delay":0,"speed":1200,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","delay":1400},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']">Don't miss our 2017 beach wear collection
+                                </div>
+                                <!-- Layer 3 -->
+                                <div class="tp-caption rs-parallaxlevel-8" data-frames='[{"from":"o:0;sX:3;sY:3;","speed":1500,"to":"o:0.10;sX:3;sY:3;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1200,"to":"x:[100%];","ease":"Power3.easeInOut"}]' data-x="left" data-y="bottom" data-hoffset="0" data-voffset="0" data-width="none" data-height="none" data-type="image" data-basealign="slide"> <i class="fa fa-bullseye icon-25x icon-bg op-1 text-white"></i>
+                                </div>
+                                <!-- Layer 4 -->
+                                <div class="tp-caption tp-resizeme bg-primary-bright" data-frames='[{"from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="bottom" data-voffset="120" data-width="355" data-height="4" data-basealign="slide"></div>
                             </div>
                         </li>
                     </ul>
