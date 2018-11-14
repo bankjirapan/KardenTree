@@ -41,12 +41,15 @@ public class ProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String category = request.getParameter("category");
+//        String category = request.getParameter("category");
         
         ProductJpaController productJpa = new ProductJpaController(utx,emf);
-        List<Product> product = productJpa.findProductCategory(category);
+        List<Product> product = productJpa.findProductEntities();
+        String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+        
+        request.setAttribute("URL", uri);
         request.setAttribute("product", product);
-        getServletContext().getRequestDispatcher("/ProductView.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/ProductList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

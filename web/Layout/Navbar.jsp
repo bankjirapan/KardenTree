@@ -127,7 +127,7 @@
               <ul class="nav navbar-nav float-lg-left navbar-nav-flush dropdown-effect-fadeup">
                 <!-- Shop Homepage -->
                 <li class="nav-item"> <a href="Home" class="nav-link">HOME</a> </li>
-
+                <li class="nav-item"> <a href="Product" class="nav-link">Product</a> </li>
                 <!-- Shop Pages -->
 
               </ul>
