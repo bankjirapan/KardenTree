@@ -126,9 +126,9 @@
                                                     <a class="btn btn-info btn-sm" href="ProductList?view=${productShowAll.productid}"><i class="fa fa-eye"></i></a>
 
 
-                                                    <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
+                                                    <a class="btn btn-warning btn-sm" href="ProductList?edit=${productShowAll.productid}"><i class="fa fa-edit"></i></a>
 
-                                                    <a class="btn btn-danger btn-sm" onclick="" href="#"><i class="fa fa-trash"></i></a>
+                                                    <a class="btn btn-danger btn-sm" onclick="" href="ProductList?delete?=${productShowAll.productid}"><i class="fa fa-trash"></i></a>
 
                                                 </div>
                                             </td>
