@@ -65,6 +65,15 @@ public class ProductListServlet extends HttpServlet {
         request.setAttribute("URL", uri);
         request.setAttribute("ProductAll", productAll);
 
+        // gets absolute path of the web application
+        String appPath = System.getProperty("user.dir");
+        //String savePath = "/Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg/";
+        String LocalStorage = request.getServletContext().getRealPath(File.separator);
+        String PathSaveImg = LocalStorage.replaceAll("/build/web/", "/web/assets/img/ProductImg/");
+   
+        
+        
+
         //ViewProduct
         if (request.getParameter("view") != null) {
 
@@ -108,13 +117,7 @@ public class ProductListServlet extends HttpServlet {
 
             Product ProductEditAs = product.findProduct(request.getParameter("confirmEdit"));
 
-            // gets absolute path of the web application
-            String appPath = System.getProperty("user.dir");
-
-            // constructs path of the directory to save uploaded file
-            //String savePath = appPath + File.separator + SAVE_DIR;
-            String savePath = "/Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg/";
-            File fileSaveDir = new File(savePath);
+            File fileSaveDir = new File(PathSaveImg);
             if (!fileSaveDir.exists()) {
                 fileSaveDir.mkdir();
             }
@@ -123,7 +126,7 @@ public class ProductListServlet extends HttpServlet {
                     String fileName = extractFileName(part);
 
                     //เขียนไฟล์
-                    part.write(savePath + File.separator + request.getParameter("confirmEdit") + ".jpg");
+                    part.write(PathSaveImg + File.separator + request.getParameter("confirmEdit") + ".jpg");
                     ProductEditAs.setPicture("assets/img/ProductImg/" + request.getParameter("confirmEdit") + ".jpg");
                 }
             }
@@ -146,6 +149,45 @@ public class ProductListServlet extends HttpServlet {
 
         }
 
+        //------------------------
+        //Remove Product
+        if (request.getParameter("delete") != null) {
+
+            Product deleteProduct = product.findProduct(request.getParameter("delete"));
+
+            if (deleteProduct != null) {
+                //Remove to Database
+                try {
+                    product.destroy(request.getParameter("delete"));
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                //Remove File
+                try {
+
+                    File file = new File(PathSaveImg + request.getParameter("delete") + ".jpg");
+
+                    if (file.delete()) {
+                        System.out.println(file.getName() + " is deleted!");
+                    } else {
+                        System.out.println("Delete operation is failed.");
+                    }
+
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+
+                }
+
+                response.sendRedirect("ProductList");
+                return;
+
+            }
+
+        }
+
+        //-----------------------
         getServletContext().getRequestDispatcher("/adminView/adminProductList.jsp").forward(request, response);
     }
 
