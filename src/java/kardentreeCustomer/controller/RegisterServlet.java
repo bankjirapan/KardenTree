@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.Random;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -69,7 +70,7 @@ public class RegisterServlet extends HttpServlet {
                     account2.setCreateDate(new Date().toString());
                     account2.setUpdateDate(new Date().toString());
                     account2.setActivated(false);
-                    account2.setActivate("aaa"); // ต้อง Random
+                    account2.setActivate(genActivatedKey()); // ต้อง Random
                     try {
                         accountJpa.create(account2);
                     } catch (Exception ex) {
@@ -99,6 +100,21 @@ public class RegisterServlet extends HttpServlet {
             System.out.println(ex);
         }
         return null;
+    }
+    
+    public static String genActivatedKey (){
+        Random rd = new Random();
+        String key = "";
+        int count = 0;
+        
+        while(count!=10){
+            char i = (char)(rd.nextInt(26)+65);
+            key = key + i;
+            count++;
+        }
+        
+        return key;
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
