@@ -147,6 +147,11 @@
                                         </select>
 
                                     </div>
+                                     <div class="col-md-3 mb-3">
+                                        <label for="zip">จำนวน</label>
+                                        <input type="text" name="quantity" class="form-control" id="zip" placeholder="" required="">
+                                     
+                                    </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="zip">ราคา</label>
                                         <input type="text" name="price" class="form-control" id="zip" placeholder="" required="">
@@ -162,7 +167,9 @@
                                 </div>
                                 
                                 <hr class="mb-4">
+                               
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">เพิ่มสินค้า</button>
+                                </div>
                             </form>
 
 
