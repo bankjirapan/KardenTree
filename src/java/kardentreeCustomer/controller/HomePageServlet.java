@@ -7,16 +7,29 @@ package kardentreeCustomer.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.UserTransaction;
+import kardentreeAdmin.jpa.controller.ProductJpaController;
+import kardentreeAdmin.jpa.models.Product;
 
 /**
  *
  * @author bankcom
  */
 public class HomePageServlet extends HttpServlet {
+
+    @PersistenceUnit(unitName = "KardenTreePU")
+    EntityManagerFactory emf;
+
+    @Resource
+    UserTransaction utx;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,6 +43,13 @@ public class HomePageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        ProductJpaController product = new ProductJpaController(utx, emf);
+
+        List<Product> productAll = product.findProductEntities();
+        String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+        
+        request.setAttribute("URL", uri);
+        request.setAttribute("productAll", productAll);
         getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
 
     }
