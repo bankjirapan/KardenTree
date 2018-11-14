@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="adminHeader.jsp?titleName=KardenTree ProductList"></jsp:include>
+<jsp:include page="adminHeader.jsp?titleName=KardenTree Customer"></jsp:include>
     <!-- Page level plugin CSS-->
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -123,7 +123,7 @@
                                             <td>
                                                 <div class="rows">
 
-                                                    <a class="btn btn-info btn-sm" href="Customer?view="><i class="fa fa-eye"></i></a>
+                                                    <a class="btn btn-info btn-sm" href="ProductList?view=${productShowAll.productid}"><i class="fa fa-eye"></i></a>
 
 
                                                     <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>

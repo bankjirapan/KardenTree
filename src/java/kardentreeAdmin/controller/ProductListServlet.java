@@ -47,10 +47,23 @@ public class ProductListServlet extends HttpServlet {
 
         List<Product> productAll = product.findProductEntities();
 
-        String uri = request.getScheme() + "://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
-        
+        String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+
         request.setAttribute("URL", uri);
         request.setAttribute("ProductAll", productAll);
+
+        //ViewProduct
+        if (request.getParameter("view") != null) {
+
+            Product productView = product.findProduct(request.getParameter("view"));
+
+            if (productView != null) {
+                request.setAttribute("URL", uri);
+                request.setAttribute("ProductView", productView);
+                getServletContext().getRequestDispatcher("/adminView/adminViewProduct.jsp").forward(request, response);
+            }
+
+        }
 
         getServletContext().getRequestDispatcher("/adminView/adminProductList.jsp").forward(request, response);
     }
