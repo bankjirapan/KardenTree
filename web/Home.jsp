@@ -122,18 +122,18 @@
                     <div class="col-lg-7 d-lg-flex">
                         <div class="p-5 py-lg-6 overlay overlay-gradient overlay-op-5 rounded mb-4 mb-lg-0 flex-ew flex-valign" data-bg-img="assets/img/shop/promo-shoes.jpg" data-url="shop-product.html">
                             <h2 class="text-white mb-0">
-                                50% Off All Shoes
+                                50% Off All GardenTree
                             </h2>
-                            <p class="text-white mb-0">This week only up to 50% off all shoes of selected brands.</p>
+                            <p class="text-white mb-0">This week only up to 50% off all Tree </p>
                             <hr class="hr-lg my-2 w-20 mx-auto hr-primary" />
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="p-5 overlay overlay-op-5 rounded mb-4 flex-valign" data-bg-img="assets/img/shop/promo-summer.jpg" data-css='{"background-position":"center bottom"}' data-url="shop-product.html">
                             <h3 class="text-white mb-0">
-                                Summer 2017
+                                Winter 2019
                             </h3>
-                            <p class="text-white mb-0">Check out our new summer arrivals</p>
+                            <p class="text-white mb-0">Winter Tree Sale 30%</p>
                             <hr class="hr-lg my-2 w-20 mx-auto hr-primary" />
                         </div>
                         <div class="p-5 overlay overlay-op-5 rounded flex-valign" data-bg-img="assets/img/shop/promo-truck.jpg" data-css='{"background-position":"center bottom"}' data-url="shop-product.html">
