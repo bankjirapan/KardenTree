@@ -31,6 +31,10 @@
         <servlet-class>kardentreeAdmin.controller.adminLoginServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.ProductServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DashboardServlet</servlet-name>
         <servlet-class>kardentreeAdmin.controller.DashboardServlet</servlet-class>
     </servlet>
@@ -51,10 +55,6 @@
         <servlet-class>kardentreeCustomer.controller.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddProductAdminServlet</servlet-name>
-        <servlet-class>kardentreeAdmin.controller.AddProductAdminServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>HomePageServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.HomePageServlet</servlet-class>
     </servlet>
@@ -69,6 +69,18 @@
     <servlet>
         <servlet-name>CustomerLogoutServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.CustomerLogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductAdminServlet</servlet-name>
+        <servlet-class>kardentreeAdmin.controller.AddProductAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.SearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActivateServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.ActivateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
@@ -95,10 +107,6 @@
         <url-pattern>/Register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddProductAdminServlet</servlet-name>
-        <url-pattern>/admin/AddProduct</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>HomePageServlet</servlet-name>
         <url-pattern>/Home</url-pattern>
     </servlet-mapping>
@@ -107,12 +115,28 @@
         <url-pattern>/admin/ProductList</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/Product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>FileUploadServlet</servlet-name>
         <url-pattern>/Upload</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CustomerLogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductAdminServlet</servlet-name>
+        <url-pattern>/admin/AddProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivateServlet</servlet-name>
+        <url-pattern>/Activate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
