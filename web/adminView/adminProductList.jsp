@@ -128,7 +128,7 @@
 
                                                     <a class="btn btn-warning btn-sm" href="ProductList?edit=${productShowAll.productid}"><i class="fa fa-edit"></i></a>
 
-                                                    <a class="btn btn-danger btn-sm" onclick="" href="ProductList?delete?=${productShowAll.productid}"><i class="fa fa-trash"></i></a>
+                                                    <a class="btn btn-danger btn-sm" onclick="" href="ProductList?delete=${productShowAll.productid}"><i class="fa fa-trash"></i></a>
 
                                                 </div>
                                             </td>
