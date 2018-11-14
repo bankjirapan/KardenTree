@@ -59,6 +59,7 @@ public class AddProductAdminServlet extends HttpServlet {
         String type = request.getParameter("type");
         String detail = request.getParameter("detail");
         String price = request.getParameter("price");
+        String quantity = request.getParameter("quantity");
         //String picture = request.getParameter("pic");
 
         if (productName != null) {
@@ -97,6 +98,7 @@ public class AddProductAdminServlet extends HttpServlet {
                 product1.setType(type);
                 product1.setDetail(detail);
                 product1.setPrice(numPrice);
+                product1.setQuantity(Integer.valueOf(quantity));
 
                 try {
                     productJpa.create(product1);
