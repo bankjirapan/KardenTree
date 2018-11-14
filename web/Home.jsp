@@ -167,16 +167,19 @@
                 <!-- Products cards -->
                 <div class="card-deck-wrapper">
                     <div class="card-deck">
+                        
+                    <c:forEach items="${productAll}" begin="1" end="3" var="Product">
+                        
                         <!-- Product 1 -->
                         <div class="card product-card overlay-hover">
                             <!-- Hover content -->
                             <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-                                <a href="shop-cart.html" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                <a href="#" class="text-white">Add to Wishlist</a> 
+                                <a href="" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                           
                             </div>
                             <!-- Image & price content -->
                             <div class="pos-relative">
-                                <img class="card-img-top img-fluid" src="assets/img/shop/shoes-2.jpg" alt="Card image cap">
+                                <img class="card-img-top img-fluid" src="${URL}/${Product.picture}" alt="Card image cap">
                                 <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">
                                     <del class="op-5">$24.99</del>
                                     / $19.99
@@ -184,71 +187,20 @@
                             </div>
                             <!-- Content -->
                             <div class="card-body">
-                                <small class="text-muted text-uppercase"><span class="text-primary">Womens</span> / Shoes</small>
+                                <small class="text-muted text-uppercase"><span class="text-primary">${Product.category}</span> / ${Product.type}</small>
                                 <h4 class="card-title">
-                                    New Balance Shoes 
+                                    ${Product.productname}
                                 </h4>
                                 <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i>
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">15 in Stock</small>
+                                <small class="text-muted">${Product.quantity} in Stock</small>
                             </div>
                         </div>
-                        <!-- Product 2 -->
-                        <div class="card product-card overlay-hover">
-                            <!-- Hover content -->
-                            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-                                <a href="shop-cart.html" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                <a href="#" class="text-white">Add to Wishlist</a> 
-                            </div>
-                            <!-- Ribbon -->
-                            <div class="card-ribbon card-ribbon-top card-ribbon-left bg-danger text-white">Low Stock</div>
-                            <!-- Image & price content -->
-                            <div class="pos-relative">
-                                <img class="card-img-top img-fluid" src="assets/img/shop/mens-sports-2.jpg" alt="Card image cap">
-                                <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">$39.99</span> 
-                            </div>
-                            <!-- Content -->
-                            <div class="card-body">
-                                <small class="text-muted text-uppercase"><span class="text-primary">Mens</span> / Sports</small>
-                                <h4 class="card-title">
-                                    Nike Training Top 
-                                </h4>
-                                <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> <i class="fa fa-star-o text-primary"></i>
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted"><strong class="text-danger">4 in stock</strong></small>
-                            </div>
-                        </div>
-                        <!-- Product 3 -->
-                        <div class="card product-card overlay-hover">
-                            <!-- Hover content -->
-                            <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-                                <a href="shop-cart.html" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                <a href="#" class="text-white">Add to Wishlist</a> 
-                            </div>
-                            <!-- Ribbon -->
-                            <div class="card-ribbon card-ribbon-top card-ribbon-left bg-primary text-white">Eco Friendly</div>
-                            <!-- Image & price content -->
-                            <div class="pos-relative">
-                                <img class="card-img-top img-fluid" src="assets/img/shop/promo-kids.jpg" alt="Card image cap">
-                                <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">$9.99</span> 
-                            </div>
-                            <!-- Content -->
-                            <div class="card-body">
-                                <small class="text-muted text-uppercase"><span class="text-primary">Kids</span> / Jumpers</small>
-                                <h4 class="card-title">
-                                    Kids Wolly Jumper 
-                                </h4>
-                                <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i>
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">105 in Stock</small>
-                            </div>
-                        </div>
+                    </c:forEach>
+                     
+                        
                     </div>
                 </div>
             </div>
