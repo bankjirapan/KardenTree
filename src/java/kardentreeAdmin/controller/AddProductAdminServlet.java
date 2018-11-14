@@ -61,6 +61,14 @@ public class AddProductAdminServlet extends HttpServlet {
         String price = request.getParameter("price");
         String quantity = request.getParameter("quantity");
         //String picture = request.getParameter("pic");
+        
+          // gets absolute path of the web application
+        String appPath = System.getProperty("user.dir");
+        //String savePath = "/Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg/";
+        String LocalStorage = request.getServletContext().getRealPath(File.separator);
+        String PathSaveImg = LocalStorage.replaceAll("/build/web/", "/web/assets/img/ProductImg/");
+   
+        
 
         if (productName != null) {
             ProductJpaController productJpa = new ProductJpaController(utx, emf);
@@ -73,12 +81,11 @@ public class AddProductAdminServlet extends HttpServlet {
                 double numPrice = Double.parseDouble(price);
 
                 // gets absolute path of the web application
-                String appPath = System.getProperty("user.dir");
-
-                // constructs path of the directory to save uploaded file
-                //String savePath = appPath + File.separator + SAVE_DIR;
-                String savePath = "/Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg/";
-                File fileSaveDir = new File(savePath);
+               
+              
+                
+                
+                File fileSaveDir = new File(PathSaveImg);
                 if (!fileSaveDir.exists()) {
                     fileSaveDir.mkdir();
                 }
@@ -87,7 +94,7 @@ public class AddProductAdminServlet extends HttpServlet {
                         String fileName = extractFileName(part);
 
                         //เขียนไฟล์
-                        part.write(savePath + File.separator + productCount + ".jpg");
+                        part.write(PathSaveImg + File.separator + productCount + ".jpg");
                         product1.setPicture("assets/img/ProductImg/" + productCount + ".jpg");
                     }
                 }
