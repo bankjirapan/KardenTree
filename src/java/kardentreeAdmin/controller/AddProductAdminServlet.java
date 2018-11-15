@@ -8,6 +8,7 @@ package kardentreeAdmin.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -21,6 +22,8 @@ import javax.servlet.http.Part;
 import javax.transaction.UserTransaction;
 import kardentreeAdmin.jpa.controller.ProductJpaController;
 import kardentreeAdmin.jpa.models.Product;
+import kardentreeCustomer.jpa.controller.CategoryJpaController;
+import kardentreeCustomer.jpa.models.Category;
 
 /**
  *
@@ -82,9 +85,6 @@ public class AddProductAdminServlet extends HttpServlet {
 
                 // gets absolute path of the web application
                
-              
-                
-                
                 File fileSaveDir = new File(PathSaveImg);
                 if (!fileSaveDir.exists()) {
                     fileSaveDir.mkdir();
@@ -117,6 +117,14 @@ public class AddProductAdminServlet extends HttpServlet {
                 return;
             }
         }
+        
+        //Get Category Product
+        
+        CategoryJpaController categoryProduct = new CategoryJpaController(utx, emf);
+        List<Category> Listcategory = categoryProduct.findCategoryEntities();
+        
+        
+        request.setAttribute("Category", Listcategory);
         getServletContext().getRequestDispatcher("/adminView/adminAddProduct.jsp").forward(request, response);
     }
 
