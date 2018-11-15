@@ -14,4 +14,7 @@
     <body>
         Complete for register, Thanks you
     </body>
+    <script>
+        window.location = "Home";
+    </script>
 </html>
