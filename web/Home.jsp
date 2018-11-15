@@ -234,7 +234,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 d-flex">
-                    <div class="p-5 overlay overlay-op-5 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/backgrounds/garlic-2556022_1920.jpg" data-css='{"background-position":"center bottom"}' data-url="Product">
+                    <div class="p-5 overlay overlay-op-5 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/backgrounds/garlic-2556022_1920.jpg" data-css='{"background-position":"center bottom"}' data-url="Product?category=houseplants">
                         <hr class="w-50 mx-auto hr-primary" />
                         <h2 class="text-white text-uppercase mb-0">
                             House Plants
@@ -243,7 +243,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 d-flex">
-                    <div class="p-5 overlay overlay-op-4 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/backgrounds/gardentool.jpg" data-css='{"background-position":"center bottom"}' data-url="Product">
+                    <div class="p-5 overlay overlay-op-4 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/backgrounds/gardentool.jpg" data-css='{"background-position":"center bottom"}' data-url="Product?category=gardeningtools">
                         <hr class="w-50 mx-auto hr-primary" />
                         <h2 class="text-white text-uppercase mb-0">
                             Gardening tools
