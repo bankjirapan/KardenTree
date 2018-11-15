@@ -72,6 +72,14 @@
         <servlet-name>ActivateServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.ActivateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductToCardServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.AddProductToCartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>ActivateServlet</servlet-name>
         <url-pattern>/Activate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/Cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductToCardServlet</servlet-name>
+        <url-pattern>/AddCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
