@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.transaction.UserTransaction;
 import kardentreeAdmin.jpa.controller.ProductJpaController;
 import kardentreeAdmin.jpa.models.Product;
+import kardentreeCustomer.jpa.controller.CategoryJpaController;
+import kardentreeCustomer.jpa.models.Category;
 
 /**
  *
@@ -42,12 +44,14 @@ public class ProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String category = request.getParameter("category");
+        //String category = request.getParameter("category");
 
         ProductJpaController productJpa = new ProductJpaController(utx, emf);
         List<Product> product = productJpa.findProductEntities();
         String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-
+        CategoryJpaController categoryJpa = new CategoryJpaController (utx, emf);
+        List<Category> categoryList = categoryJpa.findCategoryEntities();
+        
         //ViewProduct
         if (request.getParameter("view") != null) {
 
@@ -64,6 +68,7 @@ public class ProductServlet extends HttpServlet {
 
         request.setAttribute("URL", uri);
         request.setAttribute("product", product);
+        request.setAttribute("category", categoryList);
         getServletContext().getRequestDispatcher("/ProductList.jsp").forward(request, response);
     }
 
