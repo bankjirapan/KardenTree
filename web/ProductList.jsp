@@ -15,7 +15,6 @@
 
 
         <a id="#top" href="#content" class="sr-only">Skip to content</a>
-
     <jsp:include page="Layout/Navbar.jsp"></jsp:include>
 
         <div id="page-header">
