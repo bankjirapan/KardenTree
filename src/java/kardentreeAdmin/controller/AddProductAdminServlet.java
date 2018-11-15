@@ -94,8 +94,8 @@ public class AddProductAdminServlet extends HttpServlet {
                         String fileName = extractFileName(part);
 
                         //เขียนไฟล์
-                        part.write(PathSaveImg + File.separator + productCount + ".jpg");
-                        product1.setPicture("assets/img/ProductImg/" + productCount + ".jpg");
+                        part.write(PathSaveImg + File.separator + productName + ".jpg");
+                        product1.setPicture("assets/img/ProductImg/" + productName + ".jpg");
                     }
                 }
 

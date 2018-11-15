@@ -126,8 +126,8 @@ public class ProductListServlet extends HttpServlet {
                     String fileName = extractFileName(part);
 
                     //เขียนไฟล์
-                    part.write(PathSaveImg + File.separator + request.getParameter("confirmEdit") + ".jpg");
-                    ProductEditAs.setPicture("assets/img/ProductImg/" + request.getParameter("confirmEdit") + ".jpg");
+                    part.write(PathSaveImg + File.separator + productName + ".jpg");
+                    ProductEditAs.setPicture("assets/img/ProductImg/"+ productName+".jpg");
                 }
             }
 
@@ -154,6 +154,8 @@ public class ProductListServlet extends HttpServlet {
         if (request.getParameter("delete") != null) {
 
             Product deleteProduct = product.findProduct(request.getParameter("delete"));
+            
+            String ProductName = deleteProduct.getProductname();
 
             if (deleteProduct != null) {
                 //Remove to Database
@@ -166,7 +168,7 @@ public class ProductListServlet extends HttpServlet {
                 //Remove File
                 try {
 
-                    File file = new File(PathSaveImg + request.getParameter("delete") + ".jpg");
+                    File file = new File(PathSaveImg + ProductName + ".jpg");
 
                     if (file.delete()) {
                         System.out.println(file.getName() + " is deleted!");
