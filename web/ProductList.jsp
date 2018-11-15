@@ -194,7 +194,7 @@
                             <li>
                                 <a href="#mens" data-toggle="collapse" class="nav-link text-uppercase text-slab first active show">
                                    ${Category.categoryname}
-                                    <small class="d-inline-block text-xs text-lowercase">(active)</small>
+                                    
                                     <i class="fa fa-angle-right"></i>
                                 </a>
 <!--                                <ul class="nav nav-section-menu collapse show" id="mens">
