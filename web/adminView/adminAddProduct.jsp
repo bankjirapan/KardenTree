@@ -4,38 +4,37 @@
     Author     : bankcom
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <jsp:include page="adminHeader.jsp?titleName=KardenTree AddProduct"></jsp:include>
 
-    <style>
+<style>
+    
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
 
-        .btn-file {
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-file input[type=file] {
-            position: absolute;
-            top: 0;
-            right: 0;
-            min-width: 100%;
-            min-height: 100%;
-            font-size: 100px;
-            text-align: right;
-            filter: alpha(opacity=0);
-            opacity: 0;
-            outline: none;
-            background: white;
-            cursor: inherit;
-            display: block;
-        }
+#img-upload{
+    width: 100%;
+}
 
-        #img-upload{
-            width: 100%;
-        }
-
-    </style>
+</style>
     <body id="page-top">
 
     <jsp:include page="adminNavbar.jsp"></jsp:include>
@@ -135,135 +134,133 @@
                                     <div class="col-md-5 mb-3">
                                         <label for="country">ประเภทสินค้า</label>
                                         <select name="category" class="custom-select d-block w-100" id="country" required="">
-                                        <c:forEach items="${Category}" var="CategoryList">
-                                            <option>${CategoryList.categoryname}</option>
-                                        </c:forEach>
-                                    </select>
+                                            <option>Garden Tree</option>
+                                            <option>Graden Tools</option>
+                                        </select>
 
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="state">ชนิดของสินค้า</label>
+                                        <select name="type" class="custom-select d-block w-100" id="state" required="">
+                                            <option>House Tree</option>
+                                            <option>Garden Tree</option>
+                                        </select>
+
+                                    </div>
+                                     <div class="col-md-3 mb-3">
+                                        <label for="zip">จำนวน</label>
+                                        <input type="text" name="quantity" class="form-control" id="zip" placeholder="" required="">
+                                     
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="zip">ราคา</label>
+                                        <input type="text" name="price" class="form-control" id="zip" placeholder="" required="">
+                                     
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="state">ชนิดของสินค้า</label>
-                                    <select name="type" class="custom-select d-block w-100" id="state" required="">
-                                        <option>House Tree</option>
-                                        <option>Garden Tree</option>
-                                    </select>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="zip">รายละเอียดสินค้า</label>
+                                        <textarea class="form-control" name="detail"></textarea>
 
+                                    </div>
                                 </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="zip">จำนวน</label>
-                                    <input type="text" name="quantity" class="form-control" id="zip" placeholder="" required="">
-
+                                
+                                <hr class="mb-4">
+                               
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">เพิ่มสินค้า</button>
                                 </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="zip">ราคา</label>
-                                    <input type="text" name="price" class="form-control" id="zip" placeholder="" required="">
+                            </form>
 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    <label for="zip">รายละเอียดสินค้า</label>
-                                    <textarea class="form-control" name="detail"></textarea>
 
-                                </div>
-                            </div>
-
-                            <hr class="mb-4">
-
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">เพิ่มสินค้า</button>
+                        </div>
                     </div>
-                    </form>
+
+
+
 
 
                 </div>
+                <!-- /.container-fluid -->
+
+                <!-- Sticky Footer -->
+                <footer class="sticky-footer">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright © Your Website 2018</span>
+                        </div>
+                    </div>
+                </footer>
+
             </div>
-
-
-
-
+            <!-- /.content-wrapper -->
 
         </div>
-        <!-- /.container-fluid -->
+        <!-- /#wrapper -->
 
-        <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright © Your Website 2018</span>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger" href="logout">Logout</a>
+                    </div>
                 </div>
             </div>
-        </footer>
-
-    </div>
-    <!-- /.content-wrapper -->
-
-</div>
-<!-- /#wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger" href="logout">Logout</a>
-            </div>
         </div>
-    </div>
-</div>
 
-<jsp:include page="adminFooter.jsp"></jsp:include>
+    <jsp:include page="adminFooter.jsp"></jsp:include>
+    
+    <script>
+        $(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
 
-<script>
-    $(document).ready(function () {
-        $(document).on('change', '.btn-file :file', function () {
-            var input = $(this),
-                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-            input.trigger('fileselect', [label]);
-        });
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
 
-        $('.btn-file :file').on('fileselect', function (event, label) {
-
-            var input = $(this).parents('.input-group').find(':text'),
-                    log = label;
-
-            if (input.length) {
-                input.val(log);
-            } else {
-                if (log)
-                    alert(log);
-            }
-
-        });
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#img-upload').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#imgInp").change(function () {
-            readURL(this);
-        });
-    });
-
-</script>
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+        
+    </script>
 </body>
 </html>
