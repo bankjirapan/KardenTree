@@ -35,7 +35,8 @@
             <h4 class="text-uppercase text-white">
               About Us
             </h4>
-            <p>Making the web a prettier place one template at a time! We make beautiful, quality, responsive Drupal &amp; web templates!</p>
+            <p>SIT Students</p>
+            <p>Web Programming</p>
           </div>
 
           <div class="col-md-4">
