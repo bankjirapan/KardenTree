@@ -77,7 +77,7 @@
                                 <div class="tp-caption tp-resizeme bg-primary-bright" data-frames='[{"from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' data-x="['left','left','left','left']" data-hoffset="['0','0','0','40']" data-y="bottom" data-voffset="120" data-width="355" data-height="4" data-basealign="slide"></div>
                             </div>
                         </li>
-                       
+
                                <!-- SLIDE 3 -->
                         <li class="slide overlay overlay-op-2" data-transition="fadethroughdark" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/img/shop/beach.jpg" data-rotate="0" data-saveperformance="off" data-title="Summer" data-mediafilter="earlybird">
                             <!-- MAIN IMAGE -->
@@ -200,7 +200,7 @@
         <div class="container" data-url="#">
             <hr class="hr-lg mt-0 mb-1 w-100 mx-auto hr-danger" />
             <div class="pos-relative">
-                <i class="fa fa-bullseye icon-bg op-1 icon-bg-l-ol icon-25x text-white"></i> <i class="fa fa-bullseye icon-bg op-1 icon-bg-r-ol icon-bg-b icon-25x text-white"></i> 
+                <i class="fa fa-bullseye icon-bg op-1 icon-bg-l-ol icon-25x text-white"></i> <i class="fa fa-bullseye icon-bg op-1 icon-bg-r-ol icon-bg-b icon-25x text-white"></i>
                 <div class="p-4 text-center bg-danger">
                     <h2 class="display-4 font-weight-normal text-uppercase text-white my-0 text-slab">
                         Clearance Sale
@@ -223,7 +223,7 @@
             </h5>
             <hr class="mb-5 w-50 mx-auto" />
             <div class="row">
-                
+
                 <div class="col-lg-4 d-flex">
                     <div class="p-5 py-lg-6 overlay overlay-op-5 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/backgrounds/flowers-3783508_1920.jpg" data-url="Product?category=gardentree">
                         <hr class="w-50 mx-auto hr-primary" />
@@ -251,7 +251,7 @@
                         <hr class="w-50 mx-auto hr-primary" />
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <!-- Feature Blocks -->
@@ -263,29 +263,18 @@
                         <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-primary" />
                         <h2 class="display-4 text-slab text-white text-uppercase mt-0 mb-5">
 
-                            Fiddle Leaf Fig 
-                            <span class="text-primary font-weight-bold">Tree</span>
+                            Free
+                            <span class="text-primary font-weight-bold">Shipping</span>
                         </h2>
                         <div class="row mb-3">
                             <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
                             </div>
                             <div class="col-10 col-md-11 text-grey">
-                                <h4 class="font-weight-bold text-white text-uppercase">
-                                    Bold violin-shaped leaves
-                                </h4>
-                                <p>Bold violin-shaped leaves</p>
+
+                                <p>Our competitors charge complicated and expensive shipping fees. Not us. Every order over $100 dollars is shipped absolutely free of charge! No if’s, and’s or but’s.</p>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
-                            </div>
-                            <div class="col-10 col-md-11 text-grey">
-                                <h4 class="font-weight-bold text-white text-uppercase">
-                                    Excellent houseplant for the modern home
-                                </h4>
-                                <p>Excellent houseplant for the modern home</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -297,28 +286,17 @@
                     <div class="col-lg-4 offset-lg-2 py-6">
                         <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-primary" />
                         <h2 class="display-4 text-slab text-grey-dark text-uppercase mt-0 mb-5">
-                            Latest <span class="text-primary font-weight-bold">Trends</span>
+                            Lowest Prices  <span class="text-primary font-weight-bold">Around</span>
                         </h2>
                         <div class="row mb-3">
                             <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
                             </div>
                             <div class="col-10 col-md-11">
-                                <h4 class="font-weight-bold text-uppercase">
-                                    Capto Magna Torqueo Turpis
-                                </h4>
-                                <p>Abbas gilvus persto populus utrum. Exputo jus laoreet melior neque praemitto qui scisco. Camur dignissim gemino in pala patria sagaciter sed.</p>
+
+                                <p>We offer some of the lowest prices in the industry! Since we built this company solely to sell trees online, we don’t have the massive overhead that large nurseries have!</p>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-primary icon-2x op-8"></i>
-                            </div>
-                            <div class="col-10 col-md-11">
-                                <h4 class="font-weight-bold text-uppercase">
-                                    Eros Eum Qui Valde
-                                </h4>
-                                <p>Humo laoreet usitas uxor. At nostrud os vereor. Aliquip hos laoreet lenis nimis saluto si. Letalis pertineo quidne quis virtus.</p>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="col-lg-6 divider-diagonal divider-light" data-bg-img="assets/img/tree/fiddle-leaf-fig-2.jpg"></div>
                 </div>
@@ -332,28 +310,17 @@
                     <div class="col-lg-4 py-6">
                         <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-white" />
                         <h2 class="display-4 text-slab text-grey text-uppercase mt-0 mb-5">
-                            Beach <span class="text-white font-weight-bold">2018</span>
+                            Next Day  <span class="text-white font-weight-bold">Shipping</span>
                         </h2>
                         <div class="row mb-3">
                             <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-white icon-2x op-8"></i>
                             </div>
                             <div class="col-10 col-md-11 text-grey">
-                                <h4 class="font-weight-bold text-white text-uppercase">
-                                    Camur Cui Incassum Voco
-                                </h4>
-                                <p>Accumsan capto gravis. Antehabeo caecus distineo erat incassum pecus refero wisi. Commodo consectetuer dolus esca haero sudo tation tum valetudo.</p>
+
+                                <p>Nearly all of our products ship the very next day! We’ve streamlined our business from the top down to offer lightning fast service! All of our trees have their estimated ship date clearly listed.</p>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-2 col-md-1 text-center"> <i class="fa fa-check text-white icon-2x op-8"></i>
-                            </div>
-                            <div class="col-10 col-md-11 text-grey">
-                                <h4 class="font-weight-bold text-white text-uppercase">
-                                    Capto Decet Facilisi Quia
-                                </h4>
-                                <p>Iusto laoreet olim. Abigo antehabeo magna praemitto quia quis singularis. Antehabeo conventio hendrerit ille mauris quibus sino valde vereor. Comis conventio dolore euismod nulla obruo oppeto ratis vindico vulputate.</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -373,7 +340,7 @@
                         <!-- Hover content -->
                         <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
                             <h4 class="text-white">
-                                ${newProduct.productname} 
+                                ${newProduct.productname}
                             </h4>
                             <a href="" class="btn btn-primary text-uppercase font-weight-bold mb-2"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
                         </div>
@@ -400,7 +367,7 @@
             <div class="container py-3 pos-relative">
                 <div class="row">
                     <div class="col-lg-7 text-center text-lg-left">
-                        <i class="fa fa-envelope-o icon-4x op-4 float-left mr-3 d-none d-xl-block"></i> 
+                        <i class="fa fa-envelope-o icon-4x op-4 float-left mr-3 d-none d-xl-block"></i>
                         <h2 class="text-uppercase font-weight-bold mt-2 mb-1 text-slab">
                             Get Deals & Discounts
                         </h2>
