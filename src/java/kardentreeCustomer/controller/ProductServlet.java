@@ -58,6 +58,7 @@ public class ProductServlet extends HttpServlet {
              if(productCategory!=null){
                  request.setAttribute("URL", uri);
                  request.setAttribute("productcategory", productCategory);
+                 request.setAttribute("category", categoryList);
                  getServletContext().getRequestDispatcher("/ProductListByCategory.jsp").forward(request, response);
              }
         }
