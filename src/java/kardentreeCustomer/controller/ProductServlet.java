@@ -6,7 +6,6 @@
 package kardentreeCustomer.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
@@ -74,7 +73,18 @@ public class ProductServlet extends HttpServlet {
                 getServletContext().getRequestDispatcher("/ProductInfo.jsp").forward(request, response);
                 return;
             }
-
+        }
+        
+        if(request.getParameter("search") != null){
+            
+            List<Product> productSearchByName = productJpa.SearchByName(request.getParameter("search"));
+            
+            request.setAttribute("URL", uri);
+            request.setAttribute("OKSearch","1");
+            request.setAttribute("ProductSearch",productSearchByName);
+            
+            //System.out.println(productSearchByName);
+            
         }
 
         request.setAttribute("URL", uri);

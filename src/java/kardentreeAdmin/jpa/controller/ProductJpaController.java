@@ -124,7 +124,7 @@ public class ProductJpaController implements Serializable {
     public List<Product> findProductEntities(int maxResults, int firstResult) {
         return findProductEntities(false, maxResults, firstResult);
     }
-    
+
     public List<Product> findProductCategory(String category) {
         EntityManager em = getEntityManager();
         try {
@@ -136,6 +136,21 @@ public class ProductJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public List<Product> SearchByName(String ProductName) {
+        EntityManager em = getEntityManager();
+ 
+        try {
+            Query query = em.createNamedQuery("Product.SearchByName");
+            query.setParameter("productname","%"+ProductName+"%");
+            return query.getResultList();
+        } catch (NoResultException NoResult) {
+            return null;
+        } finally {
+            em.close();
+        }
+
     }
 
     private List<Product> findProductEntities(boolean all, int maxResults, int firstResult) {
@@ -162,16 +177,16 @@ public class ProductJpaController implements Serializable {
             em.close();
         }
     }
-    
-    public Product findProductName(String productName){
+
+    public Product findProductName(String productName) {
         EntityManager em = getEntityManager();
-        try{
+        try {
             Query query = em.createNamedQuery("Product.findByProductname");
             query.setParameter("productname", productName);
             return (Product) query.getSingleResult();
-        } catch(NoResultException NoResult){
+        } catch (NoResultException NoResult) {
             return null;
-        }finally{
+        } finally {
             em.close();
         }
     }
@@ -188,5 +203,5 @@ public class ProductJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }
