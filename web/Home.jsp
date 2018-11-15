@@ -171,7 +171,7 @@
                             </div>
                             <!-- Image & price content -->
                             <div class="pos-relative">
-                                <img class="card-img-top img-fluid" src="${URL}/${Product.picture}" alt="Card image cap">
+                                <img class="card-img-top img-fluid" src="${URL}/assets/img/ProductImg/${Product.productname}.jpg" alt="Card image cap">
                                 <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">
 
                                     ${Product.price} ฿
@@ -320,7 +320,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 divider-diagonal divider-light" data-bg-img="assets/img/shop/promo-kids.jpg"></div>
+                    <div class="col-lg-6 divider-diagonal divider-light" data-bg-img="assets/img/tree/fiddle-leaf-fig-2.jpg"></div>
                 </div>
             </div>
         </div>
@@ -328,7 +328,7 @@
         <div class="bg-primary">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-5 divider-diagonal divider-diagonal-r divider-primary op-9" data-bg-img="assets/img/shop/promo-bikini.jpg"></div>
+                    <div class="col-lg-5 divider-diagonal divider-diagonal-r divider-primary op-9" data-bg-img="assets/img/tree/plants.jpg"></div>
                     <div class="col-lg-4 py-6">
                         <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-white" />
                         <h2 class="display-4 text-slab text-grey text-uppercase mt-0 mb-5">
@@ -379,7 +379,7 @@
                         </div>
                         <!-- Image & price content -->
                         <div class="pos-relative">
-                            <img class="card-img-top img-fluid" src="${URL}/${newProduct.picture}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="${URL}/assets/img/ProductImg/${newProduct.productname}.jpg" alt="Card image cap">
                             <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-l mt-2 ml-2">
                                 ${newProduct.price} ฿
 
