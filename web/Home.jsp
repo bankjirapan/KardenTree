@@ -225,7 +225,7 @@
             <div class="row">
                 
                 <div class="col-lg-4 d-flex">
-                    <div class="p-5 py-lg-6 overlay overlay-op-5 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/backgrounds/flowers-3783508_1920.jpg" data-url="Product">
+                    <div class="p-5 py-lg-6 overlay overlay-op-5 rounded flex-ew mb-3 mb-lg-0 flex-valign" data-bg-img="assets/img/backgrounds/flowers-3783508_1920.jpg" data-url="Product?category=gardentree">
                         <hr class="w-50 mx-auto hr-primary" />
                         <h2 class="text-white text-uppercase mb-0">
                             Garden tree
