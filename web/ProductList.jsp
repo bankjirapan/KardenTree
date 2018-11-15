@@ -120,67 +120,67 @@
                         <hr class="my-4">
                         <div class="row">
                             <!-- กรณีไม่ได้ Search -->
-                            <c:forEach items="${product}" var="Showproduct">
-                                <div class="col-lg-4"  style="${OKSearch == 1 ? 'display : none' : ""}">
-                                    <!-- Product 2 -->
-                                    <div class="card mb-4 product-card overlay-hover">
-                                        <!-- Hover content -->
-                                        <div class="overlay-hover-content overlay-op-7">
-                                            <a href="" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                            <a href="Product?view=${Showproduct.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
-                                        </div>
-                                        <!-- Image & price content -->
-                                        <div class="pos-relative">
-                                            <img class="card-img-top img-fluid" src="${URL}/${Showproduct.picture}" alt="Card image cap">
-                                            <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">${Showproduct.price}</span> 
-                                        </div>
-                                        <!-- Content -->
-                                        <div class="card-body">
-                                            <small class="text-muted text-uppercase"><span class="text-primary">${Showproduct.category}</span> / ${Showproduct.type}</small>
-                                            <h4 class="card-title">
-                                                ${Showproduct.productname}
-                                            </h4>
-                                            <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> </p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted">${Showproduct.quantity} in stock</small>
-                                        </div>
+                        <c:forEach items="${product}" var="Showproduct">
+                            <div class="col-lg-4"  style="${OKSearch == 1 ? 'display : none' : ""}">
+                                <!-- Product 2 -->
+                                <div class="card mb-4 product-card overlay-hover">
+                                    <!-- Hover content -->
+                                    <div class="overlay-hover-content overlay-op-7">
+                                        <a href="AddCart?productid=${Showproduct.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                                        <a href="Product?view=${Showproduct.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
+                                    </div>
+                                    <!-- Image & price content -->
+                                    <div class="pos-relative">
+                                        <img class="card-img-top img-fluid" src="${URL}/${Showproduct.picture}" alt="Card image cap">
+                                        <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">${Showproduct.price}</span> 
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="card-body">
+                                        <small class="text-muted text-uppercase"><span class="text-primary">${Showproduct.category}</span> / ${Showproduct.type}</small>
+                                        <h4 class="card-title">
+                                            ${Showproduct.productname}
+                                        </h4>
+                                        <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">${Showproduct.quantity} in stock</small>
                                     </div>
                                 </div>
-                            </c:forEach>
-                            
-                            
-                            <!--กรณีมาจากค้นหา-->
-                            
-                            <c:forEach items="${ProductSearch}" var="ProductSearch">
-                                <div class="col-lg-4"  style="${OKSearch == 1 ? "" : "display : none"}">
-                                    <!-- Product 2 -->
-                                    <div class="card mb-4 product-card overlay-hover">
-                                        <!-- Hover content -->
-                                        <div class="overlay-hover-content overlay-op-7">
-                                            <a href="" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                            <a href="Product?view=${ProductSearch.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
-                                        </div>
-                                        <!-- Image & price content -->
-                                        <div class="pos-relative">
-                                            <img class="card-img-top img-fluid" src="${URL}/${ProductSearch.picture}" alt="Card image cap">
-                                            <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">${ProductSearch.price}</span> 
-                                        </div>
-                                        <!-- Content -->
-                                        <div class="card-body">
-                                            <small class="text-muted text-uppercase"><span class="text-primary">${ProductSearch.category}</span> / ${ProductSearch.type}</small>
-                                            <h4 class="card-title">
-                                                ${ProductSearch.productname}
-                                            </h4>
-                                            <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> </p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted">${ProductSearch.quantity} in stock</small>
-                                        </div>
+                            </div>
+                        </c:forEach>
+
+
+                        <!--กรณีมาจากค้นหา-->
+
+                        <c:forEach items="${ProductSearch}" var="ProductSearch">
+                            <div class="col-lg-4"  style="${OKSearch == 1 ? "" : "display : none"}">
+                                <!-- Product 2 -->
+                                <div class="card mb-4 product-card overlay-hover">
+                                    <!-- Hover content -->
+                                    <div class="overlay-hover-content overlay-op-7">
+                                        <a href="AddCart?productid=${ProductSearch.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                                        <a href="Product?view=${ProductSearch.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
+                                    </div>
+                                    <!-- Image & price content -->
+                                    <div class="pos-relative">
+                                        <img class="card-img-top img-fluid" src="${URL}/${ProductSearch.picture}" alt="Card image cap">
+                                        <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">${ProductSearch.price}</span> 
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="card-body">
+                                        <small class="text-muted text-uppercase"><span class="text-primary">${ProductSearch.category}</span> / ${ProductSearch.type}</small>
+                                        <h4 class="card-title">
+                                            ${ProductSearch.productname}
+                                        </h4>
+                                        <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">${ProductSearch.quantity} in stock</small>
                                     </div>
                                 </div>
-                            </c:forEach>
-                      
+                            </div>
+                        </c:forEach>
+
                     </div>
                     <!-- Call to action -->
                     <div class="my-3 clickable-element" data-url="#">
