@@ -119,7 +119,7 @@
                         </div>
                         <hr class="my-4">
                         <div class="row">
-                            
+                        
                         <c:forEach items="${product}" var="Showproduct">
                             <div class="col-lg-4">
                                 <!-- Product 2 -->
