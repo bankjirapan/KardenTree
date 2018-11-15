@@ -4,6 +4,7 @@
     Author     : bankcom
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <jsp:include page="adminHeader.jsp?titleName=KardenTree AddProduct"></jsp:include>
@@ -134,8 +135,11 @@
                                     <div class="col-md-5 mb-3">
                                         <label for="country">ประเภทสินค้า</label>
                                         <select name="category" class="custom-select d-block w-100" id="country" required="">
-                                            <option>Garden Tree</option>
-                                            <option>Graden Tools</option>
+                                        <c:forEach items="${Category}" var="Category">
+                                            <option>${Category.categoryname}</option>
+                                        </c:forEach>
+                                           
+                                            
                                         </select>
 
                                     </div>
