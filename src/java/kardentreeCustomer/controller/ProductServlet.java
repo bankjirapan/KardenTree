@@ -24,9 +24,10 @@ import kardentreeAdmin.jpa.models.Product;
  * @author ryan.
  */
 public class ProductServlet extends HttpServlet {
+
     @PersistenceUnit(unitName = "KardenTreePU")
     EntityManagerFactory emf;
-    
+
     @Resource
     UserTransaction utx;
 
@@ -42,11 +43,25 @@ public class ProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        String category = request.getParameter("category");
-        
-        ProductJpaController productJpa = new ProductJpaController(utx,emf);
+
+        ProductJpaController productJpa = new ProductJpaController(utx, emf);
         List<Product> product = productJpa.findProductEntities();
         String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-        
+
+        //ViewProduct
+        if (request.getParameter("view") != null) {
+
+            Product productView = productJpa.findProduct(request.getParameter("view"));
+
+            if (productView != null) {
+                request.setAttribute("URL", uri);
+                request.setAttribute("ProductView", productView);
+                getServletContext().getRequestDispatcher("/ProductInfo.jsp").forward(request, response);
+                return;
+            }
+
+        }
+
         request.setAttribute("URL", uri);
         request.setAttribute("product", product);
         getServletContext().getRequestDispatcher("/ProductList.jsp").forward(request, response);
