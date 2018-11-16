@@ -138,12 +138,12 @@ public class ProductJpaController implements Serializable {
         }
     }
 
-    public List<Product> SearchByName(String ProductName) {
+    public List<Product> SearchByName(String search) {
         EntityManager em = getEntityManager();
  
         try {
             Query query = em.createNamedQuery("Product.SearchByName");
-            query.setParameter("productname","%"+ProductName+"%");
+            query.setParameter("search","%"+search+"%");
             return query.getResultList();
         } catch (NoResultException NoResult) {
             return null;
@@ -152,7 +152,7 @@ public class ProductJpaController implements Serializable {
         }
 
     }
-
+ 
     private List<Product> findProductEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
