@@ -7,16 +7,29 @@ package kardentreeCustomer.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.UserTransaction;
+import kardentreeAdmin.jpa.controller.ProductJpaController;
+import kardentreeAdmin.jpa.models.Cart;
+import kardentreeAdmin.jpa.models.Product;
 
 /**
  *
  * @author ryan.
  */
 public class CartServlet extends HttpServlet {
+
+    @PersistenceUnit(unitName = "KardenTreePU")
+    EntityManagerFactory emf;
+
+    @Resource
+    UserTransaction utx;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,6 +42,18 @@ public class CartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        if (request.getParameter("remove") != null) {
+     
+            ProductJpaController productJpa = new ProductJpaController(utx, emf);
+            Product p = productJpa.findProduct(request.getParameter("remove"));
+            Cart cart = (Cart) request.getSession().getAttribute("cart");
+            cart.remove(p);
+            request.getSession().setAttribute("cart", cart);
+            response.sendRedirect("Product");
+            return;
+        }
+
         getServletContext().getRequestDispatcher(("/Cart.jsp")).forward(request, response);
     }
 

@@ -75,7 +75,7 @@
                                                 ${cartList.product.productname}
                                             </h5>
                                             <p class="mb-0"></p>
-                                            <a href="#" class="close cart-remove text-primary"> <i class="fa fa-times"></i> </a>
+                                            <a href="Cart?remove=${cartList.product.productid}" class="close cart-remove text-primary"> <i class="fa fa-times"></i> </a>
                                         </div>
                                     </div>
                                 </c:forEach>
