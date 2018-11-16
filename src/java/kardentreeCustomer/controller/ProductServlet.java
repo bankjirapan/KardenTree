@@ -79,9 +79,12 @@ public class ProductServlet extends HttpServlet {
             
             List<Product> productSearchByName = productJpa.SearchByName(request.getParameter("search"));
             
+            if(productSearchByName != null){
             request.setAttribute("URL", uri);
             request.setAttribute("OKSearch","1");
             request.setAttribute("ProductSearch",productSearchByName);
+                //System.out.println(productSearchByName);
+            }
             
             //System.out.println(productSearchByName);
             
