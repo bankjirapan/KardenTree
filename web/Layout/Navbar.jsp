@@ -86,7 +86,7 @@
                             <hr class="mt-3 mb-0" />
                             <div class="dropdown-footer text-center">
                                 <h5 class="font-weight-bold">
-                                    Total: <span class="text-primary">$50.97</span>
+                                    Total: <span class="text-primary">${sessionScope.totalprice}</span>
                                 </h5>
                                 <a href="shop-cart.html" tabindex="-1" class="btn btn-outline-primary btn-sm btn-rounded mx-2">View Cart</a> <a href="shop-checkout.html" tabindex="-1" class="btn btn-primary btn-sm btn-rounded mx-2">Checkout</a>
                             </div>

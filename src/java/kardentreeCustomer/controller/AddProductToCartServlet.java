@@ -52,6 +52,7 @@ public class AddProductToCartServlet extends HttpServlet {
         ProductJpaController productJpa = new ProductJpaController(utx,emf);
         Product p = productJpa.findProduct(productID);
         cart.add(p);
+        session.setAttribute("totalprice", cart.getTotalPrice());
         //getServletContext().getRequestDispatcher("/ProductList").forward(request, response);
         response.sendRedirect("Product");
     

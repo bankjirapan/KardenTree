@@ -50,6 +50,7 @@ public class CartServlet extends HttpServlet {
             Cart cart = (Cart) request.getSession().getAttribute("cart");
             cart.remove(p);
             request.getSession().setAttribute("cart", cart);
+            request.getSession().setAttribute("totalprice", cart.getTotalPrice());
             response.sendRedirect("Product");
             return;
         }
