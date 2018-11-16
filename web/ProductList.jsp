@@ -119,8 +119,9 @@
                         <hr class="my-4">
                         <div class="row">
                             <!-- กรณีไม่ได้ Search -->
+                        <c:if test="${OKSearch==null}">
                         <c:forEach items="${product}" var="Showproduct">
-                            <div class="col-lg-4"  style="${OKSearch == 1 ? 'display : none' : ""}">
+                            <div class="col-lg-4">
                                 <!-- Product 2 -->
                                 <div class="card mb-4 product-card overlay-hover">
                                     <!-- Hover content -->
@@ -147,12 +148,12 @@
                                 </div>
                             </div>
                         </c:forEach>
-
+                        </c:if>
 
                         <!--กรณีมาจากค้นหา-->
-
+                        <c:if test="${OKSearch == 1}">
                         <c:forEach items="${ProductSearch}" var="ProductSearch">
-                            <div class="col-lg-4"  style="${OKSearch == 1 ? "" : "display : none"}">
+                            <div class="col-lg-4">
                                 <!-- Product 2 -->
                                 <div class="card mb-4 product-card overlay-hover">
                                     <!-- Hover content -->
@@ -179,6 +180,39 @@
                                 </div>
                             </div>
                         </c:forEach>
+                        </c:if>
+                        
+                        <!--กรณีมาจากค้นหา-->
+                        <c:if test="${OKSearch == 2}">
+                        <c:forEach items="${ProductSearch}" var="ProductSearch">
+                            <div class="col-lg-4">
+                                <!-- Product 2 -->
+                                <div class="card mb-4 product-card overlay-hover">
+                                    <!-- Hover content -->
+                                    <div class="overlay-hover-content overlay-op-7">
+                                        <a href="AddCart?productid=${ProductSearch.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                                        <a href="Product?view=${ProductSearch.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
+                                    </div>
+                                    <!-- Image & price content -->
+                                    <div class="pos-relative">
+                                        <img class="card-img-top img-fluid" src="${URL}/${ProductSearch.picture}" alt="Card image cap">
+                                        <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">${ProductSearch.price}</span> 
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="card-body">
+                                        <small class="text-muted text-uppercase"><span class="text-primary">${ProductSearch.category}</span> / ${ProductSearch.type}</small>
+                                        <h4 class="card-title">
+                                            ${ProductSearch.productname}
+                                        </h4>
+                                        <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">${ProductSearch.quantity} in stock</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                        </c:if>
 
                     </div>
                     <!-- Call to action -->
