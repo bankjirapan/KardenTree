@@ -36,7 +36,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Product.findByQuantity", query = "SELECT p FROM Product p WHERE p.quantity = :quantity")
     , @NamedQuery(name = "Product.SearchByName", query = "SELECT p FROM Product p WHERE upper(p.productname)"
             + " like upper(:search) or upper(p.category) like upper(:search)")
-    , @NamedQuery(name = "Product.SearchByCategory", query ="SELECT p FROM Product p WHERE upper(p.category) like upper(:category)")
+    , @NamedQuery(name = "Product.SearchByCategory", query = "SELECT p FROM Product p WHERE upper(p.category) like upper(:category)")
+    , @NamedQuery(name = "Product.SortByNameAz", query = "SELECT p FROM Product p ORDER by p.productname ASC")
+    , @NamedQuery(name = "Product.SortByNameZa", query = "SELECT p FROM Product p ORDER by p.productname DESC")
+    , @NamedQuery(name = "Product.SortByPriceLow", query = "SELECT p FROM Product p ORDER by p.price ASC")
+    , @NamedQuery(name = "Product.SortByPriceHigh", query = "SELECT p FROM Product p ORDER by p.price DESC")
 })
 public class Product implements Serializable {
 

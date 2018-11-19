@@ -140,10 +140,10 @@ public class ProductJpaController implements Serializable {
 
     public List<Product> SearchByName(String search) {
         EntityManager em = getEntityManager();
- 
+
         try {
             Query query = em.createNamedQuery("Product.SearchByName");
-            query.setParameter("search","%"+search+"%");
+            query.setParameter("search", "%" + search + "%");
             return query.getResultList();
         } catch (NoResultException NoResult) {
             return null;
@@ -152,7 +152,37 @@ public class ProductJpaController implements Serializable {
         }
 
     }
- 
+
+    public List<Product> SortBy(String Sort) {
+        EntityManager em = getEntityManager();
+
+        try {
+            if (Sort.equalsIgnoreCase("a-b")) {
+                Query query = em.createNamedQuery("Product.SortByNameAz");
+                return query.getResultList();
+            } else if (Sort.equalsIgnoreCase("z-a")) {
+                Query query = em.createNamedQuery("Product.SortByNameZa");
+                return query.getResultList();
+            } else if (Sort.equalsIgnoreCase("PriceLow")) {
+                Query query = em.createNamedQuery("Product.SortByPriceLow");
+                return query.getResultList();
+            } else if (Sort.equalsIgnoreCase("PriceHigh")) {
+                Query query = em.createNamedQuery("Product.SortByPriceHigh");
+                return query.getResultList();
+            } else {
+                Query query = em.createNamedQuery("Product.findAll");
+                return query.getResultList();
+            }
+
+
+        } catch (NoResultException NoResult) {
+            return null;
+        } finally {
+            em.close();
+        }
+
+    }
+
     private List<Product> findProductEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {

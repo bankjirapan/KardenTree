@@ -48,20 +48,20 @@ public class ProductServlet extends HttpServlet {
         ProductJpaController productJpa = new ProductJpaController(utx, emf);
         List<Product> product = productJpa.findProductEntities();
         String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-        CategoryJpaController categoryJpa = new CategoryJpaController (utx, emf);
+        CategoryJpaController categoryJpa = new CategoryJpaController(utx, emf);
         List<Category> categoryList = categoryJpa.findCategoryEntities();
-        
-        if(category!=null){
-             List<Product> productCategory = productJpa.findProductCategory(category);
-             
-             if(productCategory!=null){
-                 request.setAttribute("URL", uri);
-                 request.setAttribute("productcategory", productCategory);
-                 request.setAttribute("category", categoryList);
-                 getServletContext().getRequestDispatcher("/ProductListByCategory.jsp").forward(request, response);
-             }
+
+        if (category != null) {
+            List<Product> productCategory = productJpa.findProductCategory(category);
+
+            if (productCategory != null) {
+                request.setAttribute("URL", uri);
+                request.setAttribute("productcategory", productCategory);
+                request.setAttribute("category", categoryList);
+                getServletContext().getRequestDispatcher("/ProductListByCategory.jsp").forward(request, response);
+            }
         }
-        
+
         //ViewProduct
         if (request.getParameter("view") != null) {
 
@@ -74,20 +74,29 @@ public class ProductServlet extends HttpServlet {
                 return;
             }
         }
-        
-        if(request.getParameter("search") != null){
-            
+
+        if (request.getParameter("search") != null) {
+
             List<Product> productSearchByName = productJpa.SearchByName(request.getParameter("search"));
-            
-            if(productSearchByName != null){
-            request.setAttribute("URL", uri);
-            request.setAttribute("OKSearch","1");
-            request.setAttribute("ProductSearch",productSearchByName);
+
+            if (productSearchByName != null) {
+                request.setAttribute("URL", uri);
+                request.setAttribute("OKSearch", "1");
+                request.setAttribute("ProductSearch", productSearchByName);
                 //System.out.println(productSearchByName);
             }
-            
+
             //System.out.println(productSearchByName);
-            
+        }
+
+        //SortBy
+        if (request.getParameter("SortBy") != null) {
+            System.out.println(request.getParameter("SortBy"));
+            List<Product> productSort = productJpa.SortBy(request.getParameter("SortBy"));
+            request.setAttribute("URL", uri);
+            request.setAttribute("product", productSort);
+            getServletContext().getRequestDispatcher("/ProductList.jsp").forward(request, response);
+            return;
         }
 
         request.setAttribute("URL", uri);
