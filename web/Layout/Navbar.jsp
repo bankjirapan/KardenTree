@@ -85,7 +85,7 @@
                                                 ${cartList.product.productname}
                                             </h5>  
                                             <p class="mb-0">${cartList.product.price } Bath / x${cartList.quantity}</p>
-                                            <a href="Cart?remove=${cartList.product.productid}" class="close cart-remove text-primary"> <i class="fa fa-times"></i> </a>
+                                            <a href="Cart?page=&remove=${cartList.product.productid}" class="close cart-remove text-primary"> <i class="fa fa-times"></i> </a>
                                         </div>
                                     </div>
                                 </c:forEach>
