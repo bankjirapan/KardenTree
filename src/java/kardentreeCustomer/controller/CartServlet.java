@@ -44,7 +44,7 @@ public class CartServlet extends HttpServlet {
             throws ServletException, IOException {
 
         if (request.getParameter("remove") != null) {
-     
+
             ProductJpaController productJpa = new ProductJpaController(utx, emf);
             Product p = productJpa.findProduct(request.getParameter("remove"));
             Cart cart = (Cart) request.getSession().getAttribute("cart");
@@ -54,6 +54,10 @@ public class CartServlet extends HttpServlet {
             response.sendRedirect("Product");
             return;
         }
+
+        //Normal display cart
+        Cart cartList = (Cart) request.getSession(false).getAttribute("cart");
+        request.setAttribute("cartList", cartList);
 
         getServletContext().getRequestDispatcher(("/Cart.jsp")).forward(request, response);
     }
