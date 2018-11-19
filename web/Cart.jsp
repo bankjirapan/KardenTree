@@ -66,11 +66,10 @@
                                         </span>
                                         <input type="text" name="quantity" value="${cl.quantity}" class="quantity form-control">
                                         <span class="input-group-append">
-                                            <input type="button" value="+" class="btn btn-secondary quantity-up" field="quantity">
-                                        </span>
+                                            <a href="Cart?quantity=plus&productid=${cl.product.productid}"><input type="button" value="+" class="btn btn-secondary quantity-up" field="quantity"></a>                                        </span>
                                     </div>
                                 </td>
-                                <td class="text-md-right"><span class="font-weight-bold">${cl.product.price }</span></td>
+                                <td class="text-md-right"><span class="font-weight-bold">${cl.product.price*cl.quantity}</span></td>
                             </tr>
                         </c:forEach>
                             
@@ -99,7 +98,7 @@
                             <div class="col-md-8 text-md-right mt-3 mt-md-0">
                                 <div class="cart-content-totals">
                                     <h4 class="font-weight-light">
-                                        Subtotal: $50.97
+                                        Subtotal: ${sessionScope.totalprice}
                                     </h4>
                                     <h4 class="font-weight-light">
                                         Discount (10%): <span class="text-danger">-$5.97</span>

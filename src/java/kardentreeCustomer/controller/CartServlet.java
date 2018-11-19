@@ -58,6 +58,21 @@ public class CartServlet extends HttpServlet {
         //Normal display cart
         Cart cartList = (Cart) request.getSession(false).getAttribute("cart");
         request.setAttribute("cartList", cartList);
+        
+        String quantity = request.getParameter("quantity");
+        if(quantity!=null){
+            if(quantity.equalsIgnoreCase("plus")){
+            ProductJpaController productJpa = new ProductJpaController(utx,emf);
+            Product p = productJpa.findProduct(request.getParameter("productid"));
+            Cart cart = (Cart) request.getSession(false).getAttribute("cart");
+            cart.add(p);
+            //request.setAttribute("cart", cart);
+            request.getSession().setAttribute("cart", cart);
+            request.getSession().setAttribute("totalprice", cart.getTotalPrice());
+            response.sendRedirect("Cart");
+            return;
+            }
+        }
 
         getServletContext().getRequestDispatcher(("/Cart.jsp")).forward(request, response);
     }
