@@ -25,9 +25,10 @@ import kardentreeAdmin.jpa.models.Product;
  * @author ryan.
  */
 public class AddProductToCartServlet extends HttpServlet {
+
     @PersistenceUnit(unitName = "KardenTreePU")
     EntityManagerFactory emf;
-    
+
     @Resource
     UserTransaction utx;
 
@@ -44,18 +45,31 @@ public class AddProductToCartServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         Cart cart = (Cart) session.getAttribute("cart");
-        if(cart == null){
+        if (cart == null) {
             cart = new Cart();
             session.setAttribute("cart", cart);
         }
         String productID = request.getParameter("productid");
-        ProductJpaController productJpa = new ProductJpaController(utx,emf);
+        String page = request.getParameter("page");
+
+        if (page != null) {
+            if (page.equalsIgnoreCase("Home")) {
+                ProductJpaController productJpa = new ProductJpaController(utx, emf);
+                Product p = productJpa.findProduct(productID);
+                cart.add(p);
+                session.setAttribute("totalprice", cart.getTotalPrice());
+                response.sendRedirect("Home");
+                return;
+            }
+        }
+
+        ProductJpaController productJpa = new ProductJpaController(utx, emf);
         Product p = productJpa.findProduct(productID);
         cart.add(p);
         session.setAttribute("totalprice", cart.getTotalPrice());
         //getServletContext().getRequestDispatcher("/ProductList").forward(request, response);
         response.sendRedirect("Product");
-    
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

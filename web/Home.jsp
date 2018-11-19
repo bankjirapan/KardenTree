@@ -166,7 +166,7 @@
                         <div class="card product-card overlay-hover">
                             <!-- Hover content -->
                             <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
-                                <a href="AddCart?productid=${Product.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                                <a href="AddCart?productid=${Product.productid}&page=Home" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
 
                             </div>
                             <!-- Image & price content -->
