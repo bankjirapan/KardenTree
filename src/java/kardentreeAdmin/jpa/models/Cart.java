@@ -32,6 +32,15 @@ public class Cart implements Serializable{
         }
     }
     
+    public void minus(Product p){
+        LineItem line = cart.get(p.getProductid());
+        if (line == null){
+        cart.put(p.getProductid(), new LineItem(p));
+        }else {
+            line.setQuantity(line.getQuantity()-1);
+        }
+    }
+    
     public void remove(Product p){
         this.remove(p.getProductid());
     }
