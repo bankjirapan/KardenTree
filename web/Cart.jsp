@@ -62,7 +62,7 @@
                                 <td>
                                     <div class="input-group input-group-quantity" data-toggle="quantity">
                                         <span class="input-group-prepend">
-                                            <input type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
+                                            <a href="Cart?quantity=minus&productid=${cl.product.productid}"><input type="button" value="-" class="btn btn-secondary quantity-down" field="quantity"></a>
                                         </span>
                                         <input type="text" name="quantity" value="${cl.quantity}" class="quantity form-control">
                                         <span class="input-group-append">
