@@ -5,6 +5,12 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:if test="${sessionScope.account.activated == false}">
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        <strong>Warning</strong> Your Account has not been activated. Please confirm account at email : ${sessionScope.account.email}
+    </div>
+</c:if>
 <!-- ======== @Region: #header ======== -->
 <div id="header">
     <div data-toggle="sticky">
@@ -53,7 +59,11 @@
                     <!--Shopping cart-->
                     <div class="dropdown dropdowns-no-carets dropdown-effect-fadeup float-right">
                         <a href="#" class="btn btn-icon btn-dark btn-link float-right dropdown-toggle cart-link" data-toggle="dropdown">
-                            <span class="cart-link-icon"> <i class="fa fa-shopping-cart"></i> <span class="sr-only">Cart</span> <span class="cart-link-count bg-primary text-white">${sessionScope.cart.totalQuantity}</span> </span>
+                            <span class="cart-link-icon"> <i class="fa fa-shopping-cart"></i> <span class="sr-only">Cart</span> 
+                                <c:if test="${sessionScope.cart.totalQuantity != null}">
+                             <span class="cart-link-count bg-primary text-white">${sessionScope.cart.totalQuantity}</span>
+                                </c:if>
+                                </span>
                         </a>
 
                         <!--Shopping cart dropdown -->
@@ -112,7 +122,7 @@
                     <!-- All Categories menu -->
                     <ul class="nav navbar-nav float-lg-right navbar-nav-flush-right dropdown-effect-fadeup">
                         <li class="nav-item dropdown dropdowns-no-carets dropdown-persist">
-                            <a href="#" class="nav-link dropdown-toggle" id="account-drop" data-toggle="dropdown" data-hover="dropdown"><i class="fa fa-user mr-2"></i>My Account</a>
+                            <a href="#" class="nav-link dropdown-toggle" id="account-drop" data-toggle="dropdown" data-hover="dropdown"><i class="fa fa-user mr-2"></i>${sessionScope.account != null ? sessionScope.account.fname : "My Account"}</a>
                             <!-- Dropdown Menu -->
                             <c:if test="${sessionScope.account == null}">
                                 <div class="dropdown-menu dropdown-menu-right">
