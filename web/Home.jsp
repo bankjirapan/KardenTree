@@ -342,7 +342,7 @@
                             <h4 class="text-white">
                                 ${newProduct.productname}
                             </h4>
-                            <a href="AddCart?productid=${new.productid}" class="btn btn-primary text-uppercase font-weight-bold mb-2"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                            <a href="AddCart?productid=${newProduct.productid}&page=Home" class="btn btn-primary text-uppercase font-weight-bold mb-2"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
                         </div>
                         <!-- Image & price content -->
                         <div class="pos-relative">
