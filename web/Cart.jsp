@@ -50,7 +50,7 @@
                         <c:forEach items="${cartList.lineItems}" var="cl">
                             <tr>
                                 <td class="text-center align-middle">
-                                    <a href="#" class="close cart-remove"> <i class="fa fa-times"></i> </a>
+                                    <a href="Cart?page=cart&remove=${cl.product.productid}" class="close cart-remove"> <i class="fa fa-times"></i> </a>
                                 </td>
                                 <td class="text-center">
                                     <a href="#">

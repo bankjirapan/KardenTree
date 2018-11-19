@@ -42,6 +42,7 @@ public class CartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String page = request.getParameter("page");
 
         if (request.getParameter("remove") != null) {
 
@@ -49,6 +50,12 @@ public class CartServlet extends HttpServlet {
             Product p = productJpa.findProduct(request.getParameter("remove"));
             Cart cart = (Cart) request.getSession().getAttribute("cart");
             cart.remove(p);
+            if(page.equalsIgnoreCase("cart")){
+                request.setAttribute("cart",cart);
+                request.getSession().setAttribute("totalprice", cart.getTotalPrice());
+                response.sendRedirect("Cart");
+                return;
+            }
             request.getSession().setAttribute("cart", cart);
             request.getSession().setAttribute("totalprice", cart.getTotalPrice());
             response.sendRedirect("Product");
