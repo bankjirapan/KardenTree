@@ -126,8 +126,8 @@
                                 <div class="card mb-4 product-card overlay-hover">
                                     <!-- Hover content -->
                                     <div class="overlay-hover-content overlay-op-7">
-                                        <a href="" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                        <a href="Product?view=${productcategory.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
+                                        <a href="AddCart?productid=${Showproduct.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                                        <a href="Product?view=${Showproduct.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
                                     </div>
                                     <!-- Image & price content -->
                                     <div class="pos-relative">
