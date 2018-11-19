@@ -61,9 +61,9 @@
                         <a href="#" class="btn btn-icon btn-dark btn-link float-right dropdown-toggle cart-link" data-toggle="dropdown">
                             <span class="cart-link-icon"> <i class="fa fa-shopping-cart"></i> <span class="sr-only">Cart</span> 
                                 <c:if test="${sessionScope.cart.totalQuantity != null}">
-                             <span class="cart-link-count bg-primary text-white">${sessionScope.cart.totalQuantity}</span>
+                                    <span class="cart-link-count bg-primary text-white">${sessionScope.cart.totalQuantity}</span>
                                 </c:if>
-                                </span>
+                            </span>
                         </a>
 
                         <!--Shopping cart dropdown -->
@@ -77,14 +77,14 @@
                                 <!--Shopping cart item 1 -->
                                 <c:forEach items="${sessionScope.cart.lineItems}" var="cartList">
                                     <div class="cart-items-item">
-                                        <a href="#" class="cart-img mr-2 float-left">
-                                            <img class="img-fluid" src="assets/img/shop/gloves-1-thumb.jpg" alt="Product 1">
+                                        <a href="Cart" class="cart-img mr-2 float-left">
+                                            <img class="img-fluid" src="assets/img/ProductImg/${cartList.product.productname}.jpg" alt="Product 1">
                                         </a>
                                         <div class="float-left">
                                             <h5 class="mb-0">
                                                 ${cartList.product.productname}
-                                            </h5>
-                                            <p class="mb-0"></p>
+                                            </h5>  
+                                            <p class="mb-0">${cartList.product.price } Bath / x${cartList.quantity}</p>
                                             <a href="Cart?remove=${cartList.product.productid}" class="close cart-remove text-primary"> <i class="fa fa-times"></i> </a>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@
                                 <h5 class="font-weight-bold">
                                     Total: <span class="text-primary">${sessionScope.totalprice}</span>
                                 </h5>
-                                <a href="shop-cart.html" tabindex="-1" class="btn btn-outline-primary btn-sm btn-rounded mx-2">View Cart</a> <a href="shop-checkout.html" tabindex="-1" class="btn btn-primary btn-sm btn-rounded mx-2">Checkout</a>
+                                <a href="Cart" tabindex="-1" class="btn btn-outline-primary btn-sm btn-rounded mx-2">View Cart</a> <a href="shop-checkout.html" tabindex="-1" class="btn btn-primary btn-sm btn-rounded mx-2">Checkout</a>
                             </div>
                         </div>
                     </div>
