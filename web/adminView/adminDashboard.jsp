@@ -18,8 +18,8 @@
 
             <!-- Sidebar -->
             <ul class="sidebar navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
+                <li class="nav-item active">
+                    <a class="nav-link" href="Dashboard">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -35,9 +35,7 @@
                         <a class="dropdown-item" href="">จัดการประเภทสินค้า</a>
                         <a class="dropdown-item" href="">สินค้าโปรโมชั่น</a>
                         <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Other Pages:</h6>
                         <a class="dropdown-item" href="ProductList">ดูสินค้าทั้งหมด</a>
-                        <a class="dropdown-item active" href="">Blank Page</a>
                     </div>
                 </li>
 
@@ -85,9 +83,9 @@
                                     <div class="card-body-icon">
                                         <i class="fas fa-fw fa-comments"></i>
                                     </div>
-                                    <div class="mr-5">14 จำนวนลูกค้า</div>
+                                    <div class="mr-5">${ numCustomer } จำนวนลูกค้า</div>
                                 </div>
-                                <a class="card-footer text-white clearfix small z-1" href="#">
+                                <a class="card-footer text-white clearfix small z-1" href="Customer">
                                     <span class="float-left">View Details</span>
                                     <span class="float-right">
                                         <i class="fas fa-angle-right"></i>
