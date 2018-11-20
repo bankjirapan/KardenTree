@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : Cart.jsp
     Created on : Nov 19, 2018, 10:47:23 PM
     Author     : llujo
@@ -60,20 +60,21 @@
                                 <td> <span class="font-weight-bold">${cl.product.productname}</span> </td>
                                 <td>${cl.product.price }</td>
                                 <td>
-                                    <div class="input-group input-group-quantity" data-toggle="quantity">
-                                        <span class="input-group-prepend">
-                                            <a href="Cart?quantity=minus&productid=${cl.product.productid}"><input type="button" value="-" class="btn btn-secondary quantity-down" field="quantity"></a>
+                                    <div class="input-group input-group-quantity " data-toggle="quantity">
+                                        <span class="input-group-prepend align-self-center">
+                                            <a href="Cart?quantity=minus&productid=${cl.product.productid}"><input type="button" value="-" class="btn btn-secondary quantity-down " field="quantity"></a>
                                         </span>
                                         <input type="text" name="quantity" value="${cl.quantity}" class="quantity form-control">
-                                        <span class="input-group-append">
-                                            <a href="Cart?quantity=plus&productid=${cl.product.productid}"><input type="button" value="+" class="btn btn-secondary quantity-up" field="quantity"></a>                                        </span>
+                                        <span class="input-group-append align-self-center">
+                                            <a href="Cart?quantity=plus&productid=${cl.product.productid}"><input type="button" value="+" class="btn btn-secondary quantity-up align-self-center" field="quantity"></a>
+                                          </span>
                                     </div>
                                 </td>
                                 <td class="text-md-right"><span class="font-weight-bold">${cl.product.price*cl.quantity}</span></td>
                             </tr>
                         </c:forEach>
-                            
-                     
+
+
                         </tbody>
                     </table>
                     <!--End of Shopping cart items-->
@@ -110,7 +111,7 @@
                                     <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
                                 </div>
                                 <!-- Proceed to checkout -->
-                                <a href="Product" class="btn btn-outline-primary btn-rounded btn-lg">Continue Shopping</a> <a href="" class="btn btn-primary btn-rounded btn-lg">Proceed To Checkout</a> 
+                                <a href="Product" class="btn btn-outline-primary btn-rounded btn-lg">Continue Shopping</a> <a href="" class="btn btn-primary btn-rounded btn-lg">Proceed To Checkout</a>
                             </div>
                         </div>
                     </div>
