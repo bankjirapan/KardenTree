@@ -105,7 +105,7 @@
                                     </h4>
                                     <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
                                     <h3>
-                                        Total: <span class="text-primary">${(sessionScope.totalprice)-((sessionScope.totalprice*10)/100)} Bath</span> <!-- รอการแก้ไขตัว discount
+                                        Total: <span class="text-primary">${(sessionScope.totalprice)-((sessionScope.totalprice*10)/100)} Bath</span> <!-- รอการแก้ไขตัว discount --->
                                     </h3>
                                     <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
                                 </div>
