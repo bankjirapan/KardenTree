@@ -54,70 +54,73 @@
                                 <td> <span class="font-weight-bold">${cl.product.productname}</span> </td>
                                 <td>${cl.product.price }</td>
                                 <td>
-                                    <div class="input-group input-group-quantity " data-toggle="quantity">
-                                        <span class="input-group-prepend align-self-center">
-                                            <a href="Cart?quantity=minus&productid=${cl.product.productid}"><input type="button" value="-" class="btn btn-secondary quantity-down " field="quantity"></a>
+                                                     
+                                    <div class="input-group input-group-quantity" data-toggle="quantity">
+                                        <span class="input-group-prepend">
+                                            <input onclick="window.location='Cart?quantity=minus&productid=${cl.product.productid}'" type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
                                         </span>
                                         <input type="text" name="quantity" value="${cl.quantity}" class="quantity form-control">
-                                        <span class="input-group-append align-self-center">
-                                            <a href="Cart?quantity=plus&productid=${cl.product.productid}"><input type="button" value="+" class="btn btn-secondary quantity-up align-self-center" field="quantity"></a>
-                                          </span>
+                                        <span class="input-group-append">
+                                            <input onclick="window.location='Cart?quantity=plus&productid=${cl.product.productid}'" type="button" value="+" class="btn btn-secondary quantity-up" field="quantity">
+                                        </span>
                                     </div>
+
                                 </td>
                                 <td class="text-md-right"><span class="font-weight-bold">${cl.product.price*cl.quantity}</span></td>
                             </tr>
                         </c:forEach>
 
 
-                        </tbody>
-                    </table>
-                    <!--End of Shopping cart items-->
-                    <hr class="my-4 hr-lg">
-                    <div class="cart-content-footer">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h6 class="text-muted mb-3">
-                                    All prices are including VAT
-                                </h6>
-                                <!-- Discount form -->
-                                <form action="#" role="form">
-                                    <div class="input-group">
-                                        <label class="sr-only" for="discount">Discount code</label>
-                                        <input type="tel" class="form-control" id="discount" placeholder="Discount code">
-                                        <span class="input-group-append">
-                                            <button class="btn btn-dark" type="button">Go</button>
-                                        </span>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col-md-8 text-md-right mt-3 mt-md-0">
-                                <div class="cart-content-totals">
-                                    <h4 class="font-weight-light">
-                                        Subtotal: ${sessionScope.totalprice}
-                                    </h4>
-                                    <h4 class="font-weight-light">
-                                        Discount (10%): <span class="text-danger">-${(sessionScope.totalprice*10)/100}</span>
-                                    </h4>
-                                    <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
-                                    <h3>
-                                        Total: <span class="text-primary">${(sessionScope.totalprice)-((sessionScope.totalprice*10)/100)} Bath</span> <!-- รอการแก้ไขตัว discount --->
-                                    </h3>
-                                    <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
+                    </tbody>
+                </table>
+                <!--End of Shopping cart items-->
+                <hr class="my-4 hr-lg">
+                <div class="cart-content-footer">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6 class="text-muted mb-3">
+                                All prices are including VAT
+                            </h6>
+                            <!-- Discount form -->
+                            <form action="#" role="form">
+                                <div class="input-group">
+                                    <label class="sr-only" for="discount">Discount code</label>
+                                    <input type="tel" class="form-control" id="discount" placeholder="Discount code">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-dark" type="button">Go</button>
+                                    </span>
                                 </div>
-                                <!-- Proceed to checkout -->
-                                <a href="Product" class="btn btn-outline-primary btn-rounded btn-lg">Continue Shopping</a> <a href="" class="btn btn-primary btn-rounded btn-lg">Proceed To Checkout</a>
+                            </form>
+                        </div>
+                        <div class="col-md-8 text-md-right mt-3 mt-md-0">
+                            <div class="cart-content-totals">
+                                <h4 class="font-weight-light">
+                                    Subtotal: ${sessionScope.totalprice}
+                                </h4>
+                                <h4 class="font-weight-light">
+                                    Discount (10%): <span class="text-danger">-${(sessionScope.totalprice*10)/100}</span>
+                                </h4>
+                                <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
+                                <h3>
+                                    Total: <span class="text-primary">${(sessionScope.totalprice)-((sessionScope.totalprice*10)/100)} Bath</span> <!-- รอการแก้ไขตัว discount --->
+                                </h3>
+                                <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
                             </div>
+                            <!-- Proceed to checkout -->
+                            <a href="Product" class="btn btn-outline-primary btn-rounded btn-lg">Continue Shopping</a> <a href="" class="btn btn-primary btn-rounded btn-lg">Proceed To Checkout</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
 
-    </body>
+</body>
 
 
 <jsp:include page="Layout/Footer.jsp"></jsp:include>
+
 </html>
