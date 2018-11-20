@@ -35,10 +35,10 @@
                         <!-- Products filters -->
                         <div class="row">
                             <div class="col-lg-6 mb-3 mb-lg-0">
-                                <form class="form-inline justify-content-lg-start text-sm">
+                                <form action="Product" class="form-inline justify-content-lg-start text-sm">
                                     <label class="control-label mr-2">Keyword:</label>
-                                    <input type="text" class="form-control form-control-sm mr-lg-2" placeholder="ie. Calvin Klein">
-                                    <a href="#adv-search" data-toggle="collapse" class="text-sm collapsed" aria-expanded="false">advanced search</a> 
+                                    <input type="text" name="search" class="form-control form-control-sm mr-lg-2" placeholder="Search on KardenTree">
+
                                 </form>
                             </div>
                             <div class="col-lg-6">
@@ -48,62 +48,13 @@
                                         <option value="a-b">Name (A - Z)</option>
                                         <option value="z-a">Name (Z - A)</option>
                                         <option value="PriceLow">Price (Low &gt; High)</option>
-                                        <option value="PriceHigh" selected="">Price (High &gt; Low)</option>
+                                        <option value="PriceHigh">Price (High &gt; Low)</option>
 
                                     </select>
 
                                 </form>
                             </div>
-                            <div class="col-lg-12 collapse" id="adv-search" style="">
-                                <!-- Advanced search form -->
-                                <form class="mt-3 bg-light p-3 rounded mb-4 text-sm">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label>Category</label>
-                                            <select class="form-control">
-                                                <option value="#">Mens</option>
-                                                <option value="#">Womens</option>
-                                                <option value="#">Childrens</option>
-                                                <option value="#">Baby</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label>Brand</label>
-                                            <select class="form-control">
-                                                <option value="#">Brand 1</option>
-                                                <option value="#">Brand 2</option>
-                                                <option value="#">Brand 3</option>
-                                                <option value="#">Brand 4</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label>Price</label>
-                                            <div class="row">
-                                                <div class="input-group col-md-6">
-                                                    <span class="input-group-prepend">$</span> 
-                                                    <input type="text" class="form-control" placeholder="from">
-                                                </div>
-                                                <div class="input-group col-md-6">
-                                                    <span class="input-group-prepend">$</span> 
-                                                    <input type="text" class="form-control" placeholder="to">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label>Size</label>
-                                            <select class="form-control">
-                                                <option value="#">Small</option>
-                                                <option value="#">Medium</option>
-                                                <option value="#">Large</option>
-                                                <option value="#">Extra Large</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn btn-primary"> <i class="fa fa-search"></i> Search </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+
                         </div>
                         <hr class="my-4">
                         <div class="row">
@@ -300,8 +251,8 @@
 
         $('#SortBy').change(function () {
 
-           
-           $('#formSortby').submit();
+
+            $('#formSortby').submit();
 
 
 
