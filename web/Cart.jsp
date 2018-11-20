@@ -10,12 +10,6 @@
 
     <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
 
-        <!-- @plugin: page loading indicator, delete to remove loader -->
-        <div class="page-loader" data-toggle="page-loader"></div>
-
-
-        <a id="#top" href="#content" class="sr-only">Skip to content</a>
-
     <jsp:include page="Layout/Navbar.jsp"></jsp:include>
 
 
