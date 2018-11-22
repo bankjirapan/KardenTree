@@ -80,6 +80,10 @@
         <servlet-name>AddProductToCardServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.AddProductToCartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.CheckoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>AddProductToCardServlet</servlet-name>
         <url-pattern>/AddCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
