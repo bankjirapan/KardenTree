@@ -107,7 +107,7 @@
                                 <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
                             </div>
                             <!-- Proceed to checkout -->
-                            <a href="Product" class="btn btn-outline-primary btn-rounded btn-lg">Continue Shopping</a> <a href="" class="btn btn-primary btn-rounded btn-lg">Proceed To Checkout</a>
+                            <a href="Product" class="btn btn-outline-primary btn-rounded btn-lg">Continue Shopping</a> <a href="Checkout" class="btn btn-primary btn-rounded btn-lg">Proceed To Checkout</a>
                         </div>
                     </div>
                 </div>
