@@ -155,22 +155,7 @@
                         </c:if>
 
                     </div>
-                    <!-- Call to action -->
-                    <div class="my-3 clickable-element" data-url="#">
-                        <hr class="hr-lg mt-0 mb-1 w-100 mx-auto hr-danger">
-                        <div class="pos-relative">
-                            <i class="fa fa-bullseye icon-bg op-1 icon-bg-l-ol icon-25x text-white"></i> <i class="fa fa-bullseye icon-bg op-1 icon-bg-r-ol icon-bg-b icon-25x text-white"></i> 
-                            <div class="p-4 text-center bg-danger">
-                                <h2 class="display-4 font-weight-normal text-uppercase text-white my-0 text-slab">
-                                    Clearance Sale
-                                </h2>
-                                <h4 class="text-white mb-0 text-slab">
-                                    Price reductions on 1000s of items!
-                                </h4>
-                            </div>
-                        </div>
-                        <hr class="hr-lg mt-1 w-100 mx-auto hr-danger">
-                    </div>
+                  
                     <!-- Pagination -->
                     <nav aria-label="Page navigation">
                         <ul class="pagination pagination-lg justify-content-center">
@@ -194,25 +179,24 @@
 
                     <!-- Sections Menu-->
                     <ul class="nav nav-section-menu mb-4 py-3">
-                        <li class="nav-header">Collections</li>
+                        <li class="nav-header">Category</li>
                             <c:forEach items="${category}" var="Category">
                             <li>
-                                <a href="#mens" data-toggle="collapse" class="nav-link text-uppercase text-slab first active show">
+                                <a href="Product?search=${Category.categoryname}" class="nav-link text-uppercase text-slab first active show">
                                     ${Category.categoryname}
 
-                                    <i class="fa fa-angle-right"></i>
                                 </a>
-                                <!--                                <ul class="nav nav-section-menu collapse show" id="mens">
-                                                                    <li><a href="#" class="nav-link">Shoes</a></li>
-                                                                    <li><a href="#" class="nav-link">Shirts</a></li>
-                                                                    <li><a href="#" class="nav-link">Trousers</a></li>
-                                                                    <li><a href="#" class="nav-link">Suits</a></li>
-                                                                    <li><a href="#" class="nav-link">Jackets</a></li>
-                                                                    <li><a href="#" class="nav-link">Sportswear</a></li>
-                                                                    <li><a href="#" class="nav-link">Shorts</a></li>
-                                                                    <li><a href="#" class="nav-link">Swimwear</a></li>
-                                                                    <li><a href="#" class="nav-link">T-shirts</a></li>
-                                                                </ul>-->
+<!--                                    <ul class="nav nav-section-menu collapse show" id="mens">
+                                        <li><a href="#" class="nav-link">Shoes</a></li>
+                                        <li><a href="#" class="nav-link">Shirts</a></li>
+                                        <li><a href="#" class="nav-link">Trousers</a></li>
+                                        <li><a href="#" class="nav-link">Suits</a></li>
+                                        <li><a href="#" class="nav-link">Jackets</a></li>
+                                        <li><a href="#" class="nav-link">Sportswear</a></li>
+                                        <li><a href="#" class="nav-link">Shorts</a></li>
+                                        <li><a href="#" class="nav-link">Swimwear</a></li>
+                                        <li><a href="#" class="nav-link">T-shirts</a></li>
+                                    </ul>-->
                             </li>
                         </c:forEach>
 
