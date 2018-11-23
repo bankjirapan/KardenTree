@@ -7,16 +7,31 @@ package kardentreeCustomer.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.transaction.UserTransaction;
+import kardentreeCustomer.jpa.controller.AddressJpaController;
+import kardentreeCustomer.jpa.models.Account;
+import kardentreeCustomer.jpa.models.Address;
 
 /**
  *
  * @author llujo
  */
 public class CheckoutServlet extends HttpServlet {
+
+    @PersistenceUnit(unitName = "KardenTreePU")
+    EntityManagerFactory emf;
+
+    @Resource
+    UserTransaction utx;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +44,29 @@ public class CheckoutServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CheckoutServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CheckoutServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
+        Account accountSession = (Account) request.getSession(false).getAttribute("account");
+        String UserLoggedIn = accountSession.getAccountid();
+
+        //getAddressAll
+        AddressJpaController address = new AddressJpaController(utx, emf);
+        List<Address> getAddress = address.findAddressList(UserLoggedIn);
+        if (getAddress.isEmpty()) {
+            System.out.println("Empty");
+        } else {
+            request.setAttribute("AddressList", getAddress);
         }
+        //getAddressActive
+
+        Address addressActive = address.findUserAddressActive(UserLoggedIn);
+
+        if (addressActive != null) {
+            request.setAttribute("AccountInfo", accountSession);
+            request.setAttribute("AddressActive", addressActive);
+        }
+
+        getServletContext().getRequestDispatcher("/CheckoutView.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
