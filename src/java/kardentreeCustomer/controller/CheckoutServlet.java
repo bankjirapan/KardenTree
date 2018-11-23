@@ -57,12 +57,31 @@ public class CheckoutServlet extends HttpServlet {
             request.setAttribute("AddressList", getAddress);
         }
         //getAddressActive
-
         Address addressActive = address.findUserAddressActive(UserLoggedIn);
-
         if (addressActive != null) {
             request.setAttribute("AccountInfo", accountSession);
             request.setAttribute("AddressActive", addressActive);
+        }
+
+        //setActiveAddress
+        if (request.getParameter("setActiveAddress") != null) {
+
+            //Remove recent active
+            Address FindaddressActive = address.findUserAddressActive(UserLoggedIn);
+            FindaddressActive.setActive("0");
+            //Set new Active Address
+            Address SetaddressActive = address.findAddress(request.getParameter("setActiveAddress"));
+            SetaddressActive.setActive("1");
+            try {
+                address.edit(FindaddressActive);
+                address.edit(SetaddressActive);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+            response.sendRedirect("Checkout");
+            return;
+
         }
 
         getServletContext().getRequestDispatcher("/CheckoutView.jsp").forward(request, response);
