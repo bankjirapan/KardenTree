@@ -141,21 +141,21 @@ public class AddressJpaController implements Serializable {
         }
     }
 
-   
-    public List<Address> findAddressList(String idCustomer){
+    public List<Address> findAddressList(String idCustomer) {
         EntityManager em = getEntityManager();
-        
+
         try {
-           Query query = em.createNamedQuery("Address.findByAccountid");
-           query.setParameter("accountid", idCustomer);
-           return query.getResultList();
-        }catch (NoResultException NoResult){
+            Query query = em.createNamedQuery("Address.findByAccountid");
+            query.setParameter("accountid", idCustomer);
+            return query.getResultList();
+        } catch (NoResultException NoResult) {
             return null;
-        }finally{
+        } finally {
             em.close();
         }
-       
+
     }
+
     public Address findAddress(String id) {
         EntityManager em = getEntityManager();
         try {
@@ -163,6 +163,21 @@ public class AddressJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public Address findUserAddressActive(String id) {
+        EntityManager em = getEntityManager();
+
+        try {
+            Query query = em.createNamedQuery("Address.findAddressIsActive");
+            query.setParameter("accountid", id);
+            return (Address) query.getSingleResult();
+        } catch (NoResultException noResult) {
+            return null;
+        } finally {
+            em.close();
+        }
+
     }
 
     public int getAddressCount() {
