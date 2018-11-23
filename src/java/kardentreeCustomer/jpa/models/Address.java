@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author bankcom
+ * @author llujo
  */
 @Entity
 @Table(name = "ADDRESS")
@@ -28,7 +28,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
     , @NamedQuery(name = "Address.findByAddressid", query = "SELECT a FROM Address a WHERE a.addressid = :addressid")
     , @NamedQuery(name = "Address.findByAccountid", query = "SELECT a FROM Address a WHERE a.accountid = :accountid")
-    , @NamedQuery(name = "Address.findByAddress", query = "SELECT a FROM Address a WHERE a.address = :address")})
+    , @NamedQuery(name = "Address.findByAddress", query = "SELECT a FROM Address a WHERE a.address = :address")
+    , @NamedQuery(name = "Address.findByActive", query = "SELECT a FROM Address a WHERE a.active = :active")
+    , @NamedQuery(name = "Address.findAddressIsActive", query = "SELECT a FROM Address a WHERE a.accountid = :accountid AND a.active = '1'")
+})
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,6 +47,9 @@ public class Address implements Serializable {
     @Size(max = 1000)
     @Column(name = "ADDRESS")
     private String address;
+    @Size(max = 2)
+    @Column(name = "ACTIVE")
+    private String active;
 
     public Address() {
     }
@@ -76,6 +82,14 @@ public class Address implements Serializable {
         this.address = address;
     }
 
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -100,5 +114,5 @@ public class Address implements Serializable {
     public String toString() {
         return "kardentreeCustomer.jpa.models.Address[ addressid=" + addressid + " ]";
     }
-    
+
 }
