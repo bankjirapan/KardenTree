@@ -52,6 +52,7 @@ public class CheckoutServlet extends HttpServlet {
         AddressJpaController address = new AddressJpaController(utx, emf);
         List<Address> getAddress = address.findAddressList(UserLoggedIn);
         if (getAddress.isEmpty()) {
+            request.setAttribute("AccountInfo", accountSession);
             System.out.println("Empty");
         } else {
             request.setAttribute("AddressList", getAddress);
