@@ -67,29 +67,30 @@
                     Shipping Address
                 </h4>
                 <div class="mb-4 bg-light p-3 rounded mb-4" id="billing">
+                   
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="sr-only">First Name</label>
-                            <input disabled="" type="text" value="" class="form-control" placeholder="First Name">
+                            <input disabled="" type="text" value="${AccountInfo.fname}" class="form-control" placeholder="First Name">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="sr-only">Last Name</label>
-                            <input disabled="" type="text" value="" class="form-control" placeholder="Last Name">
+                            <input disabled="" type="text" value="${AccountInfo.lname}" class="form-control" placeholder="Last Name">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="sr-only">Phone</label>
-                            <input disabled="" type="tel" class="form-control" value="" placeholder="Phone">
+                            <input disabled="" type="tel" class="form-control" value="${AccountInfo.telno}" placeholder="Phone">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="sr-only">Email</label>
-                            <input disabled="" type="email" class="form-control" value="" placeholder="Email">
+                            <input disabled="" type="email" class="form-control" value="${AccountInfo.email}" placeholder="Email">
                         </div>
                         <div class="col-md-12 mb-3">
-                            <textarea disabled="" id="field-address-1"  class="form-control" placeholder="Address"></textarea>
+                            <textarea  id="field-address-1"  class="form-control" placeholder="Address"></textarea>
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Changes address for shipping</button>
+                  
 
                 </div>
 
