@@ -7,6 +7,7 @@ package kardentreeAdmin.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -15,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.UserTransaction;
+import kardentreeAdmin.jpa.controller.ProductJpaController;
+import kardentreeAdmin.jpa.models.Product;
 import kardentreeCustomer.jpa.controller.AccountJpaController;
 
 /**
@@ -44,8 +47,13 @@ public class DashboardServlet extends HttpServlet {
         AccountJpaController account = new AccountJpaController(utx, emf);
         int numOfCustomer = account.getAccountCount();
         
+        ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+        List<Product> productall = productCtrl.findProductEntities();
+        
+        
         
         request.setAttribute("numCustomer", numOfCustomer);
+        request.setAttribute("Product", productall);
 
         getServletContext().getRequestDispatcher("/adminView/adminDashboard.jsp").forward(request, response);
     }
