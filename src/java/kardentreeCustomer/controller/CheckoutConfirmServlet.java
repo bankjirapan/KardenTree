@@ -16,8 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.UserTransaction;
+import kardentreeAdmin.jpa.controller.ProductJpaController;
 import kardentreeAdmin.jpa.models.Cart;
 import kardentreeAdmin.jpa.models.LineItem;
+import kardentreeAdmin.jpa.models.Product;
 import kardentreeCustomer.jpa.controller.AddressJpaController;
 import kardentreeCustomer.jpa.models.Account;
 import kardentreeCustomer.jpa.models.Address;
@@ -74,12 +76,26 @@ public class CheckoutConfirmServlet extends HttpServlet {
         }
 
         Cart cartList = (Cart) request.getSession(false).getAttribute("cart");
-        
         List<LineItem> forCart = cartList.getLineItems();
-        
-        for(int i=0; i<forCart.size(); i++){
-            System.out.println(forCart.get(i));
+
+        ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+
+        for (int i = 0; i < forCart.size(); i++) {
+            //System.out.println(forCart.get(i).getProduct().getProductname());
+
+            Product findproduct = productCtrl.findProduct(forCart.get(i).getProduct().getProductid());  
+            findproduct.setQuantity(forCart.get(i).getProduct().getQuantity() - forCart.get(i).getQuantity());
+           
+            try {
+                productCtrl.edit(findproduct);
+                
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
         }
+
+        System.out.println("OK");
 
     }
 
