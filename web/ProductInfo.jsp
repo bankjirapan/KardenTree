@@ -104,7 +104,7 @@
                             <hr class="my-3 mb-5">
                             <!-- Cart options/links -->
 
-                            <a href="" class="btn btn-primary"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                            <a href="AddCart?page=info&productid=${ProductView.productid}" class="btn btn-primary"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
                             <a href="#" class="btn btn-link btn-sm"><i class="fa fa-heart"></i> Add to Wishlist</a>
                             <p class="text-muted text-xs d-inline d-none d-lg-block">${ProductView.quantity} in stock</p>
                         </div>
