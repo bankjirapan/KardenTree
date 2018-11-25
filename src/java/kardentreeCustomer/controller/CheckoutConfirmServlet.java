@@ -7,6 +7,7 @@ package kardentreeCustomer.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
@@ -21,8 +22,10 @@ import kardentreeAdmin.jpa.models.Cart;
 import kardentreeAdmin.jpa.models.LineItem;
 import kardentreeAdmin.jpa.models.Product;
 import kardentreeCustomer.jpa.controller.AddressJpaController;
+import kardentreeCustomer.jpa.controller.OrderlistJpaController;
 import kardentreeCustomer.jpa.models.Account;
 import kardentreeCustomer.jpa.models.Address;
+import kardentreeCustomer.jpa.models.Orderlist;
 
 /**
  *
@@ -47,9 +50,21 @@ public class CheckoutConfirmServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //CheckEmptyCart  
+        if(request.getSession().getAttribute("cart") == null){
+            response.sendRedirect("Product");
+            return;
+        };
+
+        //Data Universal
+        double totalPrice = 0;
 
         Account accountSession = (Account) request.getSession(false).getAttribute("account");
         String UserLoggedIn = accountSession.getAccountid();
+
+        Cart cartList = (Cart) request.getSession(false).getAttribute("cart");
+        List<LineItem> forCart = cartList.getLineItems();
 
         //Create new Address
         if (request.getParameter("newAddress") != null) {
@@ -73,29 +88,44 @@ public class CheckoutConfirmServlet extends HttpServlet {
                 System.out.println(ex);
             }
 
-        }
+        } else {
 
-        Cart cartList = (Cart) request.getSession(false).getAttribute("cart");
-        List<LineItem> forCart = cartList.getLineItems();
+            //JpaController
+            ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+            OrderlistJpaController orderListCtrl = new OrderlistJpaController(utx, emf);
 
-        ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+            for (int i = 0; i < forCart.size(); i++) {
+                //System.out.println(forCart.get(i).getProduct().getProductname());
+                Orderlist orderList = new Orderlist();
+                //setOrderList
+                orderList.setAccountid(UserLoggedIn);
+                orderList.setAddressid(request.getParameter("CustomerAddress"));
+                orderList.setDate(new Date());
+                orderList.setOrderid(orderListCtrl.getOrderlistCount() + 1 + "");
+                orderList.setProductid(forCart.get(i).getProduct().getProductid());
+                orderList.setTotalprice(forCart.get(i).getTotalPrice());
 
-        for (int i = 0; i < forCart.size(); i++) {
-            //System.out.println(forCart.get(i).getProduct().getProductname());
+                totalPrice = forCart.get(i).getTotalPrice();
+                //Remove 
+                Product findproduct = productCtrl.findProduct(forCart.get(i).getProduct().getProductid());
+                findproduct.setQuantity(forCart.get(i).getProduct().getQuantity() - forCart.get(i).getQuantity());
 
-            Product findproduct = productCtrl.findProduct(forCart.get(i).getProduct().getProductid());  
-            findproduct.setQuantity(forCart.get(i).getProduct().getQuantity() - forCart.get(i).getQuantity());
-           
-            try {
-                productCtrl.edit(findproduct);
-                
-            } catch (Exception e) {
-                System.out.println(e);
+                try {
+                    orderListCtrl.create(orderList);
+                    // productCtrl.edit(findproduct);
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             }
 
-        }
+            request.getSession(false).removeAttribute("cart");
+            request.setAttribute("totalprice", totalPrice);
+            request.setAttribute("cartList", cartList);
+            getServletContext().getRequestDispatcher(("/CheckoutConfirmView.jsp")).forward(request, response);
 
-        System.out.println("OK");
+        }
 
     }
 
