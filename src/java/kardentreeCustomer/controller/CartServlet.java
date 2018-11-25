@@ -42,6 +42,15 @@ public class CartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //CheckEmptyCart
+        
+        if(request.getSession().getAttribute("cart") == null){
+            response.sendRedirect("Product");
+            return;
+        };
+        
+        
         String page = request.getParameter("page");
 
         if (request.getParameter("remove") != null) {
