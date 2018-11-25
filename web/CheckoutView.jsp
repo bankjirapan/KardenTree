@@ -64,10 +64,11 @@
             <c:if test="${AddressActive == null}">
 
                 <h4>
-                    Shipping Address
+                    Create Address
                 </h4>
                 <div class="mb-4 bg-light p-3 rounded mb-4" id="billing">
-                   
+                    
+                    
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="sr-only">First Name</label>
@@ -198,133 +199,89 @@
                 Cart Summary
             </h4>
             <!--Shopping cart items-->
-            <table class="table table-responsive mb-0 cart-table">
-                <thead>
-                    <tr>
-                        <th class="w-5"></th>
-                        <th class="w-10"></th>
-                        <th class="w-20">Item</th>
-                        <th class="w-20">Unit Price</th>
-                        <th class="w-20">Quantity</th>
-                        <th class="w-20 text-md-right">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Cart item 1 -->
-                    <tr>
-                        <td class="text-center align-middle">
-                            <a href="#" class="close cart-remove"> <i class="fa fa-times"></i> </a>
-                        </td>
-                        <td class="text-center">
-                            <a href="#">
-                                <img class="cart-img img-fluid" src="assets/img/shop/gloves-1-thumb.jpg" alt="Product 1">
-                            </a>
-                        </td>
-                        <td> <span class="font-weight-bold">Gloves</span> </td>
-                        <td>$18.99</td>
-                        <td>
-                            <div class="input-group input-group-quantity" data-toggle="quantity">
-                                <span class="input-group-prepend">
-                                    <input type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
-                                </span>
-                                <input type="text" name="quantity" value="2" class="quantity form-control">
-                                <span class="input-group-append">
-                                    <input type="button" value="+" class="btn btn-secondary quantity-up" field="quantity">
-                                </span>
-                            </div>
-                        </td>
-                        <td class="text-md-right"><span class="font-weight-bold">$37.98</span></td>
-                    </tr>
-                    <!-- Cart item 2 -->
-                    <tr>
-                        <td class="text-center align-middle">
-                            <a href="#" class="close cart-remove"> <i class="fa fa-times"></i> </a>
-                        </td>
-                        <td class="text-center">
-                            <a href="#">
-                                <img class="cart-img img-fluid" src="assets/img/shop/shoes-1-thumb.jpg" alt="Product 1">
-                            </a>
-                        </td>
-                        <td> <span class="font-weight-bold">Shoes</span> </td>
-                        <td>$12.99</td>
-                        <td>
-                            <div class="input-group input-group-quantity" data-toggle="quantity">
-                                <span class="input-group-prepend">
-                                    <input type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
-                                </span>
-                                <input type="text" name="quantity" value="1" class="quantity form-control">
-                                <span class="input-group-append">
-                                    <input type="button" value="+" class="btn btn-secondary quantity-up" field="quantity">
-                                </span>
-                            </div>
-                        </td>
-                        <td class="text-md-right"><span class="font-weight-bold">$12.99</span></td>
-                    </tr>
-                    <!-- Cart item 3 -->
-                    <tr>
-                        <td class="text-center align-middle">
-                            <a href="#" class="close cart-remove"> <i class="fa fa-times"></i> </a>
-                        </td>
-                        <td class="text-center">
-                            <a href="#">
-                                <img class="cart-img img-fluid" src="assets/img/shop/gloves-1-thumb.jpg" alt="Product 1">
-                            </a>
-                        </td>
-                        <td> <span class="font-weight-bold">Gloves</span> </td>
-                        <td>$18.99</td>
-                        <td>
-                            <div class="input-group input-group-quantity" data-toggle="quantity">
-                                <span class="input-group-prepend">
-                                    <input type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
-                                </span>
-                                <input type="text" name="quantity" value="2" class="quantity form-control">
-                                <span class="input-group-append">
-                                    <input type="button" value="+" class="btn btn-secondary quantity-up" field="quantity">
-                                </span>
-                            </div>
-                        </td>
-                        <td class="text-md-right"><span class="font-weight-bold">$37.98</span></td>
-                    </tr>
-                </tbody>
-            </table>
+                   <table class="table table-responsive mb-0 cart-table">
+                        <thead>
+                            <tr>
+                                <th class="w-5"></th>
+                                <th class="w-10"></th>
+                                <th class="w-20">Item</th>
+                                <th class="w-20">Unit Price</th>
+                                <th class="w-20">Quantity</th>
+                                <th class="w-20 text-md-right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Cart item 1 -->
+                        <c:forEach items="${cartList.lineItems}" var="cl">
+                            <tr>
+                                <td class="text-center align-middle">
+                                    <a href="Cart?page=cart&remove=${cl.product.productid}" class="close cart-remove"> <i class="fa fa-times"></i> </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#">
+                                        <img class="cart-img img-fluid" src="assets/img/ProductImg/${cl.product.productname}.jpg" alt="Product 1">
+                                    </a>
+                                </td>
+                                <td> <span class="font-weight-bold">${cl.product.productname}</span> </td>
+                                <td>${cl.product.price }</td>
+                                <td>
+                                                     
+                                    <div class="input-group input-group-quantity" data-toggle="quantity">
+                                        <span class="input-group-prepend">
+                                            <input onclick="window.location='Cart?quantity=minus&productid=${cl.product.productid}'" type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
+                                        </span>
+                                        <input type="text" name="quantity" value="${cl.quantity}" class="quantity form-control">
+                                        <span class="input-group-append">
+                                            <input onclick="window.location='Cart?quantity=plus&productid=${cl.product.productid}'" type="button" value="+" class="btn btn-secondary quantity-up" field="quantity">
+                                        </span>
+                                    </div>
+
+                                </td>
+                                <td class="text-md-right"><span class="font-weight-bold">${cl.product.price*cl.quantity}</span></td>
+                            </tr>
+                        </c:forEach>
+
+
+                    </tbody>
+                </table>
             <!--End of Shopping cart items-->
             <hr class="my-4 hr-lg">
-            <div class="cart-content-footer">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h6 class="text-muted mb-3">
-                            All prices are including VAT
-                        </h6>
-                        <!-- Discount form -->
-                        <form action="#" role="form">
-                            <div class="input-group">
-                                <label class="sr-only" for="discount">Discount code</label>
-                                <input type="tel" class="form-control" id="discount" placeholder="Discount code">
-                                <span class="input-group-append">
-                                    <button class="btn btn-dark" type="button">Go</button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-8 text-md-right mt-3 mt-md-0">
-                        <div class="cart-content-totals">
-                            <h4 class="font-weight-light">
-                                Subtotal: $50.97
-                            </h4>
-                            <h4 class="font-weight-light">
-                                Discount (10%): <span class="text-danger">-$5.97</span>
-                            </h4>
-                            <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
-                            <h3>
-                                Total: <span class="text-primary">$45.00</span>
-                            </h3>
-                            <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
+      <div class="cart-content-footer">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6 class="text-muted mb-3">
+                                All prices are including VAT
+                            </h6>
+                            <!-- Discount form -->
+                            <form action="#" role="form">
+                                <div class="input-group">
+                                    <label class="sr-only" for="discount">Discount code</label>
+                                    <input type="tel" class="form-control" id="discount" placeholder="Discount code">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-dark" type="button">Go</button>
+                                    </span>
+                                </div>
+                            </form>
                         </div>
-                        <!-- Proceed to checkout -->
-                        <a href="shop-cart.html" class="btn btn-outline-primary btn-rounded btn-lg">Back to Cart</a> <a href="shop-confirmation.html" class="btn btn-primary btn-rounded btn-lg">Make Payment</a> 
+                        <div class="col-md-8 text-md-right mt-3 mt-md-0">
+                            <div class="cart-content-totals">
+                                <h4 class="font-weight-light">
+                                    Subtotal: ${sessionScope.totalprice}
+                                </h4>
+                                <h4 class="font-weight-light">
+                                    Discount (10%): <span class="text-danger">-${(sessionScope.totalprice*10)/100}</span>
+                                </h4>
+                                <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
+                                <h3>
+                                    Total: <span class="text-primary">${(sessionScope.totalprice)-((sessionScope.totalprice*10)/100)} Bath</span> <!-- รอการแก้ไขตัว discount --->
+                                </h3>
+                                <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
+                            </div>
+                            <!-- Proceed to checkout -->
+                            <a href="Cart" class="btn btn-outline-primary btn-rounded btn-lg">Back to Cart</a> <a href="CheckoutConfirm" class="btn btn-primary btn-rounded btn-lg">Make payment</a>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 
