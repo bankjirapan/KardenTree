@@ -94,6 +94,10 @@
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.CheckoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckoutConfirmServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.CheckoutConfirmServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
@@ -161,6 +165,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutServlet</servlet-name>
         <url-pattern>/Checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutConfirmServlet</servlet-name>
+        <url-pattern>/CheckoutConfirm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
