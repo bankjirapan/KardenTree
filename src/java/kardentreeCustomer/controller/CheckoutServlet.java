@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
+import kardentreeAdmin.jpa.models.Cart;
 import kardentreeCustomer.jpa.controller.AddressJpaController;
 import kardentreeCustomer.jpa.models.Account;
 import kardentreeCustomer.jpa.models.Address;
@@ -84,6 +85,10 @@ public class CheckoutServlet extends HttpServlet {
             return;
 
         }
+
+        //Normal display cart
+        Cart cartList = (Cart) request.getSession(false).getAttribute("cart");
+        request.setAttribute("cartList", cartList);
 
         getServletContext().getRequestDispatcher("/CheckoutView.jsp").forward(request, response);
 
