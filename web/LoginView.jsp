@@ -40,24 +40,7 @@
                 </form>
             </div>
         </div>
-        <div id="content-below">
-            <!-- Awesome features call to action -->
-            <div class="bg-primary bg-op-9 text-white py-4">
-                <div class="container">
-                    <div class="row text-center text-lg-left align-items-lg-center">
-                        <div class="col-12 col-lg-7 text-white">
-                            <h3 class="font-weight-bold my-0 text-uppercase">
-                                Awesome Features
-                            </h3>
-                            <p class="font-weight-normal op-9 my-0"> <i class="ion-android-checkmark-circle"></i> 99.9% Uptime <i class="ion-android-checkmark-circle ml-lg-3"></i> Free Upgrades <i class="ion-android-checkmark-circle ml-lg-3"></i> Fully Responsive <i class="ion-android-checkmark-circle ml-lg-3"></i> Bug Free </p>
-                        </div>
-                        <div class="col-12 col-lg-5 py-2 text-lg-right">
-                            <a href="https://wrapbootstrap.com/theme/appstrap-responsive-website-template-WB0C6D0H4?ref=tme" class="btn btn-xlg btn-white btn-rounded shadow-lg bg-light bg-op-8 bg-hover-white">Get AppStrap<i class="fa fa-arrow-right ml-2 mt-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
   
     
 
