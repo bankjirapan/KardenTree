@@ -3,6 +3,7 @@
     Created on : Nov 26, 2018, 9:47:56 PM
     Author     : llujo
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <jsp:include page="Layout/Header.jsp?titleName=Profile"></jsp:include>
@@ -10,11 +11,6 @@
 
     <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
 
-        <!-- @plugin: page loading indicator, delete to remove loader -->
-        <div class="page-loader" data-toggle="page-loader"></div>
-
-
-        <a id="#top" href="#content" class="sr-only">Skip to content</a>
 
     <jsp:include page="Layout/Navbar.jsp"></jsp:include>
 
@@ -73,71 +69,77 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div class="tab-pane active show" id="profile" role="tabpanel">
+                                        <form action="profile" method="post">
+                                            <input name="accountid" value="${infoCustomer.accountid}" hidden="">
                                         <h4 class="card-title">
-                                            Tab 1
+                                            informations
                                         </h4>
                                         <table class="table table-user-information">
                                             <tbody>
                                                 <tr>
-                                                    <td>ชื่อนามสกุล</td>
-                                                    <td>${infoCustomer.fname} ${infoCustomer.lname}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>ชื่อผู้ใช้งาน</td>
+                                                    <td>First Name</td>
+                                                    <td><input type="text" name="fname" class="form-control" value="${infoCustomer.fname}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lastname Name</td>
+                                                    <td><input type="text" name="lname" class="form-control" value="${infoCustomer.lname}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Username</td>
 
-                                                <td>${infoCustomer.username}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>อีเมล</td>
-                                                <td>${infoCustomer.email}</td>
-                                            </tr>
+                                                    <td>${infoCustomer.username}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>${infoCustomer.email}</td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>โทรศัพท์</td>
-                                                <td>${infoCustomer.telno}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>สถานะบัญชี</td>
-                                                <td>${infoCustomer.activated}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>วันที่สมัคร</td>
-                                                <td>${infoCustomer.updateDate}</td>
-                                            </tr>
-                                        <td>ที่อยู่จัดส่ง</td>
-                                        <c:if test="${CustomerAddress != null}">
+                                                <tr>
+                                                    <td>Phone</td>
+                                                    <td><input type="text" name="telno" class="form-control" value="${infoCustomer.telno}"></td>
+                                                </tr>
 
-                                            <td>
-                                            <c:forEach items="${CustomerAddress}" var="addressCustomer">
-                                                ${addressCustomer.address}
-                                                <br>
-                                            </c:forEach>
-
-                                            </td>
-                                        </c:if>
-                                        <c:if test="${CustomerAddress == null}">
-
-                                            <td>
-                                                ไม่มีที่อยู่
-                                            </td>
-                                        </c:if>
+                                                <tr>
+                                                    <td>Date of Register</td>
+                                                    <td>${infoCustomer.updateDate}</td>
+                                                </tr>
 
 
 
-                                        </tr>
+                                            </tbody>
+                                        </table>
 
-                                        </tbody>
-                                    </table>
-
+                                        <div align="center">
+                                            <input type="submit" class="btn  btn-primary btn-lg" value="Edit">
+                                        </div>
+                                    </form>
 
 
                                 </div>
                                 <div class="tab-pane" id="Address" role="tabpanel">
                                     <h4 class="card-title">
-                                        Tab 2
+                                        Address for shipping
                                     </h4>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a> 
+                                    <c:if test="${CustomerAddress != null}">
+
+                                        <c:forEach items="${CustomerAddress}" var="addressCustomer">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item"> ${addressCustomer.address}
+                                                </a>
+
+                                            </div>
+
+                                        </c:forEach>
+
+
+                                    </c:if>
+                                    <c:if test="${CustomerAddress == null}">
+
+
+                                        ไม่มีที่อยู่
+
+                                    </c:if>
+
                                 </div>
                                 <div class="tab-pane" id="ChangPassword" role="tabpanel">
                                     <h4 class="card-title">
@@ -162,6 +164,8 @@
 </body>
 
 <jsp:include page="Layout/Footer.jsp"></jsp:include>
-
+   
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+${param.result == "ok" ? '<script>swal("แก้ไขข้อมูลสำเร็จ", "แก้ไขข้อมูลเรียบร้อยแล้ว","success");</script>' : ''}
 </html>
 
