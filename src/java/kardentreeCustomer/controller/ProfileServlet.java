@@ -54,16 +54,43 @@ public class ProfileServlet extends HttpServlet {
         String UserLoggedIn = accountSession.getAccountid();
 
         AccountJpaController userAccountCtrl = new AccountJpaController(utx, emf);
-        Account viewCustomer = userAccountCtrl.findAccount(UserLoggedIn);
         AddressJpaController customerAddressCtrl = new AddressJpaController(utx, emf);
+
+        Account viewCustomer = userAccountCtrl.findAccount(UserLoggedIn);
+
         List<Address> viewAddress = customerAddressCtrl.findAddressList(UserLoggedIn);
 
         if (viewAddress != null) {
             request.setAttribute("CustomerAddress", viewAddress);
-
         }
 
         request.setAttribute("infoCustomer", viewCustomer);
+
+        //EditProfile submit
+        if (request.getParameter("accountid") != null) {
+            String fname = request.getParameter("fname");
+            String lname = request.getParameter("lname");
+            String telno = request.getParameter("telno");
+
+            Account editAccount = userAccountCtrl.findAccount(request.getParameter("accountid"));
+
+            if (editAccount != null) {
+                editAccount.setFname(fname);
+                editAccount.setLname(lname);
+                editAccount.setTelno(telno);
+
+                try {
+                    userAccountCtrl.edit(editAccount);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                
+                response.sendRedirect("profile?result=ok");
+                return;
+
+            }
+
+        }
 
         getServletContext().getRequestDispatcher("/profileView.jsp").forward(request, response);
 
