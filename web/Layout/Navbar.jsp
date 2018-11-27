@@ -116,6 +116,7 @@
                         <!-- Shop Homepage -->
                         <li class="nav-item"> <a href="Home" class="nav-link">HOME</a> </li>
                         <li class="nav-item"> <a href="Product" class="nav-link">Product</a> </li>
+                        <li class="nav-item"> <a href="Contact" class="nav-link">Contact</a> </li>
                         <!-- Shop Pages -->
 
                     </ul>
