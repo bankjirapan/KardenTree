@@ -65,11 +65,11 @@
                         <i class="fas fa-fw fa-table"></i>
                         <span>ลูกค้าทั้งหมด</span></a>
                 </li>
-                <li class="nav-item">
+<!--                <li class="nav-item">
                     <a class="nav-link" href="">
                         <i class="fas fa-cog"></i>
                         <span>การตั้งค่า</span></a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a  href="admin/logout" data-toggle="modal" data-target="#logoutModal" class="nav-link" href="">
                         <i class="fas fa-sign-out-alt"></i>
