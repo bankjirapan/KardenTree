@@ -167,6 +167,7 @@
                             <!-- Hover content -->
                             <div class="overlay-hover-content overlay-op-7 product-card-hover-tools">
                                 <a href="AddCart?productid=${Product.productid}&page=Home" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                                <a href="Product?view=${Product.productid}" class="text-white text-sm">View Product Details</a>
 
                             </div>
                             <!-- Image & price content -->
@@ -343,6 +344,7 @@
                                 ${newProduct.productname}
                             </h4>
                             <a href="AddCart?productid=${newProduct.productid}&page=Home" class="btn btn-primary text-uppercase font-weight-bold mb-2"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
+                            <a href="Product?view=${newProduct.productid}" class="text-white text-sm">View Product Details</a>
                         </div>
                         <!-- Image & price content -->
                         <div class="pos-relative">

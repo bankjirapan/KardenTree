@@ -67,7 +67,7 @@
                                         <!-- Hover content -->
                                         <div class="overlay-hover-content overlay-op-7">
                                             <a href="AddCart?productid=${Showproduct.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                            <a href="Product?view=${Showproduct.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
+                                            <a href="Product?view=${Showproduct.productid}" class="text-white text-sm">View Product Details</a>
                                         </div>
                                         <!-- Image & price content -->
                                         <div class="pos-relative">
@@ -99,7 +99,7 @@
                                         <!-- Hover content -->
                                         <div class="overlay-hover-content overlay-op-7">
                                             <a href="AddCart?productid=${ProductSearch.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                            <a href="Product?view=${ProductSearch.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
+                                            <a href="Product?view=${ProductSearch.productid}" class="text-white text-sm">View Product Details</a>
                                         </div>
                                         <!-- Image & price content -->
                                         <div class="pos-relative">
@@ -131,7 +131,7 @@
                                         <!-- Hover content -->
                                         <div class="overlay-hover-content overlay-op-7">
                                             <a href="AddCart?productid=${ProductSearch.productid}" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i> Add to Cart</a>
-                                            <a href="Product?view=${ProductSearch.productid}" class="text-white text-sm">View Product Details</a> <a href="#" class="text-white text-sm">Add to Wishlist</a> 
+                                            <a href="Product?view=${ProductSearch.productid}" class="text-white text-sm">View Product Details</a>  
                                         </div>
                                         <!-- Image & price content -->
                                         <div class="pos-relative">
@@ -210,17 +210,17 @@
                     </div>
 
                     <!-- Follow Widget -->
-                    <div class="mb-4">
+<!--                    <div class="mb-4">
                         <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-primary">
                         <h4 class="text-uppercase font-weight-bold mt-0">
                             Follow us on
                         </h4>
-                        <!--@todo: replace with company social media details-->
+                        @todo: replace with company social media details
                         <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-twitter"></i> <span class="sr-only">Twitter</span> </a>
                         <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-facebook-f"></i> <span class="sr-only">Facebook f</span> </a>
                         <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-linkedin-in"></i> <span class="sr-only">Linkedin in</span> </a>
                         <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-google-plus-g"></i> <span class="sr-only">Google plus g</span> </a>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
