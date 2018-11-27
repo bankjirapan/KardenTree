@@ -120,12 +120,34 @@
                                     <h4 class="card-title">
                                         Address for shipping
                                     </h4>
+                                    <div class="rows">
+                                        <form action="profile" method="post">
+                                              <input name="accountid" value="${infoCustomer.accountid}" hidden="">
+                                        <div class="col-md4">
+                                            <input name="newaddress" class="form-control" placeholder="เพิ่มที่อยู่ใหม่">
+                                            <input type="submit" hidden="">
+                                        </div>
+                                           <div class="col-md-4">
+                                            
+                                        </div>
+                                           <div class="col-md-4">
+                                            
+                                        </div>
+                                       </form>
+                                            
+                                        
+                                    </div>
                                     <c:if test="${CustomerAddress != null}">
 
                                         <c:forEach items="${CustomerAddress}" var="addressCustomer">
                                             <div class="list-group">
-                                                <a href="#" class="list-group-item"> ${addressCustomer.address}
-                                                </a>
+                                                <li class="list-group-item justify-content-between"> 
+                                                    ${addressCustomer.address}
+                                                 
+                                                  <a class="badge badge-danger badge-pill float-right" href="profile?removeAddress=${addressCustomer.addressid}">x</a>
+                                                </li>
+                                                 
+                                               
 
                                             </div>
 
@@ -167,5 +189,6 @@
    
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 ${param.result == "ok" ? '<script>swal("แก้ไขข้อมูลสำเร็จ", "แก้ไขข้อมูลเรียบร้อยแล้ว","success");</script>' : ''}
+${param.resultRemove == "ok" ? '<script>swal("ลบข้อมูลสำเร็จ", "ลบข้อมูลที่อยู่เรียบร้อยแล้ว","success");</script>' : ''}
 </html>
 
