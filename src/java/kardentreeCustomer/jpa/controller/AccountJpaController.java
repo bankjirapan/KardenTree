@@ -149,33 +149,45 @@ public class AccountJpaController implements Serializable {
             em.close();
         }
     }
-    
-        public Account findAccountUsername(String username){
+
+    public Account findAccountUsername(String username) {
         EntityManager em = getEntityManager();
-        try{
+        try {
             Query query = em.createNamedQuery("Account.findByUsername");
             query.setParameter("username", username);
             return (Account) query.getSingleResult();
-        }catch (NoResultException NoResult){
+        } catch (NoResultException NoResult) {
             return null;
-        }finally{
-            em.close();
-        }
-    }
-    
-    public Account findAccountEmail(String email){
-        EntityManager em = getEntityManager();
-        try{
-            Query query = em.createNamedQuery("Account.findByEmail");
-            query.setParameter("email", email);
-            return (Account) query.getSingleResult();
-        }catch(NoResultException NoResult){
-            return null;
-        }finally {
+        } finally {
             em.close();
         }
     }
 
+    public Account findAccountPassword(String password) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Account.findByPassword");
+            query.setParameter("password", password);
+            return (Account) query.getSingleResult();
+        } catch (NoResultException NoResult) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
+
+    public Account findAccountEmail(String email) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Account.findByEmail");
+            query.setParameter("email", email);
+            return (Account) query.getSingleResult();
+        } catch (NoResultException NoResult) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 
     public int getAccountCount() {
         EntityManager em = getEntityManager();
@@ -189,5 +201,5 @@ public class AccountJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

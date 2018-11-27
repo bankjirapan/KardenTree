@@ -21,22 +21,18 @@
         <div id="content">
             <div class="container">
                 <!-- Login form -->
-                <form action="Login" method="post" class="form-login form-wrapper form-narrow">
+                <form action="Forget" method="post" class="form-login form-wrapper form-narrow">
                     <h3 class="title-divider">
-                        <span>Login</span> 
-                        <small class="mt-4">Not signed up? <a href="Register">Sign up here</a>.</small>
+                        <span>Forgotten Password</span> 
+                        <small class="mt-4">Please type your email here.</small>
                     </h3>
                     <div class="form-group">
                         <label class="sr-only" for="login-email-page">Email</label>
-                        <input type="text" name="email" id="login-email-page" class="form-control email" placeholder="Username or Email">
+                        <input type="text" name="email" id="login-email-page" class="form-control email" placeholder="Email">
                     </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="login-password-page">Password</label>
-                        <input type="password" name="password" id="login-password-page" class="form-control password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    | 
-                    <small><a href="Forget">Forgotten Password?</a></small>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
                 </form>
             </div>
         </div>
