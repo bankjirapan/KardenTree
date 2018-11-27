@@ -86,8 +86,8 @@ public class Orderdetail implements Serializable {
         return orderid;
     }
 
-    public void setOrderid(int orderid) {
-        this.orderid = orderid;
+    public void setOrderid(Orders orderid) {
+        this.orderid = orderid.getOrderid();
     }
 
     public String getProductid() {
