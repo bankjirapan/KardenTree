@@ -112,7 +112,7 @@ public class CheckoutConfirmServlet extends HttpServlet {
 
                 try {
                     orderListCtrl.create(orderList);
-                    // productCtrl.edit(findproduct);
+                    productCtrl.edit(findproduct);
 
                 } catch (Exception e) {
                     System.out.println(e);
