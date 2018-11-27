@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Random;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -64,14 +65,12 @@ public class AddProductAdminServlet extends HttpServlet {
         String price = request.getParameter("price");
         String quantity = request.getParameter("quantity");
         //String picture = request.getParameter("pic");
-        
-          // gets absolute path of the web application
+
+        // gets absolute path of the web application
         String appPath = System.getProperty("user.dir");
         //String savePath = "/Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg/";
         String LocalStorage = request.getServletContext().getRealPath(File.separator);
         String PathSaveImg = LocalStorage.replaceAll("/build/web/", "/web/assets/img/ProductImg/");
-   
-        
 
         if (productName != null) {
             ProductJpaController productJpa = new ProductJpaController(utx, emf);
@@ -84,7 +83,6 @@ public class AddProductAdminServlet extends HttpServlet {
                 double numPrice = Double.parseDouble(price);
 
                 // gets absolute path of the web application
-               
                 File fileSaveDir = new File(PathSaveImg);
                 if (!fileSaveDir.exists()) {
                     fileSaveDir.mkdir();
@@ -100,7 +98,7 @@ public class AddProductAdminServlet extends HttpServlet {
                 }
 
                 product1.setProductname(productName);
-                product1.setProductid(productCount);
+                product1.setProductid(genProductId());
                 product1.setCategory(category);
                 product1.setType(type);
                 product1.setDetail(detail);
@@ -117,13 +115,11 @@ public class AddProductAdminServlet extends HttpServlet {
                 return;
             }
         }
-        
+
         //Get Category Product
-        
         CategoryJpaController categoryProduct = new CategoryJpaController(utx, emf);
         List<Category> Listcategory = categoryProduct.findCategoryEntities();
-        
-        
+
         request.setAttribute("Category", Listcategory);
         getServletContext().getRequestDispatcher("/adminView/adminAddProduct.jsp").forward(request, response);
     }
@@ -137,6 +133,25 @@ public class AddProductAdminServlet extends HttpServlet {
             }
         }
         return "";
+    }
+
+    private String genProductId() {
+        Random rd = new Random();
+        String productId = "PD";
+        ProductJpaController productJpa = new ProductJpaController(utx, emf);
+        Product product = new Product();
+
+        while (product != null) {
+            while (productId.length() != 10) {
+                int code = rd.nextInt(10);
+                String stCode = String.valueOf(code);
+                productId = productId + stCode;
+            }
+            product = productJpa.findProduct(productId);
+        }
+        
+        return productId;
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
