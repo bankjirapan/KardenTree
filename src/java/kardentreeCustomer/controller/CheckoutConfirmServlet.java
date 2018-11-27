@@ -22,10 +22,14 @@ import kardentreeAdmin.jpa.models.Cart;
 import kardentreeAdmin.jpa.models.LineItem;
 import kardentreeAdmin.jpa.models.Product;
 import kardentreeCustomer.jpa.controller.AddressJpaController;
-import kardentreeCustomer.jpa.controller.OrderlistJpaController;
+import kardentreeCustomer.jpa.controller.OrderdetailJpaController;
+//import kardentreeCustomer.jpa.controller.OrderlistJpaController;
+import kardentreeCustomer.jpa.controller.OrdersJpaController;
 import kardentreeCustomer.jpa.models.Account;
 import kardentreeCustomer.jpa.models.Address;
-import kardentreeCustomer.jpa.models.Orderlist;
+import kardentreeCustomer.jpa.models.Orderdetail;
+//import kardentreeCustomer.jpa.models.Orderlist;
+import kardentreeCustomer.jpa.models.Orders;
 
 /**
  *
@@ -50,9 +54,9 @@ public class CheckoutConfirmServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //CheckEmptyCart  
-        if(request.getSession().getAttribute("cart") == null){
+        if (request.getSession().getAttribute("cart") == null) {
             response.sendRedirect("Product");
             return;
         };
@@ -92,26 +96,51 @@ public class CheckoutConfirmServlet extends HttpServlet {
 
             //JpaController
             ProductJpaController productCtrl = new ProductJpaController(utx, emf);
-            OrderlistJpaController orderListCtrl = new OrderlistJpaController(utx, emf);
+            //OrderlistJpaController orderListCtrl = new OrderlistJpaController(utx, emf);
+            OrdersJpaController orderJpa = new OrdersJpaController(utx, emf);
+            OrderdetailJpaController orderdetailJpa = new OrderdetailJpaController(utx, emf);
+            
+            Orders order = new Orders();
+                order.setAccountid(UserLoggedIn);
+                order.setOrderdate(new Date());
+                order.setTotalprice(cartList.getTotalPrice());
+                
+                try{
+                orderJpa.create(order);
+            } catch (Exception e){
+                System.out.println(e);
+            }
 
             for (int i = 0; i < forCart.size(); i++) {
-                //System.out.println(forCart.get(i).getProduct().getProductname());
-                Orderlist orderList = new Orderlist();
-                //setOrderList
-                orderList.setAccountid(UserLoggedIn);
-                orderList.setAddressid(request.getParameter("CustomerAddress"));
-                orderList.setDate(new Date());
-                orderList.setOrderid(orderListCtrl.getOrderlistCount() + 1 + "");
-                orderList.setProductid(forCart.get(i).getProduct().getProductid());
-                orderList.setTotalprice(forCart.get(i).getTotalPrice());
+//                //System.out.println(forCart.get(i).getProduct().getProductname());
+//                Orderlist orderList = new Orderlist();
+//                //setOrderList
+//                orderList.setAccountid(UserLoggedIn);
+//                orderList.setAddressid(request.getParameter("CustomerAddress"));
+//                orderList.setDate(new Date());
+//                orderList.setOrderid(orderListCtrl.getOrderlistCount() + 1 + "");
+//                orderList.setProductid(forCart.get(i).getProduct().getProductid());
+//                orderList.setTotalprice(forCart.get(i).getTotalPrice());
+//
+//                totalPrice = forCart.get(i).getTotalPrice();
 
-                totalPrice = forCart.get(i).getTotalPrice();
+                
+
                 //Remove 
                 Product findproduct = productCtrl.findProduct(forCart.get(i).getProduct().getProductid());
                 findproduct.setQuantity(forCart.get(i).getProduct().getQuantity() - forCart.get(i).getQuantity());
 
                 try {
-                    orderListCtrl.create(orderList);
+                    //orderListCtrl.create(orderList);
+                    //orderJpa.create(order);
+                    Orderdetail orderdetail = new Orderdetail();
+                    orderdetail.setOrderid(order);
+                    orderdetail.setPrice(forCart.get(i).getProduct().getPrice());
+                    orderdetail.setQuantity(forCart.get(i).getQuantity());
+                    orderdetail.setProductid(forCart.get(i).getProduct().getProductid());
+                    orderdetailJpa.create(orderdetail);
+
+
                     productCtrl.edit(findproduct);
 
                 } catch (Exception e) {
@@ -119,6 +148,8 @@ public class CheckoutConfirmServlet extends HttpServlet {
                 }
 
             }
+            
+            
 
             request.getSession(false).removeAttribute("cart");
             request.setAttribute("totalprice", totalPrice);
