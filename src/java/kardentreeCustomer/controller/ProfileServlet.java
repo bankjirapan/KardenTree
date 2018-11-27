@@ -71,7 +71,7 @@ public class ProfileServlet extends HttpServlet {
         if (request.getParameter("newaddress") != null) {
             Address newAddress = new Address();
 
-            if (viewAddress == null) {
+            if (viewAddress.size()==0) {
                 newAddress.setActive("1");
             } else {
                 newAddress.setActive("0");
