@@ -5,6 +5,7 @@
  */
 package kardentreeCustomer.controller;
 
+import KardentreeLibrary.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
@@ -59,6 +60,7 @@ public class RegisterServlet extends HttpServlet {
                 Account email = accountJpa.findAccountEmail(Email);
                 if (email == null) {
                     //String accountCount = String.valueOf(accountJpa.getAccountCount()+1);
+                    String ActivateKey = genActivatedKey();
                     Account account2 = new Account();
                     account2.setAccountid(genAccountId());
                     account2.setEmail(Email);
@@ -70,12 +72,27 @@ public class RegisterServlet extends HttpServlet {
                     account2.setCreateDate(new Date().toString());
                     account2.setUpdateDate(new Date().toString());
                     account2.setActivated(false);
-                    account2.setActivate(genActivatedKey()); // ต้อง Random
+                    account2.setActivate(ActivateKey); // ต้อง Random
                     try {
                         accountJpa.create(account2);
                     } catch (Exception ex) {
                         System.out.println(ex);
                     }
+
+                    //SendMail
+                    String uri = request.getScheme() + "://"+ request.getServerName()+":"+request.getServerPort()+"KardenTree/Activate?activate="+ActivateKey;
+
+                    SendMail.send(
+                            Email,
+                            "Register KardenTree",
+                            "Dear  " + fname + " \n To continue sending messages, please click  " + uri + " and validate your account.\n"
+                            + "This helps us stop automated programs from sending junk email.\n"
+                            + "Thanks for your help and patience! KardenTree ",
+                            "kardentree@outlook.com",
+                            "q:vFGx2!][D\"?W8U"
+                    );
+
+                    //End Sendmail
                     response.sendRedirect("CompleteRegisterView.jsp");
                     return;
                 }
