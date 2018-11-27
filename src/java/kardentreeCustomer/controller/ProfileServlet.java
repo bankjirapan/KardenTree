@@ -69,11 +69,15 @@ public class ProfileServlet extends HttpServlet {
 
         //Add Address
         if (request.getParameter("newaddress") != null) {
-
-            int numAddress = customerAddressCtrl.getAddressCount() + 1;
             Address newAddress = new Address();
+
+            if (viewAddress == null) {
+                newAddress.setActive("1");
+            } else {
+                newAddress.setActive("0");
+            }
+
             newAddress.setAddress(request.getParameter("newaddress"));
-            newAddress.setActive("0");
             newAddress.setAddressid(genAddressId());
             newAddress.setAccountid(UserLoggedIn);
 
@@ -139,11 +143,11 @@ public class ProfileServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/profileView.jsp").forward(request, response);
 
     }
-    
+
     private String genAddressId() {
         Random rd = new Random();
         String accountId = "AD";
-        AddressJpaController addressJpa = new AddressJpaController(utx,emf);
+        AddressJpaController addressJpa = new AddressJpaController(utx, emf);
         Address address = new Address();
 
         while (address != null) {
