@@ -58,9 +58,9 @@ public class RegisterServlet extends HttpServlet {
             if (account == null) {
                 Account email = accountJpa.findAccountEmail(Email);
                 if (email == null) {
-                    String accountCount = String.valueOf(accountJpa.getAccountCount()+1);
+                    //String accountCount = String.valueOf(accountJpa.getAccountCount()+1);
                     Account account2 = new Account();
-                    account2.setAccountid(accountCount);
+                    account2.setAccountid(genAccountId());
                     account2.setEmail(Email);
                     account2.setFname(fname);
                     account2.setLname(lname);
@@ -74,7 +74,7 @@ public class RegisterServlet extends HttpServlet {
                     try {
                         accountJpa.create(account2);
                     } catch (Exception ex) {
-                        System.out.println("ex");
+                        System.out.println(ex);
                     }
                     response.sendRedirect("CompleteRegisterView.jsp");
                     return;
@@ -85,6 +85,7 @@ public class RegisterServlet extends HttpServlet {
         }
         getServletContext().getRequestDispatcher("/RegisterView.jsp").forward(request, response);
     }
+
     public static String cryptWithMD5(String pass) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -101,20 +102,39 @@ public class RegisterServlet extends HttpServlet {
         }
         return null;
     }
-    
-    public static String genActivatedKey (){
+
+    public static String genActivatedKey() {
         Random rd = new Random();
         String key = "";
         int count = 0;
-        
-        while(count!=10){
-            char i = (char)(rd.nextInt(26)+65);
+
+        while (count != 10) {
+            char i = (char) (rd.nextInt(26) + 65);
             key = key + i;
             count++;
         }
-        
+
         return key;
-        
+
+    }
+
+    private String genAccountId() {
+        Random rd = new Random();
+        String accountId = "AC";
+        AccountJpaController accountJpa = new AccountJpaController(utx, emf);
+        Account account = new Account();
+
+        while (account != null) {
+            while (accountId.length() != 7) {
+                int code = rd.nextInt(10);
+                String stCode = String.valueOf(code);
+                accountId = accountId + stCode;
+            }
+            account = accountJpa.findAccount(accountId);
+        }
+
+        return accountId;
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
