@@ -62,7 +62,7 @@ public class ActivateServlet extends HttpServlet {
                     System.out.println(ex);
                 }
                 session.setAttribute("account", account);
-                response.sendRedirect("Home.jsp");
+                response.sendRedirect("profile");
                 return;
             }
         }
