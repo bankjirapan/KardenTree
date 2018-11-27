@@ -63,6 +63,7 @@ public class CheckoutServlet extends HttpServlet {
             request.setAttribute("AccountInfo", accountSession);
             System.out.println("Empty");
         } else {
+            request.setAttribute("AccountInfo", accountSession);
             request.setAttribute("AddressList", getAddress);
         }
         //getAddressActive
