@@ -66,6 +66,27 @@ public class ProfileServlet extends HttpServlet {
 
         request.setAttribute("infoCustomer", viewCustomer);
 
+        //Add Address
+        if (request.getParameter("newaddress") != null) {
+
+            int numAddress = customerAddressCtrl.getAddressCount() + 1;
+            Address newAddress = new Address();
+            newAddress.setAddress(request.getParameter("newaddress"));
+            newAddress.setActive("0");
+           
+            newAddress.setAccountid(UserLoggedIn);
+
+            try {
+                customerAddressCtrl.create(newAddress);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+            response.sendRedirect("profile");
+            return;
+
+        }
+
         //EditProfile submit
         if (request.getParameter("accountid") != null) {
             String fname = request.getParameter("fname");
@@ -84,10 +105,32 @@ public class ProfileServlet extends HttpServlet {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-                
+
                 response.sendRedirect("profile?result=ok");
                 return;
 
+            }
+
+        }
+
+        //RemoveAddress
+        if (request.getParameter("removeAddress") != null) {
+            Address removeAddressDB = customerAddressCtrl.findAddress(request.getParameter("removeAddress"));
+            if (removeAddressDB != null) {
+                //ป้องกันการแกล้งลบข้อมูลของบุคคลอื่น
+                String RemoveCurrectUser = removeAddressDB.getAccountid();
+
+                //ถ้าที่ login ตรงกับที่มีการแจ้งลบมา
+                if (RemoveCurrectUser.equalsIgnoreCase(UserLoggedIn)) {
+                    try {
+                        customerAddressCtrl.destroy(request.getParameter("removeAddress"));
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+
+                    response.sendRedirect("profile?resultRemove=ok");
+                    return;
+                }
             }
 
         }
