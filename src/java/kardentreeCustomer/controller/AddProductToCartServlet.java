@@ -51,22 +51,28 @@ public class AddProductToCartServlet extends HttpServlet {
         }
         String productID = request.getParameter("productid");
         String page = request.getParameter("page");
-
+        
+        ProductJpaController productJpa = new ProductJpaController(utx,emf);
+        Product p = productJpa.findProduct(productID);
+        
+        if(p.getQuantity()!=0 && cart.getTotalQuantity()<p.getQuantity()){
         if (page != null) {
             if (page.equalsIgnoreCase("Home")) {
-                ProductJpaController productJpa = new ProductJpaController(utx, emf);
-                Product p = productJpa.findProduct(productID);
+                //ProductJpaController productJpa = new ProductJpaController(utx, emf);
+                //Product p = productJpa.findProduct(productID);
                 cart.add(p);
                 session.setAttribute("totalprice", cart.getTotalPrice());
                 response.sendRedirect("Home");
                 return;
             }
         }
+        
 
-        ProductJpaController productJpa = new ProductJpaController(utx, emf);
-        Product p = productJpa.findProduct(productID);
+        //ProductJpaController productJpa = new ProductJpaController(utx, emf);
+        //Product p = productJpa.findProduct(productID);
         cart.add(p);
         session.setAttribute("totalprice", cart.getTotalPrice());
+        }
         //getServletContext().getRequestDispatcher("/ProductList").forward(request, response);
         response.sendRedirect("Product");
 
