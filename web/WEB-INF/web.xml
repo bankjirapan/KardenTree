@@ -102,6 +102,10 @@
         <servlet-name>ProfileServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.ProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderlistServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.OrderlistServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminLoginServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
@@ -177,6 +181,10 @@
     <servlet-mapping>
         <servlet-name>ProfileServlet</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderlistServlet</servlet-name>
+        <url-pattern>/Orderlist</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
