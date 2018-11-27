@@ -8,6 +8,7 @@ package kardentreeCustomer.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Random;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -73,7 +74,7 @@ public class ProfileServlet extends HttpServlet {
             Address newAddress = new Address();
             newAddress.setAddress(request.getParameter("newaddress"));
             newAddress.setActive("0");
-           
+            newAddress.setAddressid(genAddressId());
             newAddress.setAccountid(UserLoggedIn);
 
             try {
@@ -136,6 +137,25 @@ public class ProfileServlet extends HttpServlet {
         }
 
         getServletContext().getRequestDispatcher("/profileView.jsp").forward(request, response);
+
+    }
+    
+    private String genAddressId() {
+        Random rd = new Random();
+        String accountId = "AD";
+        AddressJpaController addressJpa = new AddressJpaController(utx,emf);
+        Address address = new Address();
+
+        while (address != null) {
+            while (accountId.length() != 10) {
+                int code = rd.nextInt(10);
+                String stCode = String.valueOf(code);
+                accountId = accountId + stCode;
+            }
+            address = addressJpa.findAddress(accountId);
+        }
+
+        return accountId;
 
     }
 
