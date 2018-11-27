@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
@@ -132,6 +133,19 @@ public class OrderdetailJpaController implements Serializable {
             }
             return q.getResultList();
         } finally {
+            em.close();
+        }
+    }
+    
+    public List<Orderdetail> findOrderdetailByOrderid(int orderId){
+        EntityManager em = getEntityManager();
+        try{
+            Query query = em.createNamedQuery("Orderdetail.findByOrderid");
+            query.setParameter("orderid", orderId);
+            return query.getResultList();
+        }catch (NoResultException NoResult){
+            return null;
+        }finally{
             em.close();
         }
     }

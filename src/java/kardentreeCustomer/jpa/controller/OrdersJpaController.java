@@ -146,6 +146,19 @@ public class OrdersJpaController implements Serializable {
         }
     }
     
+    public List<Orders> findOrdersListByAccountid(String accountid){
+        EntityManager em = getEntityManager();
+        try{
+            Query query = em.createNamedQuery("Orders.findByAccountid");
+            query.setParameter("accountid", accountid);
+            return query.getResultList();
+        }catch (NoResultException NoResult){
+            return null;
+        }finally{
+            em.close();
+        }
+    }
+    
     public Orders findOrdersByAccountid(String accountid){
         EntityManager em = getEntityManager();
         try{
