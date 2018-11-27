@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package KardentreeLibrary;
+package kardentreeCustomer.jpa.controller;
 
 import KardentreeLibrary.exceptions.NonexistentEntityException;
 import KardentreeLibrary.exceptions.RollbackFailureException;
@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
@@ -141,6 +142,19 @@ public class OrdersJpaController implements Serializable {
         try {
             return em.find(Orders.class, id);
         } finally {
+            em.close();
+        }
+    }
+    
+    public Orders findOrdersByAccountid(String accountid){
+        EntityManager em = getEntityManager();
+        try{
+            Query query = em.createNamedQuery("Orders.findByAccountid");
+            query.setParameter("accountid", accountid);
+            return (Orders) query.getSingleResult();
+        }catch (NoResultException NoResult){
+            return null;
+        }finally{
             em.close();
         }
     }
