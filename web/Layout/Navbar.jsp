@@ -32,7 +32,7 @@
                 <div class="header-brand">
                     <a class="header-brand-text" href="Home" title="Home">
                         <h1 class="h2">
-                            <span class="header-brand-text-alt">Karden</span>Tree<span class="header-brand-text-alt">.</span>
+                            <span class="header-brand-text-alt">Kraden</span>Tree<span class="header-brand-text-alt">.</span>
                         </h1>
                     </a>
                     <div class="header-divider d-none d-lg-block"></div>
