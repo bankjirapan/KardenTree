@@ -82,6 +82,9 @@ public class adminCustomerServlet extends HttpServlet {
             } catch (Exception exp) {
                 System.out.println(exp);
             }
+            
+            response.sendRedirect("Customer");
+            return;
         }
         //End Delete
 

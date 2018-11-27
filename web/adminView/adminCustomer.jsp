@@ -130,7 +130,7 @@
 
                                                     <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-edit"></i></a>
 
-                                                    <a class="btn btn-danger btn-sm" onclick="deleteCustomer(${Customer.accountid})" href="#"><i class="fa fa-trash"></i></a>
+                                                    <a class="btn btn-danger btn-sm"  href="Customer?deleteAccountID=${Customer.accountid}"><i class="fa fa-trash"></i></a>
 
                                                 </div>
                                             </td>
@@ -235,37 +235,5 @@
                 </div>
             </div>
 
-            <script>
-
-                                                        function deleteCustomer(accountID) {
-                                                            swal({
-                                                                title: "Are you sure?",
-                                                                text: "คุณต้องการที่ลบรายการนี้",
-                                                                icon: "warning",
-                                                                buttons: true,
-                                                                dangerMode: true,
-                                                            })
-                                                                    .then((willDelete) => {
-
-                                                                        if (willDelete) {
-                                                                            $.post("Customer",
-                                                                                    {
-                                                                                        deleteAccountID: accountID,
-                                                                                    },
-                                                                                    function (status) {
-                                                                                        swal("ลบข้อมูลแล้วแล้ว", {
-                                                                                            icon: "success",
-                                                                                        });
-
-                                                                                        window.location.href = "Customer";
-                                                                                    });
-
-                                                                        } else {
-
-                                                                        }
-                                                                    });
-                                                        }
-
-            </script>
             </body>
             </html>
