@@ -5,15 +5,10 @@
  */
 package kardentreeCustomer.controller;
 
-import KardentreeLibrary.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -21,20 +16,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
-import static kardentreeCustomer.controller.CustomerLoginServlet.cryptWithMD5;
-import static kardentreeCustomer.controller.RegisterServlet.cryptWithMD5;
-import static kardentreeCustomer.controller.RegisterServlet.genActivatedKey;
 import kardentreeCustomer.jpa.controller.AccountJpaController;
-import kardentreeCustomer.jpa.controller.exceptions.RollbackFailureException;
 import kardentreeCustomer.jpa.models.Account;
 
 /**
  *
- * @author Krittapak
+ * @author ryan.
  */
-public class ForgetServlet extends HttpServlet {
+public class ForgottenServlet extends HttpServlet {
 
     @PersistenceUnit(unitName = "KardenTreePU")
     EntityManagerFactory emf;
@@ -53,49 +43,42 @@ public class ForgetServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String email = request.getParameter("email");
+        String key = request.getParameter("key");
+        AccountJpaController accountJpa = new AccountJpaController(utx, emf);
         
-        if(email!=null){
-            AccountJpaController accountJpa = new AccountJpaController(utx,emf);
-            Account account = accountJpa.findAccountEmail(email);
+        if (key != null) {
+            
+            Account account = accountJpa.findAccountPassword(key);
+
+            if (account != null) {
+                request.getSession().setAttribute("key", key);
+                response.sendRedirect("ForgottenView.jsp");
+                return;
+            }
+
+        }
+        
+        String newpassword = request.getParameter("newpassword");
+        String keyagain = request.getParameter("keyagain");
+        
+        if(newpassword!=null){
+            Account account = accountJpa.findAccountPassword(keyagain);
             
             if(account!=null){
-                account.setPassword(genKey());
+                request.getSession().removeAttribute("key");
+                account.setPassword(cryptWithMD5(newpassword));
+                
                 try{
                     accountJpa.edit(account);
                 }catch (Exception e){
                     System.out.println(e);
                 }
-                
-                //SendMail
-                    String uri = request.getScheme() + "://"+ request.getServerName()+":"+request.getServerPort()+"/KardenTree/Forgot?key="+account.getPassword();
-
-                    SendMail.send(
-                            account.getEmail(),
-                            "Register KardenTree",
-                            "Dear  " + account.getFname() + " \n To reset password, please click  " + uri + " and change your account.\n"
-                            + "This helps us stop automated programs from sending junk email.\n"
-                            + "Thanks for your help and patience! KardenTree ",
-                            "kardentree@outlook.com",
-                            "q:vFGx2!][D\"?W8U"
-                    );
-                    //End Sendmail
-                
             }
             
-            String key =request.getParameter("key");
-            
-            if(key!=null){
-                response.sendRedirect("ForgottenView.jsp");
-                return;
-            }
-            
-            
+            response.sendRedirect("Login");
+            return;
         }
         
-        getServletContext().getRequestDispatcher("/ForgetView.jsp").forward(request, response);
-
     }
     
     public static String cryptWithMD5(String pass) {
@@ -113,21 +96,6 @@ public class ForgetServlet extends HttpServlet {
             System.out.println(ex);
         }
         return null;
-    }
-
-    public static String genKey() {
-        Random rd = new Random();
-        String key = "";
-        int count = 0;
-
-        while (count != 10) {
-            char i = (char) (rd.nextInt(26) + 65);
-            key = key + i;
-            count++;
-        }
-
-        return key;
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

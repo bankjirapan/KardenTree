@@ -21,7 +21,7 @@
         <div id="content">
             <div class="container">
                 <!-- Login form -->
-                <form action="Forget" method="post" class="form-login form-wrapper form-narrow">
+                <form action="Forgot" method="post" class="form-login form-wrapper form-narrow">
                     <input type="text" value="${accountid}" hidden="" name="customerid">
                     <h3 class="title-divider">
                         <span>Forgotten Password</span> 
@@ -29,6 +29,7 @@
                     </h3>
                     <div class="form-group">
                         <label class="sr-only" for="login-password-page">New Password</label>
+                        <input type="text" name="keyagain" value="${sessionScope.key}" hidden>
                         <input type="password"  name="newpassword" id="login-password-page" class="form-control password" placeholder="Password">
                     </div>
                     <div class="form-group">
