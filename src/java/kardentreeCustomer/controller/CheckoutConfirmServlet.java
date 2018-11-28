@@ -127,6 +127,7 @@ public class CheckoutConfirmServlet extends HttpServlet {
             request.getSession(false).removeAttribute("cart");
             request.setAttribute("totalprice", totalPrice);
             request.setAttribute("cartList", cartList);
+            request.getSession().removeAttribute("totalprice");
             getServletContext().getRequestDispatcher(("/CheckoutConfirmView.jsp")).forward(request, response);
             
             
@@ -194,6 +195,7 @@ public class CheckoutConfirmServlet extends HttpServlet {
             request.getSession(false).removeAttribute("cart");
             request.setAttribute("totalprice", totalPrice);
             request.setAttribute("cartList", cartList);
+            request.getSession().removeAttribute("totalprice");
             getServletContext().getRequestDispatcher(("/CheckoutConfirmView.jsp")).forward(request, response);
 
         }
