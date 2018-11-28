@@ -7,6 +7,8 @@ package kardentreeCustomer.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Resource;
@@ -139,9 +141,54 @@ public class ProfileServlet extends HttpServlet {
             }
 
         }
+        
+        if(request.getParameter("currentPassword") != null){
+            
+            Account newPassword = userAccountCtrl.findAccount(UserLoggedIn);
+            
+            if(newPassword != null){
+                
+                if(cryptWithMD5(request.getParameter("currentPassword")).equalsIgnoreCase(newPassword.getPassword())){
+                    
+                    newPassword.setPassword(cryptWithMD5(request.getParameter("ConfirmPassword")));
+                    
+                    try {
+                        userAccountCtrl.edit(newPassword);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                    
+                    response.sendRedirect("profile?result=ok");
+                    return;
+                    
+                    
+                } else {
+                    request.setAttribute("error", "passwordwrong");
+                    getServletContext().getRequestDispatcher("/profileView.jsp").forward(request, response);
+                }
+                
+            }
+        }
 
         getServletContext().getRequestDispatcher("/profileView.jsp").forward(request, response);
 
+    }
+    
+        public static String cryptWithMD5(String pass) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] passBytes = pass.getBytes();
+            md.reset();
+            byte[] digested = md.digest(passBytes);
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < digested.length; i++) {
+                sb.append(Integer.toHexString(0xff & digested[i]));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException ex) {
+            System.out.println(ex);
+        }
+        return null;
     }
 
     private String genAddressId() {

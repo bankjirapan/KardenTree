@@ -40,7 +40,7 @@
                         <div class="text-center">
                             <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
                             <h6>Upload a different photo...</h6>
-                            <input type="file" class="text-center center-block file-upload">
+
                         </div><br>
 
 
@@ -122,20 +122,20 @@
                                     </h4>
                                     <div class="rows">
                                         <form action="profile" method="post">
-                                              <input name="accountid" value="${infoCustomer.accountid}" hidden="">
-                                        <div class="col-md4">
-                                            <input name="newaddress" class="form-control" placeholder="เพิ่มที่อยู่ใหม่">
-                                            <input type="submit" hidden="">
-                                        </div>
-                                           <div class="col-md-4">
-                                            
-                                        </div>
-                                           <div class="col-md-4">
-                                            
-                                        </div>
-                                       </form>
-                                            
-                                        
+                                            <input name="accountid" value="${infoCustomer.accountid}" hidden="">
+                                            <div class="col-md4">
+                                                <input name="newaddress" class="form-control" placeholder="เพิ่มที่อยู่ใหม่">
+                                                <input type="submit" hidden="">
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+                                        </form>
+
+
                                     </div>
                                     <c:if test="${CustomerAddress != null}">
 
@@ -143,11 +143,11 @@
                                             <div class="list-group">
                                                 <li class="list-group-item justify-content-between"> 
                                                     ${addressCustomer.address}
-                                                 
-                                                  <a class="badge badge-danger badge-pill float-right" href="profile?removeAddress=${addressCustomer.addressid}">x</a>
+
+                                                    <a class="badge badge-danger badge-pill float-right" href="profile?removeAddress=${addressCustomer.addressid}">x</a>
                                                 </li>
-                                                 
-                                               
+
+
 
                                             </div>
 
@@ -165,10 +165,18 @@
                                 </div>
                                 <div class="tab-pane" id="ChangPassword" role="tabpanel">
                                     <h4 class="card-title">
-                                        Tab 3
+                                        เปลี่ยนรหัสผ่าน
                                     </h4>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a> 
+                                    <form action="profile" method="post">
+                                        <label>Current Password</label>
+                                        <input type="password" class="form-control"  name="currentPassword">
+                                        <label>New Password </label>
+                                        <input type="password" class="form-control"  name="newPassword">
+                                        <label>Confirm Password </label>
+                                        <input type="password" class="form-control"  name="ConfirmPassword">
+                                        <br>
+                                        <input type="submit" class="btn btn-success" value="Changes">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -186,9 +194,10 @@
 </body>
 
 <jsp:include page="Layout/Footer.jsp"></jsp:include>
-   
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-${param.result == "ok" ? '<script>swal("แก้ไขข้อมูลสำเร็จ", "แก้ไขข้อมูลเรียบร้อยแล้ว","success");</script>' : ''}
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+${param.result == "ok" ? '<script>swal("ทำรายการสำเร็จ", "คุณได้ทำรายการสำเร็จแล้ว","success");</script>' : ''}
 ${param.resultRemove == "ok" ? '<script>swal("ลบข้อมูลสำเร็จ", "ลบข้อมูลที่อยู่เรียบร้อยแล้ว","success");</script>' : ''}
+${error == "passwordwrong" ? '<script>swal("เกิดข้อผิดพลาด", "รหัสผ่านเดิมไม่ถูดต้อง","warning");</script>' : ''}
 </html>
 
