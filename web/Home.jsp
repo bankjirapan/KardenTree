@@ -120,7 +120,7 @@
                 </h5>
                 <div class="row text-center">
                     <div class="col-lg-7 d-lg-flex">
-                        <div class="p-5 py-lg-6 overlay overlay-gradient overlay-op-5 rounded mb-4 mb-lg-0 flex-ew flex-valign" data-bg-img="assets/img/shop/promo-shoes.jpg" data-url="shop-product.html">
+                        <div class="p-5 py-lg-6 overlay overlay-gradient overlay-op-5 rounded mb-4 mb-lg-0 flex-ew flex-valign" data-bg-img="assets/img/shop/promo-shoes.jpg" data-url="Product">
                             <h2 class="text-white mb-0">
                                 50% Off All KradenTree
                             </h2>
@@ -129,14 +129,14 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <div class="p-5 overlay overlay-op-5 rounded mb-4 flex-valign" data-bg-img="assets/img/shop/promo-summer.jpg" data-css='{"background-position":"center bottom"}' data-url="shop-product.html">
+                        <div class="p-5 overlay overlay-op-5 rounded mb-4 flex-valign" data-bg-img="assets/img/shop/promo-summer.jpg" data-css='{"background-position":"center bottom"}' data-url="Product">
                             <h3 class="text-white mb-0">
                                 Winter 2019
                             </h3>
                             <p class="text-white mb-0">Winter Tree Sale 30%</p>
                             <hr class="hr-lg my-2 w-20 mx-auto hr-primary" />
                         </div>
-                        <div class="p-5 overlay overlay-op-5 rounded flex-valign" data-bg-img="assets/img/shop/promo-truck.jpg" data-css='{"background-position":"center bottom"}' data-url="shop-product.html">
+                        <div class="p-5 overlay overlay-op-5 rounded flex-valign" data-bg-img="assets/img/shop/promo-truck.jpg" data-css='{"background-position":"center bottom"}' data-url="Product">
                             <h3 class="text-white mb-0">
                                 Free Shipping
                             </h3>
