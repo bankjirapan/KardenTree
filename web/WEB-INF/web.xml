@@ -59,6 +59,10 @@
         <servlet-class>kardentreeCustomer.controller.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ContactServlet</servlet-name>
+        <servlet-class>kardentreeCustomer.controller.ContactServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>HomePageServlet</servlet-name>
         <servlet-class>kardentreeCustomer.controller.HomePageServlet</servlet-class>
     </servlet>
@@ -125,6 +129,10 @@
     <servlet-mapping>
         <servlet-name>DashboardServlet</servlet-name>
         <url-pattern>/admin/Dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactServlet</servlet-name>
+        <url-pattern>/Contact</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ForgetServlet</servlet-name>
