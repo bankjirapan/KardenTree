@@ -30,9 +30,9 @@
                         <table class="table table-responsive mb-0 cart-table">
                             <tr>
                                 <th class="w-5">OrderID</th>
-                                <th class="w-20">Order Date</th>
-                                <th class="w-10">Total Price</th>
-                                <th class="w-5">Detail</th>
+                                <th class="w-20">Product Id</th>
+                                <th class="w-10">Quantity</th>
+                                <th class="w-5">Price</th>
                             </tr>
                             </thead>
                             <tbody>
