@@ -380,7 +380,7 @@
                     <div class="col-lg-5 text-center text-lg-right flex-valign">
                         <form>
                             <div class="input-group input-group-rounded">
-                                <input type="text" class="form-control" id="email-field" placeholder="Email">
+                                <input type="text" class="form-control" id="email-field" placeholder="Email" disabled="">
                                 <span class="input-group-append">
                                     <button class="btn btn-primary btn-invert" type="button">Sign Up</button>
                                 </span>

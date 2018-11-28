@@ -48,7 +48,7 @@
             <form>
               <div class="input-group">
                 <label class="sr-only" for="email-field">Email</label>
-                <input type="text" class="form-control" id="email-field" placeholder="Email">
+                <input type="text" class="form-control" id="email-field" placeholder="Email" disabled>
                 <span class="input-group-append">
                   <button class="btn btn-primary" type="button">Go!</button>
                 </span>
