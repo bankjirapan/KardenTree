@@ -42,15 +42,13 @@ public class CartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //CheckEmptyCart
-        
-        if(request.getSession().getAttribute("cart") == null){
+        if (request.getSession().getAttribute("cart") == null) {
             response.sendRedirect("Product");
             return;
         };
-        
-        
+
         String page = request.getParameter("page");
 
         if (request.getParameter("remove") != null) {
@@ -59,8 +57,8 @@ public class CartServlet extends HttpServlet {
             Product p = productJpa.findProduct(request.getParameter("remove"));
             Cart cart = (Cart) request.getSession().getAttribute("cart");
             cart.remove(p);
-            if(page.equalsIgnoreCase("cart")){
-                request.setAttribute("cart",cart);
+            if (page.equalsIgnoreCase("cart")) {
+                request.setAttribute("cart", cart);
                 request.getSession().setAttribute("totalprice", cart.getTotalPrice());
                 response.sendRedirect("Cart");
                 return;
@@ -79,30 +77,41 @@ public class CartServlet extends HttpServlet {
         if (quantity != null) {
             ProductJpaController productJpa = new ProductJpaController(utx, emf);
             Product p = productJpa.findProduct(request.getParameter("productid"));
-            if(cartList.getTotalQuantity()<p.getQuantity()){
-            if (quantity.equalsIgnoreCase("plus")) {
-                //ProductJpaController productJpa = new ProductJpaController(utx, emf);
-                //Product p = productJpa.findProduct(request.getParameter("productid"));
-                Cart cart = (Cart) request.getSession(false).getAttribute("cart");
-                cart.add(p);
-                //request.setAttribute("cart", cart);
-                request.getSession().setAttribute("cart", cart);
-                request.getSession().setAttribute("totalprice", cart.getTotalPrice());
-                response.sendRedirect("Cart");
-                return;
-            }
+            if (cartList.getTotalQuantity() < p.getQuantity()) {
+                if (quantity.equalsIgnoreCase("plus")) {
+                    //ProductJpaController productJpa = new ProductJpaController(utx, emf);
+                    //Product p = productJpa.findProduct(request.getParameter("productid"));
+                    Cart cart = (Cart) request.getSession(false).getAttribute("cart");
+                    cart.add(p);
+                    //request.setAttribute("cart", cart);
+                    request.getSession().setAttribute("cart", cart);
+                    request.getSession().setAttribute("totalprice", cart.getTotalPrice());
+                    response.sendRedirect("Cart");
+                    return;
+                }
             }
             if (quantity.equalsIgnoreCase("minus")) {
+
                 //ProductJpaController productJpa = new ProductJpaController(utx, emf);
                 //Product p = productJpa.findProduct(request.getParameter("productid"));
+                if (request.getParameter("q").equalsIgnoreCase("1")) {
+                    Cart cart = (Cart) request.getSession().getAttribute("cart");
+                    cart.remove(p);
+                 
+                    request.getSession().setAttribute("cart", cart);
+                    request.getSession().setAttribute("totalprice", cart.getTotalPrice());
+                    response.sendRedirect("Cart");
+                    return;
+                }
                 Cart cart = (Cart) request.getSession().getAttribute("cart");
                 cart.minus(p);
+
                 request.getSession().setAttribute("cart", cart);
                 request.getSession().setAttribute("totalprice", cart.getTotalPrice());
                 response.sendRedirect("Cart");
                 return;
             }
-            
+
         }
 
         getServletContext().getRequestDispatcher(("/Cart.jsp")).forward(request, response);

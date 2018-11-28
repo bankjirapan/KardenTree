@@ -57,7 +57,7 @@
                                                      
                                     <div class="input-group input-group-quantity" data-toggle="quantity">
                                         <span class="input-group-prepend">
-                                            <input onclick="window.location='Cart?quantity=minus&productid=${cl.product.productid}'" type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
+                                            <input onclick="window.location='Cart?quantity=minus&q=${cl.quantity}&productid=${cl.product.productid}'" type="button" value="-" class="btn btn-secondary quantity-down" field="quantity">
                                         </span>
                                         <input type="text" name="quantity" value="${cl.quantity}" class="quantity form-control">
                                         <span class="input-group-append">
