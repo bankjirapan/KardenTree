@@ -201,13 +201,7 @@
                         </c:forEach>
 
                     </ul>
-                    <div class="p-3 overlay overlay-op-5 rounded flex-valign mb-4 clickable-element bg-img blazy-bg b-loaded" data-css="{&quot;background-position&quot;:&quot;center bottom&quot;}" data-url="shop-product.html" style="background-position: center bottom; background-image: url(&quot;assets/img/shop/promo-truck.jpg&quot;);">
-                        <h4 class="text-white mb-0">
-                            Free Shipping
-                        </h4>
-                        <p class="text-white mb-0">On all orders over $100</p>
-                        <hr class="hr-lg my-2 w-20 mx-auto hr-primary">
-                    </div>
+                  
 
                     <!-- Follow Widget -->
 <!--                    <div class="mb-4">
