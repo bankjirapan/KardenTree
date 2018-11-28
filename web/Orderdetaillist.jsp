@@ -10,31 +10,30 @@
 
     <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
 
-        <!-- @plugin: page loading indicator, delete to remove loader -->
-        <div class="page-loader" data-toggle="page-loader"></div>
 
-
-        <a id="#top" href="#content" class="sr-only">Skip to content</a>
 
     <jsp:include page="Layout/Navbar.jsp"></jsp:include>
-    <div class="container" style="margin: 30px;">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2>OrderDetailList</h2>
-                </div>
+        <div id="page-header">
+            <div class="container clearfix">
+                <h3 class="mb-0 float-md-left">
+                    Order History Detail
+                </h3>
+                <!-- Page header breadcrumb -->
+                <nav class="breadcrumb float-md-right"> <a class="breadcrumb-item" href="Home">Home</a> <a class="breadcrumb-item" href="profile">MyAccount</a> <a class="breadcrumb-item" href="Orderlist">Order History</a> <span class="breadcrumb-item active">Order History Detail</span> </nav>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th>OrderID</th>
-                                    <th>ProductID</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                </tr>
+        </div>
+        
+            <div id="content" class="py-6">
+                <div class="container">
+                    <!-- Shopping cart -->
+                    <div class="cart-content">
+                        <table class="table table-responsive mb-0 cart-table">
+                            <tr>
+                                <th class="w-5">OrderID</th>
+                                <th class="w-20">Order Date</th>
+                                <th class="w-10">Total Price</th>
+                                <th class="w-5">Detail</th>
+                            </tr>
                             </thead>
                             <tbody>
                             <c:forEach items="${orderdetail}" var="o">
@@ -44,17 +43,19 @@
                                     <td>${o.quantity}</td>
                                     <td>${o.price}</td>
                                 </tr>
-
                             </c:forEach>
                         </tbody>
                     </table>
+
+
+
+            </div>
                 </div>
             </div>
-        </div>
-    </div>
+      
 
 
-</body>
-<jsp:include page="Layout/Footer.jsp"></jsp:include>
-</html>
+            </body>
+            <jsp:include page="Layout/Footer.jsp"></jsp:include>
+            </html>
 

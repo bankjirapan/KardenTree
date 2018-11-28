@@ -19,44 +19,49 @@
     <jsp:include page="Layout/Navbar.jsp"></jsp:include>
 
 
-
-        <div class="container" style="margin: 30px;">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2>OrderList</h2>
-                </div>
+        <div id="page-header">
+            <div class="container clearfix">
+                <h3 class="mb-0 float-md-left">
+                    Order History
+                </h3>
+                <!-- Page header breadcrumb -->
+                <nav class="breadcrumb float-md-right"> <a class="breadcrumb-item" href="Home">Home</a> <a class="breadcrumb-item" href="profile">MyAccount</a> <span class="breadcrumb-item active">Order History</span> </nav>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
+        </div>
+        <div id="content" class="py-6">
+            <div class="container">
+                <!-- Shopping cart -->
+                <div class="cart-content">
+                    <!--Shopping cart items-->
+                    <table class="table table-responsive mb-0 cart-table">
+                        <thead>
+                            <tr>
+                                <th class="w-5">OrderID</th>
+                                <th class="w-20">Order Date</th>
+                                <th class="w-10">Total Price</th>
+                                <th class="w-5">Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Cart item 1 -->
+                        <c:forEach items="${orders}" var="o">
+                            <tr>
+                                <td>${o.orderid}</td>
+                                <td>${o.orderdate}</td>
+                                <td>${o.totalprice}</td>
+                                <td><input class="btn btn-info" onclick="window.location = 'Orderlist?detail=detail&orderid=${o.orderid}'" type="button" value="View Detail"></td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+                <!--End of Shopping cart items-->
+                <hr class="my-4 hr-lg">
 
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th>OrderID</th>
-                                    <th>OrderDate</th>
-                                    <th>TotalPrice</th>
-                                    <th>x</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${orders}" var="o">
-                                <tr>
-                                    <td>${o.orderid}</td>
-                                    <td>${o.orderdate}</td>
-                                    <td>${o.totalprice}</td>
-                                    <td><input onclick="window.location = 'Orderlist?detail=detail&orderid=${o.orderid}'" type="button" value="View Detail"></td>
-                                </tr>
-
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>
 
 
-</body>
-<jsp:include page="Layout/Footer.jsp"></jsp:include>
+
+    <jsp:include page="Layout/Footer.jsp"></jsp:include>
 </html>
