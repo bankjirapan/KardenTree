@@ -97,12 +97,10 @@
                                 <h4 class="font-weight-light">
                                     Subtotal: ${sessionScope.totalprice}
                                 </h4>
-                                <h4 class="font-weight-light">
-                                    Discount (10%): <span class="text-danger">-${(sessionScope.totalprice*10)/100}</span>
-                                </h4>
+                                
                                 <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
                                 <h3>
-                                    Total: <span class="text-primary">${(sessionScope.totalprice)-((sessionScope.totalprice*10)/100)} Bath</span> <!-- รอการแก้ไขตัว discount --->
+                                    Total: <span class="text-primary">${sessionScope.totalprice} Bath</span> <!-- รอการแก้ไขตัว discount --->
                                 </h3>
                                 <hr class="my-3 w-50 ml-0 ml-md-auto mr-md-0">
                             </div>
