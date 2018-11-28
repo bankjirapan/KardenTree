@@ -83,14 +83,54 @@ public class CheckoutConfirmServlet extends HttpServlet {
             newAddress.setAccountid(UserLoggedIn);
             newAddress.setActive("1");
             newAddress.setAddress(request.getParameter("newAddress"));
-
+            
+            ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+            OrdersJpaController orderJpa = new OrdersJpaController(utx, emf);
+            OrderdetailJpaController orderdetailJpa = new OrderdetailJpaController(utx, emf);
+            
+            Orders order = new Orders();
+                order.setAccountid(UserLoggedIn);
+                order.setOrderdate(new Date());
+                order.setTotalprice(cartList.getTotalPrice());
+            
             try {
 
                 addressCtrl.create(newAddress);
+                orderJpa.create(order);
 
             } catch (Exception ex) {
                 System.out.println(ex);
             }
+            
+            for (int i = 0; i < forCart.size(); i++) {
+                Product findproduct = productCtrl.findProduct(forCart.get(i).getProduct().getProductid());
+                findproduct.setQuantity(forCart.get(i).getProduct().getQuantity() - forCart.get(i).getQuantity());
+
+                try {
+                    //orderListCtrl.create(orderList);
+                    //orderJpa.create(order);
+                    Orderdetail orderdetail = new Orderdetail();
+                    orderdetail.setOrderid(order);
+                    orderdetail.setPrice(forCart.get(i).getProduct().getPrice());
+                    orderdetail.setQuantity(forCart.get(i).getQuantity());
+                    orderdetail.setProductid(forCart.get(i).getProduct().getProductid());
+                    orderdetailJpa.create(orderdetail);
+
+
+                    productCtrl.edit(findproduct);
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+            
+            request.getSession(false).removeAttribute("cart");
+            request.setAttribute("totalprice", totalPrice);
+            request.setAttribute("cartList", cartList);
+            getServletContext().getRequestDispatcher(("/CheckoutConfirmView.jsp")).forward(request, response);
+            
+            
+            
 
         } else {
 
