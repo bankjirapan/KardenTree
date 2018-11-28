@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -79,7 +80,7 @@ public class CheckoutConfirmServlet extends HttpServlet {
 
             Address newAddress = new Address();
 
-            newAddress.setAddressid("" + numOfAddress);
+            newAddress.setAddressid(genAddressId());
             newAddress.setAccountid(UserLoggedIn);
             newAddress.setActive("1");
             newAddress.setAddress(request.getParameter("newAddress"));
@@ -201,6 +202,26 @@ public class CheckoutConfirmServlet extends HttpServlet {
         }
 
     }
+    
+    private String genAddressId() {
+        Random rd = new Random();
+        String accountId = "AD";
+        AddressJpaController addressJpa = new AddressJpaController(utx, emf);
+        Address address = new Address();
+
+        while (address != null) {
+            while (accountId.length() != 10) {
+                int code = rd.nextInt(10);
+                String stCode = String.valueOf(code);
+                accountId = accountId + stCode;
+            }
+            address = addressJpa.findAddress(accountId);
+        }
+
+        return accountId;
+
+    }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
