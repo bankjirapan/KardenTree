@@ -30,7 +30,7 @@
                         <table class="table">
                             <thead class="thead-inverse">
                                 <tr>
-                                    <th>OrderdetailID</th>
+                                    <th>OrderID</th>
                                     <th>ProductID</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
@@ -39,7 +39,7 @@
                             <tbody>
                             <c:forEach items="${orderdetail}" var="o">
                                 <tr>
-                                    <td>${o.orderdetailid}</td>
+                                    <td>${o.orderid}</td>
                                     <td>${o.productid}</td>
                                     <td>${o.quantity}</td>
                                     <td>${o.price}</td>
