@@ -116,6 +116,8 @@
                         <!-- Shop Homepage -->
                         <li class="nav-item"> <a href="Home" class="nav-link">HOME</a> </li>
                         <li class="nav-item"> <a href="Product" class="nav-link">Product</a> </li>
+                        <li class="nav-item"> <a href="Product?search=GardenTree" class="nav-link">GardenTree</a> </li>
+                        <li class="nav-item"> <a href="Product?search=Gardentool" class="nav-link">Garden Tools</a> </li>
                         <li class="nav-item"> <a href="Contact" class="nav-link">Contact</a> </li>
                         <!-- Shop Pages -->
 
@@ -137,7 +139,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="profile" class="dropdown-item">My Account</a>
                                     <a href="Orderlist" class="dropdown-item">Order History</a>
-<!--                                    <a href="#" class="dropdown-item">Track Orders</a>-->
+                                    <!--                                    <a href="#" class="dropdown-item">Track Orders</a>-->
                                     <a href="logout" class="dropdown-item">Logout</a>
                                 </div>
                             </c:if>
