@@ -84,10 +84,8 @@ public class ProductServlet extends HttpServlet {
                 request.setAttribute("URL", uri);
                 request.setAttribute("OKSearch", "1");
                 request.setAttribute("ProductSearch", productSearchByName);
-                //System.out.println(productSearchByName);
             }
 
-            //System.out.println(productSearchByName);
         }
 
         //SortBy
