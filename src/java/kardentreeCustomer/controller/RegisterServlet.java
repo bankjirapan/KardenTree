@@ -94,7 +94,11 @@ public class RegisterServlet extends HttpServlet {
                     //End Sendmail
                     response.sendRedirect("CompleteRegisterView.jsp");
                     return;
+                } else {
+                    request.setAttribute("EmailnotNull", "1");
                 }
+            } else {
+                request.setAttribute("AcnotNull", "1");
             }
             getServletContext().getRequestDispatcher("/RegisterView.jsp").forward(request, response);
             return;

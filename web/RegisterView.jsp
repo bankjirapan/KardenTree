@@ -71,45 +71,49 @@
 
     <jsp:include page="Layout/Footer.jsp"></jsp:include>
 
-    <script>
+        <script>
 
-        $(document).ready(function () {
+            $(document).ready(function () {
 
 
-            document.getElementById("btnSubmit").disabled = true;
+                document.getElementById("btnSubmit").disabled = true;
 
-            $('#cpsw').keyup(function () {
+                $('#cpsw').keyup(function () {
 
-                if ($('#cpsw').val() != $('#psw').val()) {
-                    document.getElementById("btnSubmit").disabled = true;
-                    document.getElementById("errorPassword").innerHTML = "รหัสผ่านไม่ตรงกัน";
-                    document.getElementById("psw").classList.add("is-invalid");
-                    document.getElementById("cpsw").classList.add("is-invalid");
-                } else {
+                    if ($('#cpsw').val() != $('#psw').val()) {
+                        document.getElementById("btnSubmit").disabled = true;
+                        document.getElementById("errorPassword").innerHTML = "รหัสผ่านไม่ตรงกัน";
+                        document.getElementById("psw").classList.add("is-invalid");
+                        document.getElementById("cpsw").classList.add("is-invalid");
+                    } else {
 
-                    document.getElementById("errorPassword").innerHTML = "";
-                    document.getElementById("psw").classList.remove("is-invalid");
-                    document.getElementById("cpsw").classList.remove("is-invalid");
-                }
+                        document.getElementById("errorPassword").innerHTML = "";
+                        document.getElementById("psw").classList.remove("is-invalid");
+                        document.getElementById("cpsw").classList.remove("is-invalid");
+                    }
+
+
+                });
+
+                $('#Conditions').change(function () {
+
+
+                    if ($('#Conditions').prop('checked') == true) {
+                        document.getElementById("btnSubmit").disabled = false;
+                    } else {
+                        document.getElementById("btnSubmit").disabled = true;
+                    }
+
+                })
 
 
             });
 
-            $('#Conditions').change(function () {
+        </script>
 
-
-                if ($('#Conditions').prop('checked') == true) {
-                    document.getElementById("btnSubmit").disabled = false;
-                } else {
-                    document.getElementById("btnSubmit").disabled = true;
-                }
-
-            })
-
-
-        });
-
-    </script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    ${EmailnotNull == "1" ? '<script>swal("มีปัญหา", "EMail นี้ถูกใช้ไปแล้ว","warning");</script>' : ''}
+     ${AcnotNull == "1" ? '<script>swal("มีปัญหา", "ชื่อผู้ใช้นี้ถูกใช้ไปแล้ว","warning");</script>' : ''}
 
 
     <!--        <form action="Register" method="post">
