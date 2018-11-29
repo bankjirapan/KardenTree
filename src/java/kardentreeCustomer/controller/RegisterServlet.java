@@ -59,7 +59,6 @@ public class RegisterServlet extends HttpServlet {
             if (account == null) {
                 Account email = accountJpa.findAccountEmail(Email);
                 if (email == null) {
-                    //String accountCount = String.valueOf(accountJpa.getAccountCount()+1);
                     String ActivateKey = genActivatedKey();
                     Account account2 = new Account();
                     account2.setAccountid(genAccountId());
