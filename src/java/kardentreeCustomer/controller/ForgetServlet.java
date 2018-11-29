@@ -55,49 +55,55 @@ public class ForgetServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String email = request.getParameter("email");
-        
-        if(email!=null){
-            AccountJpaController accountJpa = new AccountJpaController(utx,emf);
+
+        if (email != null) {
+            AccountJpaController accountJpa = new AccountJpaController(utx, emf);
             Account account = accountJpa.findAccountEmail(email);
-            
-            if(account!=null){
+
+            if (account != null) {
                 account.setPassword(genKey());
-                try{
+                try {
                     accountJpa.edit(account);
-                }catch (Exception e){
+                } catch (Exception e) {
                     System.out.println(e);
                 }
-                
-                //SendMail
-                    String uri = request.getScheme() + "://"+ request.getServerName()+":"+request.getServerPort()+"/KardenTree/Forgot?key="+account.getPassword();
 
-                    SendMail.send(
-                            account.getEmail(),
-                            "Register KardenTree",
-                            "Dear  " + account.getFname() + " \n To reset password, please click  " + uri + " and change your account.\n"
-                            + "This helps us stop automated programs from sending junk email.\n"
-                            + "Thanks for your help and patience! KardenTree ",
-                            "kardentree@outlook.com",
-                            "q:vFGx2!][D\"?W8U"
-                    );
-                    //End Sendmail
-                
+                //SendMail
+                String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/KardenTree/Forgot?key=" + account.getPassword();
+
+//                SendMail.send(
+//                        account.getEmail(),
+//                        "Register KardenTree",
+//                        "Dear  " + account.getFname() + " \n To reset password, please click  " + uri + " and change your account.\n"
+//                        + "This helps us stop automated programs from sending junk email.\n"
+//                        + "Thanks for your help and patience! KardenTree ",
+//                        "kardentree@outlook.com",
+//                        "q:vFGx2!][D\"?W8U"
+//                );
+                //End Sendmail
+                 request.setAttribute("OkSendMail", "1");
+    
+             
+
+            } else {
+                request.setAttribute("EmptyMail", "1");
+                getServletContext().getRequestDispatcher("/ForgetView.jsp").forward(request, response);
+                return;
             }
-            
-            String key =request.getParameter("key");
-            
-            if(key!=null){
+
+            String key = request.getParameter("key");
+
+            if (key != null) {
                 response.sendRedirect("ForgottenView.jsp");
                 return;
             }
-            
-            
+
         }
-        
+
         getServletContext().getRequestDispatcher("/ForgetView.jsp").forward(request, response);
 
     }
-    
+
     public static String cryptWithMD5(String pass) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

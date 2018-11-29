@@ -8,11 +8,6 @@
 <jsp:include page="Layout/Header.jsp?titleName=Customer Login"></jsp:include>
     <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
 
-        <!-- @plugin: page loading indicator, delete to remove loader -->
-        <div class="page-loader" data-toggle="page-loader"></div>
-
-
-        <a id="#top" href="#content" class="sr-only">Skip to content</a> 
 
     <jsp:include page="Layout/Navbar.jsp"></jsp:include>
 
@@ -30,15 +25,17 @@
                         <label class="sr-only" for="login-email-page">Email</label>
                         <input type="text" name="email" id="login-email-page" class="form-control email" placeholder="Email">
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    
+
                 </form>
+
             </div>
         </div>
 
-  
-    
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<jsp:include page="Layout/Footer.jsp"></jsp:include>
+    ${EmptyMail == "1" ? '<script>swal("มีปัญหา", "ไม่พบที่อยู่ email นี้","warning");</script>' : ''}
+    ${OkSendMail == "1" ? '<script>swal("สำเร็จ", "โปรดตรวจสอบ Email ของท่านเพื่อทำการ Reset Password","success").then((value) => window.location="Home");</script>' : ''}
+    <jsp:include page="Layout/Footer.jsp"></jsp:include>
 </html>
