@@ -108,8 +108,6 @@ public class CheckoutConfirmServlet extends HttpServlet {
                 findproduct.setQuantity(forCart.get(i).getProduct().getQuantity() - forCart.get(i).getQuantity());
 
                 try {
-                    //orderListCtrl.create(orderList);
-                    //orderJpa.create(order);
                     Orderdetail orderdetail = new Orderdetail();
                     orderdetail.setOrderid(order);
                     orderdetail.setPrice(forCart.get(i).getProduct().getPrice());
