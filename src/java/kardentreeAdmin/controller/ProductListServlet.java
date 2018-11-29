@@ -67,7 +67,6 @@ public class ProductListServlet extends HttpServlet {
 
         // gets absolute path of the web application
         String appPath = System.getProperty("user.dir");
-        //String savePath = "/Users/bankcom/MyDeveloper/KardenTree/web/assets/img/ProductImg/";
         String LocalStorage = request.getServletContext().getRealPath(File.separator);
         String PathSaveImg = LocalStorage.replaceAll("/build/web/", "/web/assets/img/ProductImg/");
    
