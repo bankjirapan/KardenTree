@@ -71,15 +71,15 @@ public class ForgetServlet extends HttpServlet {
                 //SendMail
                 String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/KardenTree/Forgot?key=" + account.getPassword();
 
-//                SendMail.send(
-//                        account.getEmail(),
-//                        "Register KardenTree",
-//                        "Dear  " + account.getFname() + " \n To reset password, please click  " + uri + " and change your account.\n"
-//                        + "This helps us stop automated programs from sending junk email.\n"
-//                        + "Thanks for your help and patience! KardenTree ",
-//                        "kardentree@outlook.com",
-//                        "q:vFGx2!][D\"?W8U"
-//                );
+                SendMail.send(
+                        account.getEmail(),
+                        "Register KardenTree",
+                        "Dear  " + account.getFname() + " \n To reset password, please click  " + uri + " and change your account.\n"
+                        + "This helps us stop automated programs from sending junk email.\n"
+                        + "Thanks for your help and patience! KardenTree ",
+                        "kardentree@outlook.com",
+                        "q:vFGx2!][D\"?W8U"
+                );
                 //End Sendmail
                  request.setAttribute("OkSendMail", "1");
     
