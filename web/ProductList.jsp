@@ -82,8 +82,13 @@
                                             </h4>
                                             <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i> <i class="fa fa-star-o text-primary"></i> </p>
                                         </div>
+
+                                        <c:if test="${Showproduct.quantity <= 5}">
+                                            <div class="card-ribbon card-ribbon-bottom card-ribbon-right bg-danger text-white">Low Stock</div>
+                                        </c:if>
+
                                         <div class="card-footer">
-                                            <small class="text-muted">${Showproduct.quantity} in stock</small>
+                                            <small  class="text-muted"><span class="${Showproduct.quantity <= 5 ? "text-danger" : ""}">${Showproduct.quantity} in stock</span></small>
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +160,7 @@
                         </c:if>
 
                     </div>
-                  
+
                     <!-- Pagination -->
                     <nav aria-label="Page navigation">
                         <ul class="pagination pagination-lg justify-content-center">
@@ -186,35 +191,35 @@
                                     ${Category.categoryname}
 
                                 </a>
-<!--                                    <ul class="nav nav-section-menu collapse show" id="mens">
-                                        <li><a href="#" class="nav-link">Shoes</a></li>
-                                        <li><a href="#" class="nav-link">Shirts</a></li>
-                                        <li><a href="#" class="nav-link">Trousers</a></li>
-                                        <li><a href="#" class="nav-link">Suits</a></li>
-                                        <li><a href="#" class="nav-link">Jackets</a></li>
-                                        <li><a href="#" class="nav-link">Sportswear</a></li>
-                                        <li><a href="#" class="nav-link">Shorts</a></li>
-                                        <li><a href="#" class="nav-link">Swimwear</a></li>
-                                        <li><a href="#" class="nav-link">T-shirts</a></li>
-                                    </ul>-->
+                                <!--                                    <ul class="nav nav-section-menu collapse show" id="mens">
+                                                                        <li><a href="#" class="nav-link">Shoes</a></li>
+                                                                        <li><a href="#" class="nav-link">Shirts</a></li>
+                                                                        <li><a href="#" class="nav-link">Trousers</a></li>
+                                                                        <li><a href="#" class="nav-link">Suits</a></li>
+                                                                        <li><a href="#" class="nav-link">Jackets</a></li>
+                                                                        <li><a href="#" class="nav-link">Sportswear</a></li>
+                                                                        <li><a href="#" class="nav-link">Shorts</a></li>
+                                                                        <li><a href="#" class="nav-link">Swimwear</a></li>
+                                                                        <li><a href="#" class="nav-link">T-shirts</a></li>
+                                                                    </ul>-->
                             </li>
                         </c:forEach>
 
                     </ul>
-                  
+
 
                     <!-- Follow Widget -->
-<!--                    <div class="mb-4">
-                        <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-primary">
-                        <h4 class="text-uppercase font-weight-bold mt-0">
-                            Follow us on
-                        </h4>
-                        @todo: replace with company social media details
-                        <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-twitter"></i> <span class="sr-only">Twitter</span> </a>
-                        <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-facebook-f"></i> <span class="sr-only">Facebook f</span> </a>
-                        <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-linkedin-in"></i> <span class="sr-only">Linkedin in</span> </a>
-                        <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-google-plus-g"></i> <span class="sr-only">Google plus g</span> </a>
-                    </div>-->
+                    <!--                    <div class="mb-4">
+                                            <hr class="hr-lg mt-0 mb-2 w-10 ml-0 hr-primary">
+                                            <h4 class="text-uppercase font-weight-bold mt-0">
+                                                Follow us on
+                                            </h4>
+                                            @todo: replace with company social media details
+                                            <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-twitter"></i> <span class="sr-only">Twitter</span> </a>
+                                            <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-facebook-f"></i> <span class="sr-only">Facebook f</span> </a>
+                                            <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-linkedin-in"></i> <span class="sr-only">Linkedin in</span> </a>
+                                            <a href="#" class="btn btn-icon btn-dark btn-rounded"> <i class="fab fa-google-plus-g"></i> <span class="sr-only">Google plus g</span> </a>
+                                        </div>-->
                 </div>
             </div>
         </div>
