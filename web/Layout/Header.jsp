@@ -34,8 +34,6 @@
         <!-- Your custom override -->
         <link href="assets/css/custom-style.css" rel="stylesheet">
 
-
-
         <!-- Optional: ICON SETS -->
         <!-- Iconset: Font Awesome 5.0.13 via CDN -->
         <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
@@ -61,12 +59,6 @@
 
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Kanit:400,700" rel="stylesheet">
-<!--        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Rambla:400,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:100,400,700' rel='stylesheet' type='text/css'>-->
-
         <!--Plugin: Retina.js (high def image replacement) - @see: http://retinajs.com/-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/retina.js/1.3.0/retina.min.js"></script>
     </head>

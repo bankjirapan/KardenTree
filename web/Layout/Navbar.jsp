@@ -36,7 +36,7 @@
                         </h1>
                     </a>
                     <div class="header-divider d-none d-lg-block"></div>
-                    <div class="header-slogan d-none d-lg-block">Shop UI</div>
+                    <div class="header-slogan d-none d-lg-block">COM</div>
                 </div>
                 <!-- other header content -->
                 <div class="header-block order-12">
@@ -45,7 +45,7 @@
                             <i class="fa fa-truck text-primary"></i> Free Worldwide Shipping
                         </h6>
                         <h6 class="my-0 text-muted font-weight-normal">
-                            <i class="fa fa-phone text-primary"></i> (+44) 7283643345
+                            <i class="fa fa-phone text-primary"></i> (+66) 024709850
                         </h6>
                     </div>
 
