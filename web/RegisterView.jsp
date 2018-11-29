@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="Layout/Header.jsp?titleName=Customer Login"></jsp:include>
+<jsp:include page="Layout/Header.jsp?titleName=Customer Register"></jsp:include>
     <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
 
         <!-- @plugin: page loading indicator, delete to remove loader -->
@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <input type="password" id="cpsw" class="form-control" id="signup-password-page" placeholder="Confirm password" name="confirm" required>
-                        <small id="errorPassword" class="form-text text-muted"></small>
+                        <small id="errorPassword" class="form-text text-muted text-danger"></small>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
@@ -83,9 +83,13 @@
                 if ($('#cpsw').val() != $('#psw').val()) {
                     document.getElementById("btnSubmit").disabled = true;
                     document.getElementById("errorPassword").innerHTML = "รหัสผ่านไม่ตรงกัน";
+                    document.getElementById("psw").classList.add("is-invalid");
+                    document.getElementById("cpsw").classList.add("is-invalid");
                 } else {
 
                     document.getElementById("errorPassword").innerHTML = "";
+                    document.getElementById("psw").classList.remove("is-invalid");
+                    document.getElementById("cpsw").classList.remove("is-invalid");
                 }
 
 
