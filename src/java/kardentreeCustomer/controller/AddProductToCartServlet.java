@@ -58,8 +58,6 @@ public class AddProductToCartServlet extends HttpServlet {
         if(p.getQuantity()!=0 && cart.getTotalQuantity()<p.getQuantity()){
         if (page != null) {
             if (page.equalsIgnoreCase("Home")) {
-                //ProductJpaController productJpa = new ProductJpaController(utx, emf);
-                //Product p = productJpa.findProduct(productID);
                 cart.add(p);
                 session.setAttribute("totalprice", cart.getTotalPrice());
                 response.sendRedirect("Home");
@@ -68,12 +66,9 @@ public class AddProductToCartServlet extends HttpServlet {
         }
         
 
-        //ProductJpaController productJpa = new ProductJpaController(utx, emf);
-        //Product p = productJpa.findProduct(productID);
         cart.add(p);
         session.setAttribute("totalprice", cart.getTotalPrice());
         }
-        //getServletContext().getRequestDispatcher("/ProductList").forward(request, response);
         response.sendRedirect("Product");
 
     }
