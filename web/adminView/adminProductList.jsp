@@ -51,7 +51,6 @@
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">Other Pages:</h6>
                         <a class="dropdown-item active" href="ProductList">ดูสินค้าทั้งหมด</a>
-                        <a class="dropdown-item" href="">Blank Page</a>
                     </div>
                 </li>
 
@@ -65,11 +64,6 @@
                         <i class="fas fa-fw fa-table"></i>
                         <span>ลูกค้าทั้งหมด</span></a>
                 </li>
-<!--                <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="fas fa-cog"></i>
-                        <span>การตั้งค่า</span></a>
-                </li>-->
                 <li class="nav-item">
                     <a  href="admin/logout" data-toggle="modal" data-target="#logoutModal" class="nav-link" href="">
                         <i class="fas fa-sign-out-alt"></i>
