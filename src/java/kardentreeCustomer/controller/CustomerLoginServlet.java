@@ -70,10 +70,11 @@ public class CustomerLoginServlet extends HttpServlet {
                     return;
                 }
             }
+            request.setAttribute("msg", "Invalid");
             getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
 
         }
-        
+
         getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
     }
 

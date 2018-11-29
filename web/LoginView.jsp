@@ -8,7 +8,7 @@
 <jsp:include page="Layout/Header.jsp?titleName=Customer Login"></jsp:include>
     <body class="page page-shop header-compact-sticky page-shop navbar-layout-navbar-below">
 
-   
+
 
     <jsp:include page="Layout/Navbar.jsp"></jsp:include>
 
@@ -37,8 +37,10 @@
             </div>
         </div>
 
-  
-    
 
-<jsp:include page="Layout/Footer.jsp"></jsp:include>
+
+
+    <jsp:include page="Layout/Footer.jsp"></jsp:include>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    ${msg == "Invalid" ? '<script>swal("มีปัญหา", "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง","warning");</script>' : ''}
 </html>
