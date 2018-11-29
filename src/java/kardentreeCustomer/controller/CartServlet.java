@@ -79,11 +79,8 @@ public class CartServlet extends HttpServlet {
             Product p = productJpa.findProduct(request.getParameter("productid"));
             if (cartList.getTotalQuantity() < p.getQuantity()) {
                 if (quantity.equalsIgnoreCase("plus")) {
-                    //ProductJpaController productJpa = new ProductJpaController(utx, emf);
-                    //Product p = productJpa.findProduct(request.getParameter("productid"));
                     Cart cart = (Cart) request.getSession(false).getAttribute("cart");
                     cart.add(p);
-                    //request.setAttribute("cart", cart);
                     request.getSession().setAttribute("cart", cart);
                     request.getSession().setAttribute("totalprice", cart.getTotalPrice());
                     response.sendRedirect("Cart");
@@ -92,8 +89,6 @@ public class CartServlet extends HttpServlet {
             }
             if (quantity.equalsIgnoreCase("minus")) {
 
-                //ProductJpaController productJpa = new ProductJpaController(utx, emf);
-                //Product p = productJpa.findProduct(request.getParameter("productid"));
                 if (request.getParameter("q").equalsIgnoreCase("1")) {
                     Cart cart = (Cart) request.getSession().getAttribute("cart");
                     cart.remove(p);
