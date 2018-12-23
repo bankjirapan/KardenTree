@@ -29,7 +29,7 @@ KradenTree E-commerce  Powered by Java
 - ดู/แก้ไข Order ทั้งหมด<br>
 
 ### DB Connection <br>
-<Database Name: kradentree <br>
+Database Name: kradentree <br>
 UserName: kraden <br>
 Password: kraden  <br>
 
