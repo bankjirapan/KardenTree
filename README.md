@@ -31,7 +31,7 @@ KradenTree E-commerce  Powered by Java
 - ดู/แก้ไข Order ทั้งหมด<br>
 
 ## CREATE TABLE AND Use this Script
-`
+```
 CREATE TABLE ACCOUNT (
 ACCOUNTID VARCHAR(7) NOT NULL,
 USERNAME VARCHAR(50),
@@ -91,7 +91,7 @@ PRICE DOUBLE,
 PICTURE VARCHAR(1000),
 QUANTITY INTEGER,
 PRIMARY KEY (PRODUCTID));
-`
+```
 
 ### DB Connection <br>
 Database Name: kradentree <br>
